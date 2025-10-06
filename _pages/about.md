@@ -1,8 +1,10 @@
 ---
-title: "Hi all! I'm OOOOOO👋🏻"
+title: "Hi all! I'm DYK👋🏻"
 permalink: /about/
 layout: single
 comments: false
 ---
 
-본인 소개 여기에 입력
+Striving to write more efficient code to reduce manual effort
+
+It's all in the name of laziness
