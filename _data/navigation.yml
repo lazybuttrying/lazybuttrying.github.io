@@ -6,37 +6,37 @@ main:
   - title: "About"
     url: /about/
 
-  - title: "GitHub"
-    url: https://github.com/lazybuttrying
+  - title: "CV"
+    url: https://github.com/lazybuttrying/cv/blob/main/cv.pdf
 
-  # - title: "Projects"
-  #   url: /projects/
+  - title: "Projects"
+    url: /projects/
 
-  # - title: "Categories"
-  #   url: /categories/
+  - title: "Blog"
+    url: /categories/
 
 # sidebar navigation (categories)
 # 2022.02.15 sidebar update : simple ver.
 categories:
-  - title: "Title1"
+  - title: "Econ"
     children:
-      - title: "Categories1"
-        url: /categories/categories1/
-      - title: "Categories2"
-        url: /categories/categories2/
-      - title: "Categories3"
-        url: /categories/categories3/
-      - title: "Categories4"
-        url: /categories/categories4/
+      - title: "finance"
+        url: /categories/finance/
+      - title: "theory"
+        url: /categories/theory/
+      - title: "method"
+        url: /categories/method/
+      - title: "others"
+        url: /categories/others/
 
-  - title: "Title2"
-    children:
-      - title: "Categories5"
-        url: /categories/categories5/
-      - title: "Categories6"
-        url: /categories/categories6/
+  # - title: "Tech"
+  #   children:
+  #     - title: "database"
+  #       url: /categories/db/
+  #     - title: "AIML"
+  #       url: /categories/aiml/
 
-  - title: "Title3"
-    children:
-      - title: "Categories7"
-        url: /categories/categories7/
+  # - title: "Title3"
+  #   children:
+  #     - title: "Categories7"
+  #       url: /categories/categories7/

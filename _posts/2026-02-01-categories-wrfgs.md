@@ -1,0 +1,31 @@
+---
+title: "WRFGS"
+excerpt: "Stakepool for UNHCR, the UN Refugee Agency"
+
+categories:
+  - others
+tags:
+  - [crypto, tag2]
+
+permalink: /others/wrfgs/
+
+toc: true
+toc_sticky: true
+
+date: 2026-02-01
+last_modified_at: 2026-02-01
+---
+
+## WFPGS
+
+https://cardanoscan.io/pool/6ee64bb8bc5ded3160150682e6e2ac5a4c2a0843634b94562ae69ff1?tab=epochhistory
+
+- This is a donation pool, so delegators get zero rewards. The pool operator takes 100% margin.
+
+- This is a clean case of preference-based demand. Donation pools can be bundled incentive schemes, confounding pure altruism. Narrative-driven reallocation of stake creates system-level externalities in decentralization.
+
+- Funding is highly concentrated in a top delegator. The pool faces funding concentration risk.
+
+- We quantify funding concentration using HHI and top-holder shares. Large delegation exits create run-like cashflow shocks.
+
+- https://cardanostake.eu/pool/?id=pool1dmnyhw9uthknzcq4q6pwdc4vtfxz5zzrvd9eg432u60lzl959tw
