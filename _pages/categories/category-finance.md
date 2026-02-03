@@ -1,7 +1,7 @@
 ---
 title: "Finance"
 layout: category
-permalink: /categories/finance/
+permalink: /categories/#finance/
 author_profile: true
 taxonomy: finance
 sidebar:

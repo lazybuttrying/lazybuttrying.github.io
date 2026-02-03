@@ -1,7 +1,7 @@
 ---
 title: "Methodology"
 layout: category
-permalink: /categories/method/
+permalink: /categories/#method/
 author_profile: true
 taxonomy: methodology
 sidebar:
