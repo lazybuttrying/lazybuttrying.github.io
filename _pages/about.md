@@ -28,6 +28,6 @@ Before this, I earned a B.S. in Computer Science & Engineering from Ewha Womans 
 
 ## <span style="color:#7c3aed; font-weight:800;">Personal Interest</span>
 
-I loved soccer as a player (sometimes as a mobile game player), so I had joined the women soccer club right after enrollment until COVID 19 era.
+I’ve loved soccer as a player—and sometimes as a mobile-game athlete—so I joined the women’s soccer club right after I enrolled and stayed active until COVID-19.
 
-I worked at the private coding academy for most of my twenty. I taught a various range of children: at least four age (how to double click) to twenty (how to survive in CS boom era).
+During most of my twenties, I taught at a private coding academy. My students ranged from age four (double-clicking as a life skill) to age twenty (surviving the CS boom with dignity).
