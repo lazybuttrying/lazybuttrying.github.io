@@ -9,23 +9,23 @@ main:
   - title: "CV"
     url: https://github.com/lazybuttrying/cv/blob/main/cv.pdf
 
-  - title: "Projects"
-    url: /projects/
+  - title: "Research & Project"
+    url: /research/
 
   - title: "Blog"
     url: /categories/
 
 # sidebar navigation (categories)
 # 2022.02.15 sidebar update : simple ver.
-categories:
-  - title: "Finance"
-    url: /categories/finance/
-  - title: "Theory"
-    url: /categories/theory/
-  - title: "Methodology"
-    url: /categories/method/
-  - title: "Others"
-    url: /categories/others/
+# categories:
+#   - title: "Finance"
+#     url: /categories/finance/
+#   - title: "Theory"
+#     url: /categories/theory/
+#   - title: "Methodology"
+#     url: /categories/method/
+#   - title: "Others"
+#     url: /categories/others/
 
 
 
