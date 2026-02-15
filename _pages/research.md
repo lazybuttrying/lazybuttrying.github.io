@@ -34,13 +34,13 @@ Across my research, I build evidence and tools that ***make complex systems meas
 ### Improving Accessibility of an Academic Administration Portal for Students with Disabilities
 *Junior Ombudsperson (Mar 2025 – Dec 2025)*
 
-- <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Human Rights Center of Seoul National University (BK21-supported)
+- <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Human Rights Center, Seoul National University (BK21-supported)
 <!-- - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Not specified -->
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Recognized as an Outstanding Project with Institution-level Impact
 - <span style="color:#7c3aed; font-weight:700;">Summary:</span>
   - Led end-to-end accessibility improvement, including problem scoping, pain-point auditing, and stakeholder communication
   <!-- - <span style="font-weight:700;">What I learned:</span> How to translate user pain points into actionable policy and platform recommendations. -->
-<!-- - <span style="color:#7c3aed; font-weight:700;">Links:</span> Not available -->
+- <span style="color:#7c3aed; font-weight:700;">Links:</span> [Korean Report](https://docs.google.com/document/d/1X-Gord5-XQbreKkBMoST_9sRL0rSg3XYmHYcBoA30JI/edit?usp=sharing)
 
 ### Music Coding Education iOS Application for Blind Children
 *Undergraduate Intern (Dec 2019 – Feb 2020)*
