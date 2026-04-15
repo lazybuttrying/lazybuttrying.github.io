@@ -1,5 +1,5 @@
 ---
-title: "Research & Project"
+title: "Research"
 permalink: /research/
 layout: single
 comments: false
@@ -25,8 +25,10 @@ comments: false
 
 - **National Pension Fund Activism: Proxy Voting and Investment Strategies.** *Review of Financial Information Studies*, 2025. [[Paper]](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003177047) [[Media]](https://www.hani.co.kr/arti/economy/marketing/1184441.html)
 - **A Review of DAO Governance: Recent Literature and Emerging Trends.** *ECGI Working Paper*, 2025. [[Paper]](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
-- **Counting Strawberry Achene: Comparison of Object Detection Based on Deep Learning and OpenCV Image Processing.** *Korea Software Congress*, 2023. [[Paper]](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224140)
-- **Applicability Assessment of Flower Detection Using Detectron2 and YOLOv5 for Edge Computing in a Strawberry Greenhouse.** *XX CIGR World Congress*, 2023. [[Paper]](https://www.actahort.org/members/symposiaa?abstractforcoauthorlink=zKXtwXmtwXm-2012356-BEbkYfmbtwXm&action=abstractforcoauthor)
+
+<small>***Earlier conference papers (applied ML).***
+Counting Strawberry Achene (*Korea Software Congress*, 2023) [[Paper]](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224140);
+Flower Detection with Detectron2 / YOLOv5 for Greenhouse Edge Computing (*XX CIGR World Congress*, 2023) [[Paper]](https://www.actahort.org/members/symposiaa?abstractforcoauthorlink=zKXtwXmtwXm-2012356-BEbkYfmbtwXm&action=abstractforcoauthor).</small>
 
 ---
 
@@ -142,9 +144,11 @@ Across audits of administrative portals, studies of pension fund proxy voting, a
   <!-- - <span style="font-weight:700;">What I learned:</span> How institutional analysis applies to emerging blockchain governance systems. -->
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
 
-## <span style="font-weight:800; text-decoration:underline;">3) Measurement & interpretability for high-stakes decisions</span>
+## <span style="font-weight:800; text-decoration:underline;">3) Measurement & interpretability across applied ML systems</span>
 
 `interpretability` `measurement` `diagnostics` `applied ML`
+
+This thread covers both my flagship work on interpretability for high-stakes corporate decisions (deep-learning diagnostics for M&A) and the earlier applied computer vision projects that built my engineering foundation for measuring real-world systems.
 
 ### Learning Production Process Heterogeneity Across Industries: Implications of Deep Learning for Corporate M&A Decisions
 *Research Assistant (Jul 2025 – Dec 2025)*

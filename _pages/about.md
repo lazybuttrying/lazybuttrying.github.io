@@ -18,7 +18,7 @@ I served as a ***Junior Ombudsperson at the Human Rights Center, Seoul National 
 In parallel, I am an ***M.S. student in Finance (Business Administration) at Seoul National University***. Alongside coursework, I conduct interdisciplinary research bridging computer science and economics, including (i) constructing an alternative index for the Korean bond market using issuance and secondary trading data (AXI project), (ii) building an integrated dataset of DAO governance and voting outcomes, and (iii) developing interpretability visualizations for deep-learning models used in corporate M&A decisions.
 
 
-Before this, I earned a ***B.S. in Computer Science & Engineering from Ewha Womans University***. I have also gained applied experience across academy and industry, including an ***internship at NEXTLab*** (intelligent automation; deploying object detection models on-device with TensorflowLite and OpenCV), and project work spanning end-to-end ML systems. 
+Before this, I earned a ***B.S. in Computer Science & Engineering from Ewha Womans University***, where my first accessibility project — building a music-coding iOS application for blind children at the HCI Lab — set the trajectory for my current sociotechnical work. I have also gained applied ML engineering experience across academia and industry, including an ***internship at NEXTLab*** (deploying on-device object detection with TensorflowLite and OpenCV) and end-to-end ML systems work. 
 
 
 
