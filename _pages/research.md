@@ -71,23 +71,19 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### DAO Governance
 *Research Assistant (Jul 2024 – Sep 2025)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> On-chain DAO governance records — proposals, votes, voter addresses, and treasury flows across multiple DAOs
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> on-chain data extraction, participation and concentration measurement, literature synthesis for the ECGI working paper
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University and Florida State University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Jongsub Lee, Jungsuk Han, and Tao Li
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Analyzed decentralized governance participation patterns and decision consequences</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> On-chain DAO governance records — proposals, votes, voter addresses, and treasury flows across multiple DAOs</li><li><b>Tools & techniques:</b> on-chain data extraction, participation and concentration measurement, literature synthesis for the ECGI working paper</li><li>Analyzed decentralized governance participation patterns and decision consequences</li></ul></details>
 
 ### Learning Production Process Heterogeneity Across Industries: Implications of Deep Learning for Corporate M&A Decisions
 *Research Assistant (Jul 2025 – Dec 2025)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> Trained deep-learning weight matrices from industry-level production-function models used for M&A prediction
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> weight-relationship visualization tooling, shared-representation diagnostics, pruning analysis (PyTorch)
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University and Michigan State University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Jongsub Lee and Hayong Yun
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Built diagnostic visualizations for shared-representation analysis and pruning
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Developed weight-relationship visualization tools for deep learning model diagnosis</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://ideas.repec.org/p/arx/papers/2301.08847.html)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Trained deep-learning weight matrices from industry-level production-function models used for M&A prediction</li><li><b>Tools & techniques:</b> weight-relationship visualization tooling, shared-representation diagnostics, pruning analysis (PyTorch)</li><li>Developed weight-relationship visualization tools for deep learning model diagnosis</li></ul></details>
 
 ---
 
@@ -98,63 +94,51 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Music Coding Education iOS Application for Blind Children
 *Undergraduate Intern (Dec 2019 – Feb 2020)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> UI prototypes and usability feedback from blind elementary-school students
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> iOS VoiceOver APIs, accessible UI patterns, Swift
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Human Computer Interaction Lab., Ewha Womans University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Uran Oh
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Supported voice-over interaction and implementation of coding education for blind elementary students</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Project page](https://github.com/lazybuttrying/musicCoding)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> UI prototypes and usability feedback from blind elementary-school students</li><li><b>Tools & techniques:</b> iOS VoiceOver APIs, accessible UI patterns, Swift</li><li>Supported voice-over interaction and implementation of coding education for blind elementary students</li></ul></details>
 
 ### Wanted Vehicle License Plate Detection
 *Intern (Mar 2022 – Jun 2022)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> Korean vehicle license-plate imagery (deployed to Korea Expressway Corporation)
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> LRPNet object detection, TensorFlow Lite on Android, OpenCV C++, NodeJS + Docker Compose FTP pipeline
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Department of Intelligence Automation Service, NEXTLab
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Delivered an industrial prototype to Korea Expressway Corporation
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Developed the object detection model based on LRPNet</li><li>Deployed on android application with TensorflowLite and OpenCV C++</li><li>Implemented data transfer to an FTP server using event listeners and asynchronous socket communication by NodeJS and Docker Compose</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Media coverage 1](https://www.aitimes.kr/news/articleView.html?idxno=27165), [Media coverage 2](https://www.aitimes.kr/news/articleView.html?idxno=26398)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Korean vehicle license-plate imagery (deployed to Korea Expressway Corporation)</li><li><b>Tools & techniques:</b> LRPNet object detection, TensorFlow Lite on Android, OpenCV C++, NodeJS + Docker Compose FTP pipeline</li><li>Developed the object detection model based on LRPNet</li><li>Deployed on android application with TensorflowLite and OpenCV C++</li><li>Implemented data transfer to an FTP server using event listeners and asynchronous socket communication by NodeJS and Docker Compose</li></ul></details>
 
 ### Grape Rating by Three Steps Deep Learning using UAV
 *MLOps & Fullstack Engineer (Jun 2020 – Feb 2021)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> UAV-captured grape-farm imagery across flight trajectories
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> three-stage deep-learning pipeline, Ionic PWA + GraphQL, AWS services, PyQt autonomous-drive controller, multi-threaded recording
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Undergraduate Project
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span>
   - Excellence Prize Issued by Korea Agency of Education, Promotion & Information Service in Food, Agriculture, Forestry & Fisheries (Nov 2020)
   - Presented as the Best Practice at the UIC Barcelona Universitat Internacional de Catalunya
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Constructed an autonomous system for grape farms to assess quality and suggest thinning</li><li>Developed progressive web app (PWA) with Ionic framework and GraphQL</li><li>Integrated AWS services, UAV path trajectory logic, and multi-threaded recording for model operations</li><li>Developed a desktop application with PyQT to control autonomous driving and recording the vineyard by multi-threading</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Project page](https://github.com/lazybuttrying/afarm_public), [Media coverage 1](https://www.mafra.go.kr/bbs/mafra/68/328591/artclView.do), [Media coverage 2](http://www.wonyesanup.co.kr/news/articleView.html?idxno=50555)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> UAV-captured grape-farm imagery across flight trajectories</li><li><b>Tools & techniques:</b> three-stage deep-learning pipeline, Ionic PWA + GraphQL, AWS services, PyQt autonomous-drive controller, multi-threaded recording</li><li>Constructed an autonomous system for grape farms to assess quality and suggest thinning</li><li>Developed progressive web app (PWA) with Ionic framework and GraphQL</li><li>Integrated AWS services, UAV path trajectory logic, and multi-threaded recording for model operations</li><li>Developed a desktop application with PyQT to control autonomous driving and recording the vineyard by multi-threading</li></ul></details>
 
 ### AWS CIC Challenge: G-Farm
 *Computer Vision Engineer (Apr 2021 – May 2022)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> Greenhouse perilla-leaf imagery collected from Geumsan farms
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> Mask R-CNN instance segmentation, leaf-area estimation, AWS-based training workflow
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Agriculture Technology Lab., Sejong University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyunkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Provincial Government Project, Funded by Geumsan County and Applied to Local Farms in Geumsan, Korea
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Contributed to greenhouse-ready leaf segmentation and leaf-area estimation workflows</li><li>Calculated perilla leaf area by instance segmentation using MaskRCNN</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Media coverage](https://www.aboutamazon.com/news/aws/south-korean-farmers-grow-more-perilla-leaf-with-machine-learning)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Greenhouse perilla-leaf imagery collected from Geumsan farms</li><li><b>Tools & techniques:</b> Mask R-CNN instance segmentation, leaf-area estimation, AWS-based training workflow</li><li>Contributed to greenhouse-ready leaf segmentation and leaf-area estimation workflows</li><li>Calculated perilla leaf area by instance segmentation using MaskRCNN</li></ul></details>
 
 ### Counting Strawberry Achene: Deep Learning vs. OpenCV Image Processing
 *Main Researcher (Jul 2022 – Jun 2023)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> Strawberry imagery with achene annotations
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> deep-learning object detection vs. OpenCV rule-based processing, side-by-side benchmarking
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyeonkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Presented at the Korea Software Congress
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Compared deep-learning detection with OpenCV processing for robust achene counting</li><li>Benchmarked model-driven and rule-based methods for practical measurement tasks</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224140)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Strawberry imagery with achene annotations</li><li><b>Tools & techniques:</b> deep-learning object detection vs. OpenCV rule-based processing, side-by-side benchmarking</li><li>Compared deep-learning detection with OpenCV processing for robust achene counting</li><li>Benchmarked model-driven and rule-based methods for practical measurement tasks</li></ul></details>
 
 ### Flower Detection with Detectron2 and YOLOv5 for Edge Computing in a Strawberry Greenhouse
 *Research Assistant (Jul 2022 – Jun 2023)*
 
-- <span style="color:#7c3aed; font-weight:700;">Data:</span> Strawberry-greenhouse flower imagery under edge-device constraints
-- <span style="color:#7c3aed; font-weight:700;">Tools & techniques:</span> Detectron2, YOLOv5, edge-computing latency/accuracy benchmarking
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Agriculture Technology Lab., Sejong University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyeonkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Presented at the XX CIGR World Congress
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li>Evaluated Detectron2 vs YOLOv5 under greenhouse edge-computing constraints</li></ul></details>
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://www.actahort.org/members/symposiaa?abstractforcoauthorlink=zKXtwXmtwXm-2012356-BEbkYfmbtwXm&action=abstractforcoauthor)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Strawberry-greenhouse flower imagery under edge-device constraints</li><li><b>Tools & techniques:</b> Detectron2, YOLOv5, edge-computing latency/accuracy benchmarking</li><li>Evaluated Detectron2 vs YOLOv5 under greenhouse edge-computing constraints</li></ul></details>
