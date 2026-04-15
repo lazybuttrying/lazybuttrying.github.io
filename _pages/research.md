@@ -29,6 +29,8 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Improving Accessibility of an Academic Administration Portal for Students with Disabilities
 *Junior Ombudsperson (Mar 2025 – Dec 2025)*
 
+- <span style="color:#7c3aed; font-weight:700;">Research question:</span> How do administrative information systems exclude users with disabilities, and what does an institution-led audit reveal about the upstream design and procurement decisions that produced those exclusions?
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `participatory audit` `stakeholder interviews` `policy translation`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Human Rights Center, Seoul National University (BK21-supported)
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Recognized as an Outstanding Project with Institution-level Impact
 - <span style="color:#7c3aed; font-weight:700;">Summary:</span>
@@ -38,6 +40,8 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### AXI for Korean Bond Market Data
 *Main Researcher (Mar 2024 – Jan 2026)*
 
+- <span style="color:#7c3aed; font-weight:700;">Research question:</span> What does a fully-observable Korean bond market look like when issuance and secondary-trading data are combined, and how can such an index represent market participation that is currently invisible?
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `data infrastructure` `market microstructure` `index construction`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Jongsub Lee
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Built an alternative index using both issuance and secondary trading data
@@ -47,6 +51,8 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### National Pension Fund Activism: Proxy Voting and Investment Strategies
 *Main Researcher (Aug 2024 – Jan 2025)*
 
+- <span style="color:#7c3aed; font-weight:700;">Research question:</span> How does a large public institutional investor's proxy voting behavior relate to the investment strategies of the funds it allocates to, and what does this reveal about how state capital shapes corporate governance?
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `empirical finance` `causal inference` `panel data`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Sungwook Joh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Published in <i>Review of Financial Information Studies</i>
@@ -57,6 +63,8 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### DAO Governance
 *Research Assistant (Jul 2024 – Sep 2025)*
 
+- <span style="color:#7c3aed; font-weight:700;">Research question:</span> How do decentralized voting mechanisms shape who participates, who is represented, and who exits in on-chain governance systems?
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `mechanism design` `computational social choice` `governance measurement`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University and Florida State University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Jongsub Lee, Jungsuk Han, and Tao Li
 - <span style="color:#7c3aed; font-weight:700;">Summary:</span>
@@ -66,6 +74,8 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Learning Production Process Heterogeneity Across Industries: Implications of Deep Learning for Corporate M&A Decisions
 *Research Assistant (Jul 2025 – Dec 2025)*
 
+- <span style="color:#7c3aed; font-weight:700;">Research question:</span> Can interpretability tools for deep-learning models reveal industry-level production-process heterogeneity that informs high-stakes corporate M&A decisions?
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `interpretable ML` `representation analysis` `model diagnostics`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University and Michigan State University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Jongsub Lee and Hayong Yun
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Built diagnostic visualizations for shared-representation analysis and pruning
@@ -82,6 +92,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Music Coding Education iOS Application for Blind Children
 *Undergraduate Intern (Dec 2019 – Feb 2020)*
 
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `accessible mobile development` `VoiceOver / iOS` `HCI`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Human Computer Interaction Lab., Ewha Womans University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Uran Oh
 - <span style="color:#7c3aed; font-weight:700;">Summary:</span>
@@ -91,6 +102,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Wanted Vehicle License Plate Detection
 *Intern (Mar 2022 – Jun 2022)*
 
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `object detection` `LRPNet` `on-device deployment` `TensorFlow Lite`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Department of Intelligence Automation Service, NEXTLab
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Delivered an industrial prototype to Korea Expressway Corporation
 - <span style="color:#7c3aed; font-weight:700;">Summary:</span>
@@ -102,6 +114,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Grape Rating by Three Steps Deep Learning using UAV
 *MLOps & Fullstack Engineer (Jun 2020 – Feb 2021)*
 
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `UAV vision` `MLOps` `PWA + GraphQL` `multi-threaded systems`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Undergraduate Project
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span>
   - Excellence Prize Issued by Korea Agency of Education, Promotion & Information Service in Food, Agriculture, Forestry & Fisheries (Nov 2020)
@@ -116,6 +129,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### AWS CIC Challenge: G-Farm
 *Computer Vision Engineer (Apr 2021 – May 2022)*
 
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `instance segmentation` `Mask R-CNN` `agricultural CV`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Agriculture Technology Lab., Sejong University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyunkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Provincial Government Project, Funded by Geumsan County and Applied to Local Farms in Geumsan, Korea
@@ -127,6 +141,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Counting Strawberry Achene: Deep Learning vs. OpenCV Image Processing
 *Main Researcher (Jul 2022 – Jun 2023)*
 
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `object detection` `classical CV benchmarking`
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyeonkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Presented at the Korea Software Congress
 - <span style="color:#7c3aed; font-weight:700;">Summary:</span>
@@ -137,6 +152,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Flower Detection with Detectron2 and YOLOv5 for Edge Computing in a Strawberry Greenhouse
 *Research Assistant (Jul 2022 – Jun 2023)*
 
+- <span style="color:#7c3aed; font-weight:700;">Methods:</span> `Detectron2 / YOLOv5` `edge computing` `greenhouse deployment`
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Agriculture Technology Lab., Sejong University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyeonkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Presented at the XX CIGR World Congress

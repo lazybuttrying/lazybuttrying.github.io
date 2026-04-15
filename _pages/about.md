@@ -7,9 +7,9 @@ comments: false
 
 ## <span style="color:#7c3aed; font-weight:800;">About me</span>
 
-I am motivated by one <span style="font-weight:700; color:#7c3aed;">sociotechnical</span> question: how do technical systems <span style="font-weight:700; color:#7c3aed;">include or exclude people</span> in the institutions that govern them — and how can we <span style="font-style:italic; text-decoration:underline;">measure</span> it with <span style="font-style:italic; text-decoration:underline;">accountability and fairness</span>?
+I study one <span style="font-weight:700; color:#7c3aed;">sociotechnical</span> question: **how algorithmic and decentralized governance systems shape <span style="font-style:italic; text-decoration:underline;">who participates, who is represented, and who is excluded</span>** — across accessibility audits of administrative platforms, empirical analysis of Korean pension fund proxy voting, and DAO governance measurement.
 
-Going forward, I want to develop research that is <span style="font-weight:700; color:#7c3aed;">both technically grounded and socially informed</span>: combining participatory audit, computational measurement, and institutional understanding to produce insights that matter for practice and policy.
+Going forward, I want to develop research that is <span style="font-weight:700; color:#7c3aed;">both technically grounded and socially informed</span>: combining **empirical audit, causal inference, interpretable machine learning, and mechanism design** to produce insights that matter for practice and policy.
 
 ## <span style="color:#7c3aed; font-weight:800;">Positions</span>
 
@@ -21,6 +21,10 @@ In parallel, I am an ***M.S. student in Finance (Business Administration) at Seo
 Before this, I earned a ***B.S. in Computer Science & Engineering from Ewha Womans University***, where my first accessibility project — building a music-coding iOS application for blind children at the HCI Lab — set the trajectory for my current sociotechnical work. I have also gained applied ML engineering experience across academia and industry, including an ***internship at NEXTLab*** (deploying on-device object detection with TensorflowLite and OpenCV) and end-to-end ML systems work. 
 
 
+
+## <span style="color:#7c3aed; font-weight:800;">Methods I use, and methods I want to learn</span>
+
+My current toolkit centers on **empirical audit**, **causal inference on financial-market panel data**, and **interpretable ML for high-stakes decisions**. In a PhD program I want to deepen **mechanism design and computational social choice for governance systems**, and **quantitative methods for sociotechnical measurement** — so that the same research question can be answered with the method that actually fits it.
 
 ## <span style="color:#7c3aed; font-weight:800;">Personal Interest</span>
 
