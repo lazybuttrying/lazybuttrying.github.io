@@ -19,19 +19,6 @@ comments: false
 
 
 
----
-
-## <span style="color:#7c3aed; font-weight:800;">Selected Publications</span>
-
-- **National Pension Fund Activism: Proxy Voting and Investment Strategies.** *Review of Financial Information Studies*, 2025. [[Paper]](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003177047) [[Media]](https://www.hani.co.kr/arti/economy/marketing/1184441.html)
-- **A Review of DAO Governance: Recent Literature and Emerging Trends.** *ECGI Working Paper*, 2025. [[Paper]](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
-
-<small>***Earlier conference papers (applied ML).***
-Counting Strawberry Achene (*Korea Software Congress*, 2023) [[Paper]](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224140);
-Flower Detection with Detectron2 / YOLOv5 for Greenhouse Edge Computing (*XX CIGR World Congress*, 2023) [[Paper]](https://www.actahort.org/members/symposiaa?abstractforcoauthorlink=zKXtwXmtwXm-2012356-BEbkYfmbtwXm&action=abstractforcoauthor).</small>
-
----
-
 <!-- ## <span style="color:#7c3aed; font-weight:800;"> — Three Themes</span> -->
 
 I care about ***how technologies land in real institutions***. Through my public project — improving accessibility in a university administration portal for students with disabilities — I saw how “small” design decisions can systematically include or exclude people. That experience anchors my commitment to research connecting rigorous methods to real-world constraints: building systems people can actually trust, govern, and use.
