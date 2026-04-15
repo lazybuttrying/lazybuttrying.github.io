@@ -21,15 +21,24 @@ comments: false
 
 ---
 
+## <span style="color:#7c3aed; font-weight:800;">Selected Publications</span>
+
+- **National Pension Fund Activism: Proxy Voting and Investment Strategies.** *Review of Financial Information Studies*, 2025. [[Paper]](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003177047) [[Media]](https://www.hani.co.kr/arti/economy/marketing/1184441.html)
+- **A Review of DAO Governance: Recent Literature and Emerging Trends.** *ECGI Working Paper*, 2025. [[Paper]](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
+- **Counting Strawberry Achene: Comparison of Object Detection Based on Deep Learning and OpenCV Image Processing.** *Korea Software Congress*, 2023. [[Paper]](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224140)
+- **Applicability Assessment of Flower Detection Using Detectron2 and YOLOv5 for Edge Computing in a Strawberry Greenhouse.** *XX CIGR World Congress*, 2023. [[Paper]](https://www.actahort.org/members/symposiaa?abstractforcoauthorlink=zKXtwXmtwXm-2012356-BEbkYfmbtwXm&action=abstractforcoauthor)
+
+---
+
 <!-- ## <span style="color:#7c3aed; font-weight:800;"> — Three Themes</span> -->
 
-I always care about ***how technologies land in real institutions***. Through my public project, improving accessibility in an university administration portal for students with disabilities, I saw how “small” design decisions can systematically include—or exclude—people. That experience strengthened my commitment to research that connects rigorous methods to real-world constraints: building systems people can actually trust, govern, and use.
+I care about ***how technologies land in real institutions***. Through my public project — improving accessibility in a university administration portal for students with disabilities — I saw how “small” design decisions can systematically include or exclude people. That experience anchors my commitment to research connecting rigorous methods to real-world constraints: building systems people can actually trust, govern, and use.
 
-Across my research, I build evidence and tools that ***make complex systems measurable***, then use them to ***explain how investors react to changing information and incentives***. I have worked on projects spanning market data infrastructure and empirical measurement, governance and incentives in decentralized systems, and applied machine learning for organizational decision contexts.
+Across audits of administrative portals, studies of pension fund proxy voting, and analyses of DAO governance, I ask the same ***sociotechnical*** question in different institutional settings: ***who gets to participate, who is measured, and who is left out***. My methods span participatory audit, empirical finance, and interpretable machine learning — chosen to fit the institution under study.
 
-## <span style="font-weight:800; text-decoration:underline;">1) Real-world deployment</span>
+## <span style="font-weight:800; text-decoration:underline;">1) Whose participation counts: auditing institutional access</span>
 
-`Human-centered impact` `Applied AI`
+`accessibility` `participatory design` `sociotechnical audit` `human-centered impact`
 
 ### Improving Accessibility of an Academic Administration Portal for Students with Disabilities
 *Junior Ombudsperson (Mar 2025 – Dec 2025)*
@@ -96,9 +105,9 @@ Across my research, I build evidence and tools that ***make complex systems meas
   <!-- - <span style="font-weight:700;">What I learned:</span> How to evaluate model usefulness against real agricultural operating conditions. -->
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Media coverage](https://www.aboutamazon.com/news/aws/south-korean-farmers-grow-more-perilla-leaf-with-machine-learning)
 
-## <span style="font-weight:800; text-decoration:underline;">2) Financial Economics</span>
+## <span style="font-weight:800; text-decoration:underline;">2) Governance under noisy signals: proxy voting & decentralized institutions</span>
 
-`Corporate governance` `Financial market`
+`corporate governance` `mechanism design` `computational social choice` `DAO` `financial market`
 
 ### AXI for Korean Bond Market Data
 *Main Researcher (Mar 2024 – Jan 2026)*
@@ -133,9 +142,9 @@ Across my research, I build evidence and tools that ***make complex systems meas
   <!-- - <span style="font-weight:700;">What I learned:</span> How institutional analysis applies to emerging blockchain governance systems. -->
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
 
-## <span style="font-weight:800; text-decoration:underline;">3) Machine Learning</span>
+## <span style="font-weight:800; text-decoration:underline;">3) Measurement & interpretability for high-stakes decisions</span>
 
-`Interpretability` `Diagnostics`
+`interpretability` `measurement` `diagnostics` `applied ML`
 
 ### Learning Production Process Heterogeneity Across Industries: Implications of Deep Learning for Corporate M&A Decisions
 *Research Assistant (Jul 2025 – Dec 2025)*
