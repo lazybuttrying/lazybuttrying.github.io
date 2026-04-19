@@ -24,7 +24,7 @@ title_separator: "&#124;"
 subtitle: # site tagline that appears below site title in masthead
 name: "dyk" # 블로그 닉네임 설정
 description: "I am here" # 블로그 설명
-url: "https://lazybuttrying.github.io" # 블로그 URL
+url: "https://sdykim.me" # 블로그 URL (custom domain via CNAME)
 baseurl: # the subpath of your site, e.g. "/blog"
 repository: "lazybuttrying/lazybuttrying.github.io" # GitHub Repo 이름
 teaser: #

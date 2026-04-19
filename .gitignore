@@ -27,3 +27,13 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
+
+# LaTeX build artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.synctex(busy)
+%OUTDIR%
