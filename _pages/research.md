@@ -73,8 +73,9 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University and Florida State University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Jongsub Lee, Jungsuk Han, and Tao Li
-- <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
-- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> On-chain DAO governance records — proposals, votes, voter addresses, and treasury flows across multiple DAOs</li><li><b>Tools & techniques:</b> on-chain data extraction, participation and concentration measurement, literature synthesis for the ECGI working paper</li><li>Analyzed decentralized governance participation patterns and decision consequences</li></ul></details>
+- <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Published in Management Science
+- <span style="color:#7c3aed; font-weight:700;">Links:</span> [Journal](https://pubsonline.informs.org/journal/mnsc) · [Working paper](https://ecgi.global/working-paper/review-dao-governance-recent-literature-and-emerging-trends)
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> On-chain DAO governance records — proposals, votes, voter addresses, and treasury flows across multiple DAOs</li><li><b>Tools & techniques:</b> on-chain data extraction, participation and concentration measurement, literature synthesis</li><li>Analyzed decentralized governance participation patterns and decision consequences</li></ul></details>
 
 ### Learning Production Process Heterogeneity Across Industries: Implications of Deep Learning for Corporate M&A Decisions
 *Research Assistant (Jul 2025 – Dec 2025)*
