@@ -18,7 +18,7 @@ last_modified_at: 2026-10-16
 
 ## 들어가며
 
-석사논문(stablecoin 차익거래 분석)을 위해 거래소 간 자금 흐름을 추적해야 했다. Flipside에서 Ethereum·Tron 네트워크의 USDT/USDC 전송 기록을 가져오고, Arkham API의 주소 인텔리전스로 업비트·빗썸·바이낸스 지갑에 labeling을 붙이는 pipeline이다.
+석사논문(stablecoin 차익거래 분석)을 위해 거래소 간 자금 흐름을 추적해야 했다. [Flipside](https://flipsidecrypto.xyz)에서 Ethereum·Tron 네트워크의 USDT/USDC 전송 기록을 가져오고, [Arkham](https://www.arkhamintelligence.com) API의 주소 인텔리전스로 업비트·빗썸·바이낸스 지갑에 labeling을 붙이는 pipeline이다.
 
 DuckDB 매뉴얼을 요약할 생각은 없다. 이 글은 128GB machine에서 터진 labeling 작업을 40GB 안에 넣으면서 실제로 먹힌 세 가지 결정만 정리한 것이다. on-chain 데이터든 아니든, "memory가 터지는데 machine은 못 늘리는" pipeline을 굴리는 사람을 독자로 상정했다.
 
