@@ -41,7 +41,14 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 
 ## <span style="color:#7c3aed; font-weight:800;">Research</span>
 
-`accessibility audit` `corporate governance` `DAO` `interpretability for high-stakes decisions`
+`accessibility audit` `corporate governance` `DAO` `stablecoin arbitrage` `interpretability for high-stakes decisions`
+
+### Dollar Stablecoin and Arbitrage under Capital Control: Evidence from the Kimchi Premium
+*Master's Thesis (In Progress)*
+
+- <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University
+- <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Jongsub Lee
+- <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Cross-exchange stablecoin flows — USDT/USDC transfers on Ethereum and Tron (Flipside), exchange wallets labeled via the Arkham API, managed as monthly Parquet files</li><li><b>Tools & techniques:</b> on-chain data collection, exchange-wallet labeling, per-thread DuckDB connections with memory caps (peak memory cut from over 128GB to under 40GB with no loss of speed), natural-experiment design around Travel Rule enforcement events</li><li>Studies limits to arbitrage in cross-border crypto markets — market segmentation, capital controls, and regulatory risk — tracing arbitrage rerouting onto the Tron network</li></ul></details>
 
 ### Improving Accessibility of an Academic Administration Portal for Students with Disabilities
 *Junior Ombudsperson (Mar 2025 – Dec 2025)*
@@ -64,7 +71,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Seoul National University
 - <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Sungwook Joh
-- <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Published in <i>Review of Financial Information Studies</i>
+- <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Published in <i>Review of Financial Information Studies</i>, 2025, 14(1), 127–152
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART003177047), [Media coverage](https://www.hani.co.kr/arti/economy/marketing/1184441.html)
 - <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> National Pension Service proxy voting records matched with fund-level investment allocations (panel dataset)</li><li><b>Tools & techniques:</b> panel regression, empirical-finance analysis, Stata/R workflow</li><li>Examined links between NPS proxy voting behavior and investment strategy outcomes</li></ul></details>
 
@@ -113,7 +120,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Undergraduate Project
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span>
-  - Excellence Prize Issued by Korea Agency of Education, Promotion & Information Service in Food, Agriculture, Forestry & Fisheries (Nov 2020)
+  - Excellence Prize, Intelligent (Smart) Agriculture AI Competition (Nov 2021) — Korea Agency of Education, Promotion and Information Service in Food, Agriculture, Forestry and Fisheries
   - Presented as the Best Practice at the UIC Barcelona Universitat Internacional de Catalunya
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Project page](https://github.com/lazybuttrying/afarm_public), [Media coverage 1](https://www.mafra.go.kr/bbs/mafra/68/328591/artclView.do), [Media coverage 2](http://www.wonyesanup.co.kr/news/articleView.html?idxno=50555)
 - <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> UAV-captured grape-farm imagery across flight trajectories</li><li><b>Tools & techniques:</b> three-stage deep-learning pipeline, Ionic PWA + GraphQL, AWS services, PyQt autonomous-drive controller, multi-threaded recording</li><li>Constructed an autonomous system for grape farms to assess quality and suggest thinning</li><li>Developed progressive web app (PWA) with Ionic framework and GraphQL</li><li>Integrated AWS services, UAV path trajectory logic, and multi-threaded recording for model operations</li><li>Developed a desktop application with PyQT to control autonomous driving and recording the vineyard by multi-threading</li></ul></details>
@@ -130,7 +137,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 ### Counting Strawberry Achene: Deep Learning vs. OpenCV Image Processing
 *Main Researcher (Jul 2022 – Jun 2023)*
 
-- <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyeonkwon Suh
+- <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyunkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Presented at the Korea Software Congress
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11224140)
 - <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Strawberry imagery with achene annotations</li><li><b>Tools & techniques:</b> deep-learning object detection vs. OpenCV rule-based processing, side-by-side benchmarking</li><li>Compared deep-learning detection with OpenCV processing for robust achene counting</li><li>Benchmarked model-driven and rule-based methods for practical measurement tasks</li></ul></details>
@@ -139,7 +146,7 @@ A common ***sociotechnical*** thread runs through both: who gets to participate,
 *Research Assistant (Jul 2022 – Jun 2023)*
 
 - <span style="color:#7c3aed; font-weight:700;">Affiliation:</span> Agriculture Technology Lab., Sejong University
-- <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyeonkwon Suh
+- <span style="color:#7c3aed; font-weight:700;">Advisors:</span> Professor Hyunkwon Suh
 - <span style="color:#7c3aed; font-weight:700;">Achievement:</span> Presented at the XX CIGR World Congress
 - <span style="color:#7c3aed; font-weight:700;">Links:</span> [Paper](https://www.actahort.org/members/symposiaa?abstractforcoauthorlink=zKXtwXmtwXm-2012356-BEbkYfmbtwXm&action=abstractforcoauthor)
 - <details><summary><span style="color:#7c3aed; font-weight:700;">Summary</span></summary><ul><li><b>Data:</b> Strawberry-greenhouse flower imagery under edge-device constraints</li><li><b>Tools & techniques:</b> Detectron2, YOLOv5, edge-computing latency/accuracy benchmarking</li><li>Evaluated Detectron2 vs YOLOv5 under greenhouse edge-computing constraints</li></ul></details>
