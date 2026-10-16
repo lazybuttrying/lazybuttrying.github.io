@@ -31,11 +31,11 @@ DuckDB 매뉴얼을 요약할 생각은 없다. 이 글은 128GB machine에서 �
 **언제 쓰나**: 분석 단위가 시간 구간으로 나뉠 때. 월별이든 일별이든, 쿼리 패턴과 partition 단위가 일치하면 된다.
 **overkill일 때**: 전체 데이터가 memory에 여유롭게 들어가면 그냥 통째로 읽는 게 빠르다.
 
-## 2. thread마다 독립된 DuckDB를 준다
+## 2. Python thread + thread별 독립 DuckDB, API 호출은 connection pool로 직렬화
 
-병렬 처리하려고 thread를 늘릴 때 흔히 하는 실수가 connection 하나를 공유하는 것이다. thread들이 같은 memory 공간을 나눠 쓰면 누가 얼마나 먹는지 예측하기 어렵고, peak이 튀는 순간 전체가 죽는다.
+병렬 처리는 Python threading으로 했다. 무거운 join과 집계는 DuckDB(C++)가 담당해서 GIL이 병목이 되지 않는다.
 
-그래서 반대로 갔다. worker thread마다 자기만의 in-memory DuckDB instance를 열고, 각각에 memory 상한을 건다. ([`memory_limit` 설정은 DuckDB 공식 문서 참조](https://duckdb.org/docs/1.1/configuration/overview))
+흔한 실수는 connection 하나를 공유하는 것이다. thread들이 같은 memory 공간을 나눠 쓰면 누가 얼마나 먹는지 예측하기 어렵고, peak이 튀는 순간 전체가 죽는다. 그래서 worker thread마다 자기만의 in-memory DuckDB connection을 열고, 각각에 memory 상한을 건다. ([`memory_limit` 설정은 DuckDB 공식 문서 참조](https://duckdb.org/docs/1.1/configuration/overview))
 
 ```python
 # worker thread마다 독립된 in-memory DuckDB + 명시적 memory 상한
@@ -43,9 +43,11 @@ con = duckdb.connect(":memory:")
 con.execute("PRAGMA memory_limit='10GB'")
 ```
 
-thread 간 공유 상태가 없으니 lock 경합도 없고, 전체 memory 사용량은 "thread 수 × 상한"으로 계산된다. 예측 가능한 게 핵심이다.
+전체 memory 사용량은 "thread 수 × 상한"으로 계산된다. 예측 가능한 게 핵심이다.
 
-**사례**: 공유 connection으로 돌릴 때는 어느 thread가 memory를 얼마나 쓰는지 알 수 없어서, 터지기 전까지는 "잘 돌아가네" 하고 착각하기 쉬웠다. 독립 instance로 바꾸고 나서는 상한선을 사전에 계산할 수 있게 됐고, 그 뒤로는 OOM이 한 번도 안 났다.
+한편 Arkham API label 조회는 공유 connection pool을 통과시킨다. pool이 동시 호출을 직렬로 묶어줘서 rate limit을 넘지 않는다. 병렬로 때렸다가는 API가 막혀서 전체 pipeline이 선다.
+
+**사례**: 공유 connection으로 돌릴 때는 어느 thread가 memory를 얼마나 쓰는지 알 수 없어서, 터지기 전까지는 "잘 돌아가네" 하고 착각하기 쉬웠다. 독립 connection으로 바꾸고 나서는 상한선을 사전에 계산할 수 있게 됐고, 그 뒤로는 OOM이 한 번도 안 났다.
 
 **언제 쓰나**: worker 간 공유 상태가 없을 때. partition이 서로 독립적이면 된다.
 **overkill일 때**: 단일 thread로도 충분히 빨리 끝나면 그냥 하나만 쓴다. thread를 늘리는 순간부터 memory 계산이 필요해진다.
