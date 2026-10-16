@@ -15,16 +15,16 @@ Going forward, I want to develop research that is <span style="font-weight:700; 
 
 I served as a ***Junior Ombudsperson at the Human Rights Center, Seoul National University***, where I led an end-to-end accessibility audit of a university administration portal for students with disabilities — work recognized as an Outstanding Project with institution-level impact. This experience anchors my commitment to human-centered, participatory, and real-world deployment of technology.
 
-In parallel, I am an ***M.S. student in Finance (Business Administration) at Seoul National University***. Alongside coursework, I conduct interdisciplinary research bridging computer science and economics, including (i) constructing an alternative index for the Korean bond market using issuance and secondary trading data (AXI project), (ii) building an integrated dataset of DAO governance and voting outcomes, and (iii) developing interpretability visualizations for deep-learning models used in corporate M&A decisions.
+In parallel, I am an ***M.S. student in Finance (Business Administration) at Seoul National University***. Alongside coursework, I conduct interdisciplinary research bridging computer science and economics, including (i) constructing an alternative index for the Korean bond market using issuance and secondary trading data (AXI project), (ii) analyzing DAO governance and voting outcomes (published in Management Science), and (iii) developing interpretability visualizations for deep-learning models used in corporate M&A decisions.
 
 
-Before this, I earned a ***B.S. in Computer Science & Engineering from Ewha Womans University***, where my first accessibility project — building a music-coding iOS application for blind children at the HCI Lab — set the trajectory for my current sociotechnical work. I have also gained applied ML engineering experience across academia and industry, including an ***internship at NEXTLab*** (deploying on-device object detection with TensorflowLite and OpenCV) and end-to-end ML systems work. 
+Before this, I earned a ***B.S. in Computer Science & Engineering from Ewha Womans University***, where my first accessibility project — building a music-coding iOS application for blind children at the HCI Lab — set the trajectory for my current sociotechnical work. I have also gained applied ML engineering experience across academia and industry, including an ***internship at NEXTLab*** (deploying on-device object detection with TensorFlow Lite and OpenCV) and end-to-end ML systems work. 
 
 
 
 ## <span style="color:#7c3aed; font-weight:800;">Methods I use, and methods I want to learn</span>
 
-My current toolkit centers on **empirical audit**, **causal inference on financial-market panel data**, and **interpretable ML for high-stakes decisions**. In a PhD program I want to deepen **mechanism design and computational social choice for governance systems**, and **quantitative methods for sociotechnical measurement** — so that the same research question can be answered with the method that actually fits it.
+My current toolkit centers on **empirical audit**, **causal inference on financial-market panel data**, **interpretable ML for high-stakes decisions**, and **on-chain data pipelines** — collection, wallet labeling, and DuckDB/Parquet infrastructure that holds up at scale. Going forward, I want to keep building **research-grade data systems**: the kind where a hard question gets both the method and the data foundation that actually fit it.
 
 ## <span style="color:#7c3aed; font-weight:800;">Personal Interest</span>
 
