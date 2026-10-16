@@ -24,7 +24,9 @@ DuckDB 매뉴얼을 요약할 생각은 없다. 이 글은 128GB machine에서 �
 
 ## 1. 시간으로 자른다: 월 단위 Parquet partitioning
 
-가장 먼저 한 일은 데이터를 시간으로 자르는 것이다. Flipside에서 수집할 때부터 월 단위 [Parquet](https://parquet.apache.org/docs/) 파일로 나눠 저장하고, labeling 작업도 한 번에 한 달치만 memory에 올린다. Parquet는 columnar storage format이라 필요한 column만 읽을 수 있고 압축 효율이 좋아서, 월 단위 파일이 커져도 읽기 부담이 적다.
+가장 먼저 한 일은 데이터를 시간으로 자르는 것이다. Flipside에서 수집할 때부터 월 단위 [Parquet](https://parquet.apache.org/docs/) 파일로 나눠 저장하고, labeling 작업도 한 번에 한 달치만 memory에 올린다.
+
+Parquet를 고른 건 columnar라서가 다가 아니다. 핵심은 column별 dictionary encoding이다. token symbol(USDT/USDC)처럼 distinct 값이 몇 개인 column은 dictionary에 한 번만 저장되고 데이터는 작은 정수 code로 들어가서, 파일 크기와 읽기 I/O가 동시에 줄어든다. 반대로 from/to address 같은 고유값 위주 column은 dictionary 효과가 거의 없다. 이쪽의 memory 부담은 encoding이 아니라 월 단위 partitioning으로 잡는다. encoding이 먹는 부분과 partitioning이 먹는 부분이 나뉘어 있으니, 둘을 헷갈리면 memory 계산이 어긋난다.
 
 **사례**: 처음엔 전송 기록을 한 번에 처리했다. 전체 기간치를 memory에 올리고 Arkham label과 join하는 순간 128GB를 넘겨서 작업이 실패했다. 월 단위로 자르고 나서는 한 번에 올라가는 데이터가 "한 달치"로 고정됐다. I/O와 memory peak이 동시에 상한이 걸린 셈이다. 분석 단위도 어차피 월별이라 손해 볼 게 없었다.
 
