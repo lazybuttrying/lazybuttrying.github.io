@@ -24,7 +24,7 @@ DuckDB 매뉴얼을 요약할 생각은 없다. 이 글은 128GB machine에서 �
 
 ## 1. 시간으로 자른다: 월 단위 Parquet partitioning
 
-가장 먼저 한 일은 데이터를 시간으로 자르는 것이다. Flipside에서 수집할 때부터 월 단위 Parquet 파일로 나눠 저장하고, labeling 작업도 한 번에 한 달치만 memory에 올린다.
+가장 먼저 한 일은 데이터를 시간으로 자르는 것이다. Flipside에서 수집할 때부터 월 단위 [Parquet](https://parquet.apache.org/docs/) 파일로 나눠 저장하고, labeling 작업도 한 번에 한 달치만 memory에 올린다. Parquet는 columnar storage format이라 필요한 column만 읽을 수 있고 압축 효율이 좋아서, 월 단위 파일이 커져도 읽기 부담이 적다.
 
 **사례**: 처음엔 전송 기록을 한 번에 처리했다. 전체 기간치를 memory에 올리고 Arkham label과 join하는 순간 128GB를 넘겨서 작업이 실패했다. 월 단위로 자르고 나서는 한 번에 올라가는 데이터가 "한 달치"로 고정됐다. I/O와 memory peak이 동시에 상한이 걸린 셈이다. 분석 단위도 어차피 월별이라 손해 볼 게 없었다.
 
@@ -35,7 +35,7 @@ DuckDB 매뉴얼을 요약할 생각은 없다. 이 글은 128GB machine에서 �
 
 병렬 처리하려고 thread를 늘릴 때 흔히 하는 실수가 connection 하나를 공유하는 것이다. thread들이 같은 memory 공간을 나눠 쓰면 누가 얼마나 먹는지 예측하기 어렵고, peak이 튀는 순간 전체가 죽는다.
 
-그래서 반대로 갔다. worker thread마다 자기만의 in-memory DuckDB instance를 열고, 각각에 memory 상한을 건다.
+그래서 반대로 갔다. worker thread마다 자기만의 in-memory DuckDB instance를 열고, 각각에 memory 상한을 건다. ([`memory_limit` 설정은 DuckDB 공식 문서 참조](https://duckdb.org/docs/1.1/configuration/overview))
 
 ```python
 # worker thread마다 독립된 in-memory DuckDB + 명시적 memory 상한
