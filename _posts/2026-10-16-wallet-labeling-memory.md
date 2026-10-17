@@ -28,7 +28,7 @@ DuckDB 매뉴얼을 요약할 생각은 없다. 이 글은 128GB machine에서 �
 
 Parquet를 고른 건 columnar라서가 다가 아니다. 핵심은 column별 dictionary encoding이다. token symbol(USDT/USDC)처럼 distinct 값이 몇 개인 column은 dictionary에 한 번만 저장되고 데이터는 작은 정수 code로 들어가서, 파일 크기와 읽기 I/O가 동시에 줄어든다. 반대로 from/to address 같은 고유값 위주 column은 dictionary 효과가 거의 없다. 이쪽의 memory 부담은 encoding이 아니라 monthly partitioning으로 잡는다. encoding이 먹는 부분과 partitioning이 먹는 부분이 나뉘어 있으니, 둘을 헷갈리면 memory 계산이 어긋난다.
 
-**사례**: 처음엔 transfer records를 한 번에 처리했다. 전체 기간치를 memory에 올리고 Arkham label과 join하는 순간 128GB를 넘겨서 작업이 실패했다. monthly partitioning을 하고 나서는 한 번에 올라가는 데이터가 "one month of data"로 고정됐다. I/O와 memory peak이 동시에 상한이 걸린 셈이다. 분석 단위도 어차피 monthly라 손해 볼 게 없었다.
+**사례**: 처음엔 transfer records를 한 번에 처리했다. 전체 기간치를 memory에 올리고 Arkham label과 join하는 순간 128GB를 넘겨서 작업이 실패했다. monthly partitioning을 하고 나서는 한 번에 올라가는 데이터가 "one month of data"로 고정됐다. I/O와 memory peak이 한 번에 묶인다. 분석 단위도 어차피 monthly라 손해 볼 게 없었다.
 
 **언제 쓰나**: 분석 단위가 시간 구간으로 나뉠 때. monthly든 daily든, 쿼리 패턴과 partition 단위가 일치하면 된다.
 **overkill일 때**: 전체 데이터가 memory에 여유롭게 들어가면 그냥 통째로 읽는 게 빠르다.
@@ -45,7 +45,7 @@ con = duckdb.connect(":memory:")
 con.execute("PRAGMA memory_limit='10GB'")
 ```
 
-thread는 4개로 고정했고, 각 connection에 10GB 상한을 걸었다. 전체 memory 사용량은 "4 × 10GB = 40GB"로 사전에 계산된다. 예측 가능한 게 핵심이다.
+thread는 4개로 고정했고, 각 connection에 10GB 상한을 걸었다. 전체 memory 사용량은 "4 × 10GB = 40GB"로 사전에 계산된다. 계산이 딱 떨어진다.
 
 한편 Arkham API label 조회는 공유 connection pool을 통과시킨다. pool이 동시 호출을 serial로 묶어줘서 rate limit을 넘지 않는다. parallel로 때렸다가는 API가 막혀서 전체 pipeline이 선다.
 
@@ -68,13 +68,11 @@ parallel pipeline의 또 다른 함정은 worker 사이에 큰 데이터 뭉치�
 - 처리 속도: 기존과 동일
 - 예측 가능성: 4 threads × 10GB = 40GB로 상한선이 사전에 계산됨
 
-속도가 그대로인 게 포인트다. memory를 줄이려고 disk spill을 남발하면 보통 느려지는데, partitioning 덕분에 각 worker의 working set이 memory 안에 들어가서 I/O penalty가 없었다.
+속도는 그대로였다. memory를 줄이려고 disk spill을 남발하면 보통 느려지는데, partitioning 덕분에 각 worker의 working set이 memory 안에 들어가서 I/O penalty가 없었다.
 
 ## 솔직한 꼬리말 — 이 설계의 한계
 
-공정하게 밝히면, 이 설계에도 구멍은 있다.
-
-- **one month of data가 상한을 넘기면 그대로 터진다.** 그때는 weekly나 address prefix로 더 잘라야 한다. partitioning은 "가장 큰 partition이 상한 안에 든다"는 전제 위에 서 있다.
+- **one month of data가 상한을 넘기면 그대로 터진다.** 그때는 weekly나 address prefix로 더 잘라야 한다. partitioning이 성립하려면 "가장 큰 partition이 상한 안에 든다"는 가정이 필요하다.
 - **속도가 동일하게 나온 건 운도 있었다.** working set이 memory에 들어갔기 때문이지, 이 패턴이 항상 공짜는 아니다. partition이 커지면 disk spill이 불가피하고, 그때는 느려지는 걸 받아들여야 한다.
 - **Arkham API rate limit**은 이 설계로 없앨 수 없다. connection pool로 serialize해서 넘지 않게 막는 게 다다. label 조회 자체가 bottleneck이 되면 worker를 늘리는 게 아니라 caching을 먼저 고민해야 한다.
 
