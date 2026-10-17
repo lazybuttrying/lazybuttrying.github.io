@@ -13,7 +13,7 @@ toc: true
 toc_sticky: true
 
 date: 2026-10-16
-last_modified_at: 2026-10-16
+last_modified_at: 2026-10-17
 ---
 
 ## 들어가며
@@ -76,7 +76,7 @@ con.execute("PRAGMA memory_limit='10GB'")
 
 - **한 달치가 상한을 넘기면 그대로 터진다.** 그때는 주 단위나 주소 prefix로 더 잘라야 한다. partitioning은 "가장 큰 partition이 상한 안에 든다"는 전제 위에 서 있다.
 - **속도가 동일하게 나온 건 운도 있었다.** working set이 memory에 들어갔기 때문이지, 이 패턴이 항상 공짜는 아니다. partition이 커지면 disk spill이 불가피하고, 그때는 느려지는 걸 받아들여야 한다.
-- **Arkham API rate limit**은 별개 문제다. label 조회가 병목이 되면 worker를 늘리는 게 아니라 caching을 먼저 고민해야 한다. 이 글의 주제는 memory라서 다루지 않았다.
+- **Arkham API rate limit**은 이 설계로 없앨 수 없다. connection pool로 직렬화해서 넘지 않게 막는 게 다다. label 조회 자체가 병목이 되면 worker를 늘리는 게 아니라 caching을 먼저 고민해야 한다.
 
 ## 더 읽을 거
 
