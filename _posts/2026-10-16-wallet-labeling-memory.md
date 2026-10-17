@@ -45,7 +45,7 @@ con = duckdb.connect(":memory:")
 con.execute("PRAGMA memory_limit='10GB'")
 ```
 
-전체 memory 사용량은 "thread 수 × 상한"으로 계산된다. 예측 가능한 게 핵심이다.
+thread는 4개로 고정했고, 각 connection에 10GB 상한을 걸었다. 전체 memory 사용량은 "4 × 10GB = 40GB"로 사전에 계산된다. 예측 가능한 게 핵심이다.
 
 한편 Arkham API label 조회는 공유 connection pool을 통과시킨다. pool이 동시 호출을 직렬로 묶어줘서 rate limit을 넘지 않는다. 병렬로 때렸다가는 API가 막혀서 전체 pipeline이 선다.
 
@@ -66,7 +66,7 @@ con.execute("PRAGMA memory_limit='10GB'")
 
 - peak memory: 128GB 초과(OOM) → 40GB 이내 (약 1/3)
 - 처리 속도: 기존과 동일
-- 예측 가능성: thread 수 × 상한으로 상한선이 사전에 계산됨
+- 예측 가능성: 4 threads × 10GB = 40GB로 상한선이 사전에 계산됨
 
 속도가 그대로인 게 포인트다. memory를 줄이려고 disk spill을 남발하면 보통 느려지는데, partitioning 덕분에 각 worker의 working set이 memory 안에 들어가서 I/O penalty가 없었다.
 
