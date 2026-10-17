@@ -33,9 +33,9 @@ Parquet를 고른 건 columnar라서가 다가 아니다. 핵심은 column별 di
 **언제 쓰나**: 분석 단위가 시간 구간으로 나뉠 때. monthly든 daily든, 쿼리 패턴과 partition 단위가 일치하면 된다.
 **overkill일 때**: 전체 데이터가 memory에 여유롭게 들어가면 그냥 통째로 읽는 게 빠르다.
 
-## 2. Python thread + thread별 독립 DuckDB, API 호출은 connection pool로 직렬화
+## 2. Python thread + thread별 독립 DuckDB, API 호출은 connection pool로 serialize
 
-병렬 처리는 Python threading으로 했다. 무거운 join과 집계는 DuckDB(C++)가 담당해서 GIL이 병목이 되지 않는다.
+parallel 처리는 Python threading으로 했다. 무거운 join과 집계는 DuckDB(C++)가 담당해서 GIL이 bottleneck이 되지 않는다.
 
 흔한 실수는 connection 하나를 공유하는 것이다. thread들이 같은 memory 공간을 나눠 쓰면 누가 얼마나 먹는지 예측하기 어렵고, peak이 튀는 순간 전체가 죽는다. 그래서 worker thread마다 자기만의 in-memory DuckDB connection을 열고, 각각에 memory 상한을 건다. ([`memory_limit` 설정은 DuckDB 공식 문서 참조](https://duckdb.org/docs/1.1/configuration/overview))
 
@@ -47,7 +47,7 @@ con.execute("PRAGMA memory_limit='10GB'")
 
 thread는 4개로 고정했고, 각 connection에 10GB 상한을 걸었다. 전체 memory 사용량은 "4 × 10GB = 40GB"로 사전에 계산된다. 예측 가능한 게 핵심이다.
 
-한편 Arkham API label 조회는 공유 connection pool을 통과시킨다. pool이 동시 호출을 직렬로 묶어줘서 rate limit을 넘지 않는다. 병렬로 때렸다가는 API가 막혀서 전체 pipeline이 선다.
+한편 Arkham API label 조회는 공유 connection pool을 통과시킨다. pool이 동시 호출을 serial로 묶어줘서 rate limit을 넘지 않는다. parallel로 때렸다가는 API가 막혀서 전체 pipeline이 선다.
 
 **사례**: 공유 connection으로 돌릴 때는 어느 thread가 memory를 얼마나 쓰는지 알 수 없어서, 터지기 전까지는 "잘 돌아가네" 하고 착각하기 쉬웠다. 독립 connection으로 바꾸고 나서는 상한선을 사전에 계산할 수 있게 됐고, 그 뒤로는 OOM이 한 번도 안 났다.
 
@@ -56,11 +56,11 @@ thread는 4개로 고정했고, 각 connection에 10GB 상한을 걸었다. 전�
 
 ## 3. queue는 주입 직전에만 쓴다
 
-병렬 pipeline의 또 다른 함정은 worker 사이에 큰 데이터 뭉치를 queue로 주고받는 것이다. queue에 쌓이는 순간 memory 계산이 깨진다. producer가 consumer보다 조금만 빨라도 queue가 무한정 불어난다.
+parallel pipeline의 또 다른 함정은 worker 사이에 큰 데이터 뭉치를 queue로 주고받는 것이다. queue에 쌓이는 순간 memory 계산이 깨진다. producer가 consumer보다 조금만 빨라도 queue가 무한정 불어난다.
 
 여기서는 queue를 데이터 주입 직전에만 썼다. 무거운 transfer records는 각 worker가 자기 partition 안에서 끝까지 처리하고, queue를 통과하는 건 labeling이 끝난 작은 결과 batch뿐이다. 공유되는 게 "처리된 결과"뿐이라 충돌도 없고, queue가 memory를 잡아먹을 일도 없다.
 
-**사례**: 처음 설계에서는 worker가 읽은 원본 batch를 그대로 queue에 넣었다. labeling이 병목이 되는 순간 queue에 원본 데이터가 쌓이면서, partitioning으로 잡아둔 memory 상한이 무의미해졌다. queue를 통과하는 걸 "처리된 결과"로 바꾸고 나서야 상한 계산이 다시 맞기 시작했다.
+**사례**: 처음 설계에서는 worker가 읽은 원본 batch를 그대로 queue에 넣었다. labeling이 bottleneck이 되는 순간 queue에 원본 데이터가 쌓이면서, partitioning으로 잡아둔 memory 상한이 무의미해졌다. queue를 통과하는 걸 "처리된 결과"로 바꾸고 나서야 상한 계산이 다시 맞기 시작했다.
 
 ## 결과
 
@@ -76,7 +76,7 @@ thread는 4개로 고정했고, 각 connection에 10GB 상한을 걸었다. 전�
 
 - **one month of data가 상한을 넘기면 그대로 터진다.** 그때는 weekly나 address prefix로 더 잘라야 한다. partitioning은 "가장 큰 partition이 상한 안에 든다"는 전제 위에 서 있다.
 - **속도가 동일하게 나온 건 운도 있었다.** working set이 memory에 들어갔기 때문이지, 이 패턴이 항상 공짜는 아니다. partition이 커지면 disk spill이 불가피하고, 그때는 느려지는 걸 받아들여야 한다.
-- **Arkham API rate limit**은 이 설계로 없앨 수 없다. connection pool로 직렬화해서 넘지 않게 막는 게 다다. label 조회 자체가 병목이 되면 worker를 늘리는 게 아니라 caching을 먼저 고민해야 한다.
+- **Arkham API rate limit**은 이 설계로 없앨 수 없다. connection pool로 serialize해서 넘지 않게 막는 게 다다. label 조회 자체가 bottleneck이 되면 worker를 늘리는 게 아니라 caching을 먼저 고민해야 한다.
 
 ## 더 읽을 거
 
