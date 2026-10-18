@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>발행자 스프레드 추이 — 회사채 신용 스프레드 모니터</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  body { font-family: -apple-system, "Apple SD Gothic Neo", sans-serif; margin: 0;
+         background: #f5f6f8; color: #222; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 16px; }
+  h1 { font-size: 22px; margin: 8px 0 4px; }
+  .sub { color: #666; font-size: 13px; margin-bottom: 6px; }
+  .back { font-size: 13px; margin-bottom: 16px; display: inline-block; }
+  .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px;
+          box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card h2 { font-size: 16px; margin: 0 0 4px; }
+  .card .meta { color: #888; font-size: 12px; margin-bottom: 8px; }
+  .chart { width: 100%; height: 300px; }
+  .note { color: #888; font-size: 12px; margin-top: 16px; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>발행자 스프레드 추이</h1>
+  <div class="sub">최근 250거래일 (20240408 ~ 20261016) · 20거래일 이동중앙값 · 유동성 상위 발행자</div>
+  <div style="margin-bottom:16px"><a class="back" style="margin:0" href="../">← 오늘자 스프레드 모니터</a></div>
+  <div id="sections"></div>
+  <div class="note">20거래일 이동중앙값 기준이라 단기 노이즈가 제거됨.
+  굵은 점선은 해당 산업의 중간값. 스프레드 = 자사 수익률 − 잔존기간 매칭 국고채 수익률.</div>
+</div>
+<script src="../trends_data.js"></script>
+<script>
+(function(){
+  const T = window.TRENDS;
+  const dates = T.dates;
+  const groups = {};
+  Object.entries(T.series).forEach(([name, s]) => {
+    (groups[s.industry] = groups[s.industry] || []).push([name, s]);
+  });
+  const order = Object.keys(groups).sort((a, b) => groups[b].length - groups[a].length);
+  const host = document.getElementById('sections');
+  host.innerHTML = order.map((ind, i) =>
+    `<div class="card"><h2>${ind}</h2>` +
+    `<div class="meta">${groups[ind].length}개 발행자 · 20일 이동중앙값</div>` +
+    `<div class="chart" id="ch${i}"></div></div>`
+  ).join('');
+  order.forEach((ind, i) => {
+    const members = groups[ind].sort((a, b) => a[0].localeCompare(b[0], 'ko'));
+    // industry median per date
+    const med = dates.map((_, di) => {
+      const vs = members.map(([, s]) => s.values[di]).filter(v => v != null).sort((a, b) => a - b);
+      if (!vs.length) return null;
+      const m = vs.length >> 1;
+      return vs.length % 2 ? vs[m] : (vs[m-1] + vs[m]) / 2;
+    });
+    const traces = members.map(([name, s]) => ({
+      x: dates, y: s.values, mode: 'lines', name: name,
+      line: { width: 1.5 }, hovertemplate: '%{y:.1f}bp<extra>' + name + '</extra>'
+    }));
+    traces.push({ x: dates, y: med, mode: 'lines', name: ind + ' 중간값',
+      line: { width: 3, dash: 'dash', color: '#111' } });
+    Plotly.newPlot('ch' + i, traces, {
+      margin: { t: 10, r: 10, b: 40, l: 45 },
+      yaxis: { title: 'bp' }, legend: { orientation: 'h', y: -0.3, font: { size: 10 } },
+      height: 300
+    }, { displayModeBar: false, responsive: true });
+  });
+})();
+</script>
+</body>
+</html>
