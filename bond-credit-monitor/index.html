@@ -147,6 +147,15 @@ ko: {
   ind_median: v => `${v} 중간값(bp)`,
   meta: (a, b, n, u, upd) => `데이터: ${a} ~ ${b} (${n}거래일) · 유니버스 ${u}개 발행자 · 업데이트 ${upd}`,
   updated: "업데이트",
+  method_title: "스프레드 계산식",
+  method_body: `1. 개별 거래 스프레드(bp) = (채권 수익률 − 동일 잔존기간 버킷의 국고채 수익률 중간값) × 100<br>
+2. 잔존기간 버킷: 3M / 6M / 1Y / 2Y / 3Y / 5Y / 10Y / 20Y / 30Y (잔존기간은 YYMMDD 형식)<br>
+3. 발행자-일별 스프레드 = Σ(버킷별 중간 스프레드 × 버킷 거래대금) / Σ(버킷 거래대금) — 거래대금 가중평균<br>
+4. 일 3건 미만 거래된 발행자-일은 제외<br>
+5. 5거래일 이동중앙값으로 평활화<br>
+6. 동급대비(bp) = 자사 스프레드 − 동일 신용등급 발행자들의 당일 중간값<br>
+7. 5일변화 = 평활 스프레드 − 5거래일 전 값 / 20일변화 = 20거래일 전 값 대비<br>
+8. 단기 = 잔존기간 1년 이하 버킷만으로 3번 계산 / 장기 = 1년 초과 버킷만으로 계산`,
 },
 en: {
   title: "Corporate Bond Credit Spread Monitor",
@@ -180,6 +189,15 @@ en: {
   ind_median: v => `${v} median (bp)`,
   meta: (a, b, n, u, upd) => `Data: ${a} – ${b} (${n} trading days) · ${u}-issuer universe · Updated ${upd}`,
   updated: "Updated",
+  method_title: "Spread Formula",
+  method_body: `1. Per-trade spread (bp) = (bond yield − median KTB yield in same tenor bucket) × 100<br>
+2. Tenor buckets: 3M / 6M / 1Y / 2Y / 3Y / 5Y / 10Y / 20Y / 30Y (tenor in YYMMDD format)<br>
+3. Issuer-day spread = Σ(bucket median spread × bucket traded amount) / Σ(bucket amount) — amount-weighted<br>
+4. Issuer-days with fewer than 3 trades excluded<br>
+5. Smoothed with 5-trading-day rolling median<br>
+6. vs Peer (bp) = own spread − same-rating issuers' daily median<br>
+7. 5d change = smoothed spread − value 5 trading days ago / 20d change likewise<br>
+8. Short = step 3 using ≤1Y buckets only / Long = >1Y buckets only`,
 }
 };
 const IND_EN = {
@@ -196,6 +214,10 @@ function applyI18n(){
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const v = t(el.dataset.i18n);
     if (typeof v === 'string') el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const v = t(el.dataset.i18nHtml);
+    if (typeof v === 'string') el.innerHTML = v;
   });
   document.title = t('title');
   const mb = document.getElementById('metaLine');
@@ -357,7 +379,23 @@ _rerender.push(renderAlerts);
   draw();
 })();
 </script>
-<div class="wrap" style="padding-top:0"><div class="note" style="text-align:center;border-top:1px solid #eee;padding-top:12px">
+<div class="wrap" style="padding-top:0">
+<div class="card">
+<details>
+<summary style="cursor:pointer;font-weight:600" data-i18n="method_title">스프레드 계산식</summary>
+<div class="note" style="margin-top:8px;line-height:1.8" data-i18n-html="method_body">
+1. 개별 거래 스프레드(bp) = (채권 수익률 − 동일 잔존기간 버킷의 국고채 수익률 중간값) × 100<br>
+2. 잔존기간 버킷: 3M / 6M / 1Y / 2Y / 3Y / 5Y / 10Y / 20Y / 30Y (잔존기간은 YYMMDD 형식)<br>
+3. 발행자-일별 스프레드 = Σ(버킷별 중간 스프레드 × 버킷 거래대금) / Σ(버킷 거래대금) — 거래대금 가중평균<br>
+4. 일 3건 미만 거래된 발행자-일은 제외<br>
+5. 5거래일 이동중앙값으로 평활화<br>
+6. 동급대비(bp) = 자사 스프레드 − 동일 신용등급 발행자들의 당일 중간값<br>
+7. 5일변화 = 평활 스프레드 − 5거래일 전 값 / 20일변화 = 20거래일 전 값 대비<br>
+8. 단기 = 잔존기간 1년 이하 버킷만으로 3번 계산 / 장기 = 1년 초과 버킷만으로 계산
+</div>
+</details>
+</div>
+<div class="note" style="text-align:center;border-top:1px solid #eee;padding-top:12px">
 <a href="https://sdykim.me/" style="color:#888">sdykim.me</a> · Doyeon Kim
 </div></div>
 </body>
