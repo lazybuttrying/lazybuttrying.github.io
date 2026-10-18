@@ -148,14 +148,16 @@ ko: {
   meta: (a, b, n, u, upd) => `데이터: ${a} ~ ${b} (${n}거래일) · 유니버스 ${u}개 발행자 · 업데이트 ${upd}`,
   updated: "업데이트",
   method_title: "스프레드 계산식",
-  method_body: `1. 개별 거래 스프레드(bp) = (채권 수익률 − 동일 잔존기간 버킷의 국고채 수익률 중간값) × 100<br>
-2. 잔존기간 버킷: 3M / 6M / 1Y / 2Y / 3Y / 5Y / 10Y / 20Y / 30Y (잔존기간은 YYMMDD 형식)<br>
-3. 발행자-일별 스프레드 = Σ(버킷별 중간 스프레드 × 버킷 거래대금) / Σ(버킷 거래대금) — 거래대금 가중평균<br>
-4. 일 3건 미만 거래된 발행자-일은 제외<br>
-5. 5거래일 이동중앙값으로 평활화<br>
-6. 동급대비(bp) = 자사 스프레드 − 동일 신용등급 발행자들의 당일 중간값<br>
-7. 5일변화 = 평활 스프레드 − 5거래일 전 값 / 20일변화 = 20거래일 전 값 대비<br>
-8. 단기 = 잔존기간 1년 이하 버킷만으로 3번 계산 / 장기 = 1년 초과 버킷만으로 계산`,
+  method_body: `1. 스프레드(bp) = (채권 수익률 − 동일 만기 국고채 수익률) × 100<br>
+&ensp;&ensp;— Fabozzi 『Bond Markets, Analysis and Strategies』의 credit spread / G-spread 정의<br>
+2. 만기 버킷 매칭: 3M / 6M / 1Y / 2Y / 3Y / 5Y / 10Y / 20Y / 30Y<br>
+&ensp;&ensp;— 동일 만기 국채 대비 스프레드(G-spread) 개념<br>
+3. 발행자-일별 스프레드 = Σ(버킷별 스프레드 × 버킷 거래대금) / Σ(버킷 거래대금)<br>
+&ensp;&ensp;— FINRA TRACE의 거래량 가중 집계 방식<br>
+4. 단기 = 잔존기간 1년 이하 / 장기 = 1년 초과<br>
+&ensp;&ensp;— BIS의 money market 정의 (1년 이하 단기자금시장)<br>
+5. 단기 스프레드 급등 = 유동성 경색 신호 / 장기 스프레드 확대 = 펀더멘털 우려<br>
+&ensp;&ensp;— Duffie &amp; Singleton 『Credit Risk』의 스프레드 기간구조 해석`,
 },
 en: {
   title: "Corporate Bond Credit Spread Monitor",
@@ -190,14 +192,16 @@ en: {
   meta: (a, b, n, u, upd) => `Data: ${a} – ${b} (${n} trading days) · ${u}-issuer universe · Updated ${upd}`,
   updated: "Updated",
   method_title: "Spread Formula",
-  method_body: `1. Per-trade spread (bp) = (bond yield − median KTB yield in same tenor bucket) × 100<br>
-2. Tenor buckets: 3M / 6M / 1Y / 2Y / 3Y / 5Y / 10Y / 20Y / 30Y (tenor in YYMMDD format)<br>
-3. Issuer-day spread = Σ(bucket median spread × bucket traded amount) / Σ(bucket amount) — amount-weighted<br>
-4. Issuer-days with fewer than 3 trades excluded<br>
-5. Smoothed with 5-trading-day rolling median<br>
-6. vs Peer (bp) = own spread − same-rating issuers' daily median<br>
-7. 5d change = smoothed spread − value 5 trading days ago / 20d change likewise<br>
-8. Short = step 3 using ≤1Y buckets only / Long = >1Y buckets only`,
+  method_body: `1. Spread (bp) = (bond yield − same-maturity KTB yield) × 100<br>
+&ensp;&ensp;— Fabozzi <i>Bond Markets, Analysis and Strategies</i>: credit spread / G-spread definition<br>
+2. Tenor-bucket matching: 3M / 6M / 1Y / 2Y / 3Y / 5Y / 10Y / 20Y / 30Y<br>
+&ensp;&ensp;— G-spread concept (spread over same-maturity government bond)<br>
+3. Issuer-day spread = Σ(bucket spread × bucket traded amount) / Σ(bucket amount)<br>
+&ensp;&ensp;— FINRA TRACE volume-weighted aggregation<br>
+4. Short = remaining maturity ≤ 1Y / Long = &gt; 1Y<br>
+&ensp;&ensp;— BIS money market definition (short-term funding market ≤ 1 year)<br>
+5. Short-term spread spike = liquidity stress signal / long-term widening = fundamental concern<br>
+&ensp;&ensp;— Duffie &amp; Singleton <i>Credit Risk</i>: term-structure interpretation of spreads`,
 }
 };
 const IND_EN = {
