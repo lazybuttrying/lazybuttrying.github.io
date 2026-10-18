@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>회사채 신용 스프레드 모니터</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+         margin: 0; padding: 16px; background: #f7f8fa; color: #1a1a1a; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 8px 0 4px; }
+  .sub { color: #666; font-size: 13px; margin-bottom: 20px; }
+  .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px;
+          box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card h2 { font-size: 16px; margin: 0 0 12px; }
+  .alert { border-left: 4px solid #e5484d; background: #fff5f5; padding: 10px 12px;
+           border-radius: 0 8px 8px 0; margin-bottom: 8px; font-size: 14px; }
+  .alert b { color: #c93a3e; }
+  .ok { color: #2a7d4f; font-size: 14px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 8px 6px; text-align: right; border-bottom: 1px solid #eee; }
+  th:first-child, td:first-child { text-align: left; }
+  th { color: #666; font-weight: 600; cursor: pointer; user-select: none; white-space: nowrap; }
+  th:hover { color: #111; }
+  .up { color: #c93a3e; font-weight: 700; }
+  .dn { color: #2a7d4f; }
+  select { font-size: 15px; padding: 8px 10px; border-radius: 8px; border: 1px solid #ddd;
+           width: 100%; margin-bottom: 8px; background: #fff; }
+  .note { font-size: 12px; color: #888; margin-top: 12px; line-height: 1.6; }
+  .tblwrap { overflow-x: auto; }
+  tr.grp td { background: #eef2f7; font-weight: 700; font-size: 13px; padding: 10px 6px;
+              position: sticky; top: 0; }
+  tr.grp td span { font-weight: 400; color: #666; font-size: 12px; margin-left: 6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>회사채 신용 스프레드 모니터</h1>
+  <div class="sub">데이터: 20261016 기준 최근 90거래일 · 유니버스 25개 발행자</div>
+
+  <div class="card">
+    <h2>국채 수익률 곡선</h2>
+    <div id="curve"></div>
+  </div>
+
+  <div class="card">
+    <h2>확대 주의보</h2>
+    <div id="alerts"></div>
+    <div class="note">최근 5거래일간 스프레드가 15bp 이상 벌어진 발행자. 시장이 해당 회사의 신용위험을
+    다시 가격하기 시작했다는 신호일 수 있음. (5일 이동중앙값 기준, 일 3건 이상 거래된 발행자만 집계)</div>
+  </div>
+
+  <div class="card">
+    <h2>발행자 스프레드 (최신일 기준)</h2>
+    <div class="tblwrap"><table id="tbl">
+      <thead><tr>
+        <th data-k="issuer">발행자</th><th data-k="rating">등급</th>
+        <th data-k="spread">스프레드(bp)</th><th data-k="vs_peer">동급대비(bp)</th>
+        <th data-k="chg_5d">5일변화</th><th data-k="chg_20d">20일변화</th>
+        <th data-k="n">거래건수</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div class="note">스프레드 = 회사채 수익률 − 잔존기간 매칭 국채 수익률 (거래대금 가중평균).
+    동급대비 = 동일 신용등급 발행자들의 중간값 대비 괴리. 양수 = 동급보다 위험하게 거래됨.</div>
+  </div>
+
+  <div class="card">
+    <h2>발행자 추이</h2>
+    <select id="issuerSel"></select>
+    <div id="ts"></div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script>
+const ISSUERS = window.DASHBOARD_DATA.issuers;
+const CURVE = window.DASHBOARD_DATA.curve;
+const TENORS = ["3M","6M","1Y","2Y","3Y","5Y","10Y","20Y","30Y"];
+
+// ---- yield curve ----
+(function(){
+  const traces = CURVE.series.map(s => ({
+    x: TENORS, y: TENORS.map(t => { const p = s.points.find(q => q.tenor === t); return p ? p.yld : null; }),
+    mode: 'lines+markers', name: s.date, line: { width: s.latest ? 3 : 1.5, dash: s.latest ? 'solid' : 'dot' }
+  }));
+  Plotly.newPlot('curve', traces, {
+    margin: { t: 10, r: 10, b: 40, l: 45 },
+    yaxis: { title: '수익률(%)', tickformat: '.2f' }, xaxis: { title: '잔존기간' },
+    legend: { orientation: 'h', y: -0.25 }, height: 340
+  }, { displayModeBar: false, responsive: true });
+})();
+
+// ---- alerts ----
+(function(){
+  const el = document.getElementById('alerts');
+  const bad = ISSUERS.latest_table.filter(r => r.chg_5d != null && r.chg_5d >= 15);
+  if (!bad.length) { el.innerHTML = '<div class="ok">현재 5일 기준 급격한 스프레드 확대 종목 없음</div>'; return; }
+  el.innerHTML = bad.map(r =>
+    `<div class="alert"><b>${r.issuer}</b> (${r.rating}) — 5일간 <b>+${r.chg_5d}bp</b> 확대, ` +
+    `현재 ${r.spread}bp (동급대비 ${r.vs_peer >= 0 ? '+' : ''}${r.vs_peer}bp)</div>`).join('');
+})();
+
+// ---- table (grouped by industry) ----
+(function(){
+  const tb = document.querySelector('#tbl tbody');
+  let sortKey = 'spread', sortDir = -1;
+  function fmt(v, suf){ return v == null ? '-' : (v > 0 ? '+' : '') + v + (suf || ''); }
+  function rowHtml(r){
+    return `<tr>
+      <td><b>${r.issuer}</b>${r.in_universe ? '' : ' <span style="color:#aaa">·</span>'}</td>
+      <td>${r.rating || '-'}</td><td>${r.spread}</td>
+      <td class="${r.vs_peer >= 20 ? 'up' : ''}">${fmt(r.vs_peer)}</td>
+      <td class="${r.chg_5d >= 15 ? 'up' : (r.chg_5d <= -15 ? 'dn' : '')}">${fmt(r.chg_5d)}</td>
+      <td class="${r.chg_20d >= 30 ? 'up' : (r.chg_20d <= -30 ? 'dn' : '')}">${fmt(r.chg_20d)}</td>
+      <td>${r.n}</td></tr>`;
+  }
+  function med(a){ const s = a.slice().sort((x,y)=>x-y); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m-1]+s[m])/2; }
+  function render(){
+    const groups = {};
+    ISSUERS.latest_table.forEach(r => { (groups[r.industry] = groups[r.industry] || []).push(r); });
+    const order = Object.keys(groups).sort((a, b) =>
+      med(groups[b].map(r => r.spread)) - med(groups[a].map(r => r.spread)));
+    tb.innerHTML = order.map(ind => {
+      const rows = groups[ind].slice().sort((a, b) => {
+        const av = a[sortKey], bv = b[sortKey];
+        if (av == null) return 1; if (bv == null) return -1;
+        return (typeof av === 'string' ? av.localeCompare(bv, 'ko') : av - bv) * sortDir;
+      });
+      const m = med(groups[ind].map(r => r.spread)).toFixed(1);
+      return `<tr class="grp"><td colspan="7">${ind} <span>중앙값 ${m}bp · ${groups[ind].length}개사</span></td></tr>` +
+             rows.map(rowHtml).join('');
+    }).join('');
+  }
+  document.querySelectorAll('#tbl th').forEach(th => th.addEventListener('click', () => {
+    const k = th.dataset.k;
+    if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = (k === 'issuer' || k === 'rating') ? 1 : -1; }
+    render();
+  }));
+  render();
+})();
+
+// ---- issuer time series ----
+(function(){
+  const sel = document.getElementById('issuerSel');
+  const names = Object.keys(ISSUERS.series).sort((a, b) => a.localeCompare(b, 'ko'));
+  sel.innerHTML = names.map(n => `<option>${n}</option>`).join('');
+  function draw(){
+    const s = ISSUERS.series[sel.value];
+    const peer = s.spread_sm.map((v, i) => v - s.vs_peer[i]);
+    const ind = ISSUERS.industries[s.industry];
+    const traces = [
+      { x: s.dates, y: s.spread_sm, mode: 'lines', name: sel.value + ' 스프레드(bp)', line: { width: 2.5, color: '#2563eb' } },
+      { x: s.dates, y: peer, mode: 'lines', name: s.rating + ' 등급 중간값(bp)',
+        line: { width: 1.5, dash: 'dash', color: '#999' } }
+    ];
+    if (ind) traces.push({ x: ind.dates, y: ind.spread_sm, mode: 'lines',
+      name: s.industry + ' 중간값(bp)', line: { width: 1.5, dash: 'dot', color: '#b45309' } });
+    Plotly.newPlot('ts', traces, {
+      margin: { t: 10, r: 10, b: 40, l: 50 },
+      yaxis: { title: 'bp' }, legend: { orientation: 'h', y: -0.28 }, height: 340
+    }, { displayModeBar: false, responsive: true });
+  }
+  sel.addEventListener('change', draw);
+  sel.value = names.includes('한국전력공사채권') ? '한국전력공사채권' : names[0];
+  draw();
+})();
+</script>
+</body>
+</html>
