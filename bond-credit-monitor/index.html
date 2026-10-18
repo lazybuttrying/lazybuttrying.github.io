@@ -18,6 +18,32 @@
   .alert { border-left: 4px solid #e5484d; background: #fff5f5; padding: 10px 12px;
            border-radius: 0 8px 8px 0; margin-bottom: 8px; font-size: 14px; }
   .alert b { color: #c93a3e; }
+  .alert .meta { color: #888; font-size: 12px; }
+  .asub { color: #666; font-size: 13px; margin-bottom: 10px; }
+  .sig { background: #fff8e6; border: 1px solid #f0d98c; border-radius: 8px;
+         padding: 10px 12px; margin-bottom: 12px; font-size: 13px; }
+  .sigrow { margin-bottom: 6px; }
+  .sigrow:last-child { margin-bottom: 0; }
+  .sigrow > span { color: #666; }
+  .sig-t { font-weight: 700; font-size: 13px; margin-bottom: 8px; color: #8a6d1b; }
+  .siglist { color: #666; font-size: 12px; }
+  .alert[data-clickable] { cursor: pointer; }
+  .alert[data-clickable]:hover { background: #ffefef; }
+  .chev { color: #c93a3e; font-size: 12px; }
+  .bondwrap { margin: -4px 0 8px; }
+  .bonds { background: #fafafa; border: 1px solid #eee; border-radius: 8px;
+           padding: 8px 12px; font-size: 12.5px; }
+  .bond { display: flex; justify-content: space-between; gap: 8px; padding: 5px 0;
+          border-bottom: 1px dashed #e5e5e5; }
+  .bond:last-child { border-bottom: 0; }
+  .bond .bname { font-weight: 600; flex: 1; min-width: 0; overflow: hidden;
+                 text-overflow: ellipsis; white-space: nowrap; }
+  .bond span:not(.bname) { white-space: nowrap; color: #555; }
+  .bond .up { color: #c93a3e; font-weight: 700; }
+  .bonds .none { color: #999; }
+  .agrp { margin-bottom: 10px; }
+  .agrp-h { font-weight: 700; font-size: 13px; margin-bottom: 6px; }
+  .agrp-h span { font-weight: 400; color: #888; font-size: 12px; margin-left: 4px; }
   .ok { color: #2a7d4f; font-size: 14px; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   th, td { padding: 8px 6px; text-align: right; border-bottom: 1px solid #eee; }
@@ -38,7 +64,7 @@
 <body>
 <div class="wrap">
   <h1>회사채 신용 스프레드 모니터</h1>
-  <div class="sub">데이터: 20261016 기준 최근 90거래일 · 유니버스 25개 발행자</div>
+  <div class="sub">데이터: 20261016 기준 최근 75거래일 · 유니버스 25개 발행자</div>
 
   <div class="card">
     <h2>국채 수익률 곡선</h2>
@@ -75,9 +101,12 @@
 </div>
 
 <script src="data.js"></script>
+<script src="bonds.js"></script>
 <script>
 const ISSUERS = window.DASHBOARD_DATA.issuers;
 const CURVE = window.DASHBOARD_DATA.curve;
+const ALERTS = window.DASHBOARD_DATA.alerts;
+window.BONDS = /*BONDS_JSON*/;
 const TENORS = ["3M","6M","1Y","2Y","3Y","5Y","10Y","20Y","30Y"];
 
 // ---- yield curve ----
@@ -93,14 +122,63 @@ const TENORS = ["3M","6M","1Y","2Y","3Y","5Y","10Y","20Y","30Y"];
   }, { displayModeBar: false, responsive: true });
 })();
 
-// ---- alerts ----
+// ---- alerts v2: group contagion + click drill-down to bonds ----
+function bondRows(issuer){
+  const bs = (window.BONDS || {})[issuer];
+  if (!bs || !bs.length) return '<div class="bonds"><span class="none">최근 거래 채권 데이터 없음</span></div>';
+  return '<div class="bonds">' + bs.map(b =>
+    `<div class="bond"><span class="bname">${b.bond}</span>` +
+    `<span>수익률 ${b.yld}%</span>` +
+    `<span class="${b.spread >= 50 ? 'up' : ''}">스프레드 ${b.spread >= 0 ? '+' : ''}${b.spread}bp</span>` +
+    `<span>${(b.amt / 1e8).toFixed(1)}억원</span></div>`
+  ).join('') + '</div>';
+}
+function alertCard(r){
+  const bits = [`5일간 <b>+${r.chg_5d}bp ${r.sev}</b>`, `현재 ${r.spread}bp`];
+  if (r.high90) bits.push('90일 최고치');
+  if (r.vs_peer >= 30) bits.push(`동급(${r.rating}) 평균보다 +${Math.round(r.vs_peer)}bp 높음`);
+  else if (r.vs_peer <= -30) bits.push(`동급(${r.rating}) 평균보다 ${Math.round(r.vs_peer)}bp 낮음`);
+  if (r.chg_20d != null && r.chg_20d >= 30) bits.push(`20일간 +${r.chg_20d}bp`);
+  const hasBonds = (window.BONDS || {})[r.issuer];
+  return `<div class="alert" data-issuer="${r.issuer}"${hasBonds ? ' data-clickable="1"' : ''}>` +
+    `<b>${r.issuer}</b> <span class="meta">${r.rating} · ${r.industry}</span>` +
+    `${hasBonds ? ' <span class="chev">▸</span>' : ''}<br>${bits.join(' · ')}</div>`;
+}
 (function(){
   const el = document.getElementById('alerts');
-  const bad = ISSUERS.latest_table.filter(r => r.chg_5d != null && r.chg_5d >= 15);
-  if (!bad.length) { el.innerHTML = '<div class="ok">현재 5일 기준 급격한 스프레드 확대 종목 없음</div>'; return; }
-  el.innerHTML = bad.map(r =>
-    `<div class="alert"><b>${r.issuer}</b> (${r.rating}) — 5일간 <b>+${r.chg_5d}bp</b> 확대, ` +
-    `현재 ${r.spread}bp (동급대비 ${r.vs_peer >= 0 ? '+' : ''}${r.vs_peer}bp)</div>`).join('');
+  const A = ALERTS;
+  if (!A.items.length) { el.innerHTML = '<div class="ok">현재 5일 기준 급격한 스프레드 확대 종목 없음</div>'; return; }
+  let h = `<div class="asub">5일간 15bp 이상 확대 ${A.items.length}곳 — 클릭하면 보유 채권 나열</div>`;
+  if (A.group_signals.length) {
+    h += '<div class="sig"><div class="sig-t">계열 내 전파 신호</div>' + A.group_signals.map(s =>
+      `<div class="sigrow">▸ <b>${s.group}</b> ${s.count}곳 동시 확대<br>` +
+      `<span class="siglist">${s.top.map(t => `${t.issuer} +${t.chg_5d}bp`).join(' · ')}</span></div>`
+    ).join('') + '</div>';
+  }
+  const groups = {};
+  A.items.forEach(r => { (groups[r.group] = groups[r.group] || []).push(r); });
+  const order = Object.keys(groups).sort((a, b) => groups[b][0].chg_5d - groups[a][0].chg_5d);
+  h += order.map(g =>
+    `<div class="agrp"><div class="agrp-h">${g} <span>${groups[g].length}곳</span></div>` +
+    groups[g].map(alertCard).join('') + '</div>'
+  ).join('');
+  el.innerHTML = h;
+  el.querySelectorAll('.alert[data-clickable]').forEach(card => {
+    card.addEventListener('click', () => {
+      const iss = card.dataset.issuer;
+      const next = card.nextElementSibling;
+      if (next && next.classList.contains('bondwrap')) {
+        next.remove();
+        card.querySelector('.chev').textContent = '▸';
+        return;
+      }
+      const w = document.createElement('div');
+      w.className = 'bondwrap';
+      w.innerHTML = bondRows(iss);
+      card.after(w);
+      card.querySelector('.chev').textContent = '▾';
+    });
+  });
 })();
 
 // ---- table (grouped by industry) ----
