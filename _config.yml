@@ -282,3 +282,10 @@ defaults:
       related: true
       sidebar:
         nav: "categories"
+
+  # bond-credit-monitor: excluded from the auto-generated sitemap
+  # (it has its own sitemap at /bond-credit-monitor/sitemap.xml)
+  - scope:
+      path: "bond-credit-monitor"
+    values:
+      sitemap: false
