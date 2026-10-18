@@ -16,7 +16,11 @@
           box-shadow: 0 1px 3px rgba(0,0,0,.08); }
   .card h2 { font-size: 16px; margin: 0 0 4px; }
   .card .meta { color: #888; font-size: 12px; margin-bottom: 8px; }
-  .chart { width: 100%; height: 300px; }
+  .trow { display: flex; gap: 12px; }
+  .tcol { flex: 1; min-width: 0; }
+  .tcol h3 { font-size: 13px; margin: 0 0 4px; color: #555; }
+  .chart { width: 100%; height: 260px; }
+  @media (max-width: 700px) { .trow { flex-direction: column; } }
   .note { color: #888; font-size: 12px; margin-top: 16px; line-height: 1.6; }
 </style>
 </head>
@@ -27,7 +31,8 @@
   <div style="margin-bottom:16px"><a class="back" style="margin:0" href="../">← 오늘자 스프레드 모니터</a></div>
   <div id="sections"></div>
   <div class="note">20거래일 이동중앙값 기준이라 단기 노이즈가 제거됨.
-  굵은 점선은 해당 산업의 중간값. 스프레드 = 자사 수익률 − 잔존기간 매칭 국고채 수익률.</div>
+  단기 = 잔존기간 1년 이하, 장기 = 1년 초과. 같은 회사의 단기 스프레드가 치솟으면
+  유동성 경색 신호일 수 있음. 스프레드 = 자사 수익률 − 잔존기간 매칭 국고채 수익률.</div>
 </div>
 <script src="../trends_data.js"></script>
 <script>
@@ -43,28 +48,37 @@
   host.innerHTML = order.map((ind, i) =>
     `<div class="card"><h2>${ind}</h2>` +
     `<div class="meta">${groups[ind].length}개 발행자 · 20일 이동중앙값</div>` +
-    `<div class="chart" id="ch${i}"></div></div>`
+    `<div class="trow">` +
+    `<div class="tcol"><h3>단기 (≤1년)</h3><div class="chart" id="ch${i}s"></div></div>` +
+    `<div class="tcol"><h3>장기 (&gt;1년)</h3><div class="chart" id="ch${i}l"></div></div>` +
+    `</div></div>`
   ).join('');
-  order.forEach((ind, i) => {
-    const members = groups[ind].sort((a, b) => a[0].localeCompare(b[0], 'ko'));
-    // industry median per date
-    const med = dates.map((_, di) => {
-      const vs = members.map(([, s]) => s.values[di]).filter(v => v != null).sort((a, b) => a - b);
+  function medOf(members, key) {
+    return dates.map((_, di) => {
+      const vs = members.map(([, s]) => s[key][di]).filter(v => v != null).sort((a, b) => a - b);
       if (!vs.length) return null;
       const m = vs.length >> 1;
       return vs.length % 2 ? vs[m] : (vs[m-1] + vs[m]) / 2;
     });
+  }
+  function drawChart(id, members, key, color) {
     const traces = members.map(([name, s]) => ({
-      x: dates, y: s.values, mode: 'lines', name: name,
-      line: { width: 1.5 }, hovertemplate: '%{y:.1f}bp<extra>' + name + '</extra>'
+      x: dates, y: s[key], mode: 'lines', name: name,
+      line: { width: 1.5, color: color }, opacity: 0.55,
+      hovertemplate: '%{y:.1f}bp<extra>' + name + '</extra>'
     }));
-    traces.push({ x: dates, y: med, mode: 'lines', name: ind + ' 중간값',
-      line: { width: 3, dash: 'dash', color: '#111' } });
-    Plotly.newPlot('ch' + i, traces, {
+    traces.push({ x: dates, y: medOf(members, key), mode: 'lines', name: '중간값',
+      line: { width: 3, color: '#111' } });
+    Plotly.newPlot(id, traces, {
       margin: { t: 10, r: 10, b: 40, l: 45 },
-      yaxis: { title: 'bp' }, legend: { orientation: 'h', y: -0.3, font: { size: 10 } },
-      height: 300
+      yaxis: { title: 'bp' }, legend: { orientation: 'h', y: -0.35, font: { size: 10 } },
+      height: 260
     }, { displayModeBar: false, responsive: true });
+  }
+  order.forEach((ind, i) => {
+    const members = groups[ind].sort((a, b) => a[0].localeCompare(b[0], 'ko'));
+    drawChart('ch' + i + 's', members, 'short', '#2563eb');
+    drawChart('ch' + i + 'l', members, 'long', '#c93a3e');
   });
 })();
 </script>
