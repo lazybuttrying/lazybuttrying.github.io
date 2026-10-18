@@ -227,14 +227,15 @@ function alertCard(r){
   sel.innerHTML = names.map(n => `<option>${n}</option>`).join('');
   function draw(){
     const s = ISSUERS.series[sel.value];
+    const fmtD = d => d.slice(0, 4) + '-' + d.slice(4, 6) + '-' + d.slice(6);
     const peer = s.spread_sm.map((v, i) => v - s.vs_peer[i]);
     const ind = ISSUERS.industries[s.industry];
     const traces = [
-      { x: s.dates, y: s.spread_sm, mode: 'lines', name: sel.value + ' 스프레드(bp)', line: { width: 2.5, color: '#2563eb' } },
-      { x: s.dates, y: peer, mode: 'lines', name: s.rating + ' 등급 중간값(bp)',
+      { x: s.dates.map(fmtD), y: s.spread_sm, mode: 'lines', name: sel.value + ' 스프레드(bp)', line: { width: 2.5, color: '#2563eb' } },
+      { x: s.dates.map(fmtD), y: peer, mode: 'lines', name: s.rating + ' 등급 중간값(bp)',
         line: { width: 1.5, dash: 'dash', color: '#999' } }
     ];
-    if (ind) traces.push({ x: ind.dates, y: ind.spread_sm, mode: 'lines',
+    if (ind) traces.push({ x: ind.dates.map(fmtD), y: ind.spread_sm, mode: 'lines',
       name: s.industry + ' 중간값(bp)', line: { width: 1.5, dash: 'dot', color: '#b45309' } });
     Plotly.newPlot('ts', traces, {
       margin: { t: 10, r: 10, b: 40, l: 50 },

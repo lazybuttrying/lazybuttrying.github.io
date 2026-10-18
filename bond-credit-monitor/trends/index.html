@@ -38,7 +38,8 @@
 <script>
 (function(){
   const T = window.TRENDS;
-  const dates = T.dates;
+  const fmtD = d => d.slice(0, 4) + '-' + d.slice(4, 6) + '-' + d.slice(6);
+  const dates = T.dates.map(fmtD);
   const groups = {};
   Object.entries(T.series).forEach(([name, s]) => {
     (groups[s.industry] = groups[s.industry] || []).push([name, s]);
