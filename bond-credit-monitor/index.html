@@ -63,38 +63,41 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>회사채 신용 스프레드 모니터</h1>
-  <div class="sub">데이터: 20261016 기준 최근 75거래일 · 유니버스 25개 발행자</div>
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h1 data-i18n="title">회사채 신용 스프레드 모니터</h1>
+    <button id="langBtn" style="padding:6px 12px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;font-size:13px">EN</button>
+  </div>
+  <div class="sub" id="metaLine"></div>
 
   <div class="card">
-    <h2>국채 수익률 곡선</h2>
+    <h2 data-i18n="curve">국채 수익률 곡선</h2>
     <div id="curve"></div>
   </div>
 
   <div class="card">
-    <h2>확대 주의보</h2>
+    <h2 data-i18n="alerts">확대 주의보</h2>
     <div id="alerts"></div>
-    <div class="note">최근 5거래일간 스프레드가 15bp 이상 벌어진 발행자. 시장이 해당 회사의 신용위험을
+    <div class="note" data-i18n="alerts_note">최근 5거래일간 스프레드가 15bp 이상 벌어진 발행자. 시장이 해당 회사의 신용위험을
     다시 가격하기 시작했다는 신호일 수 있음. (5일 이동중앙값 기준, 일 3건 이상 거래된 발행자만 집계)</div>
   </div>
 
   <div class="card">
-    <h2>발행자 스프레드 (최신일 기준)</h2>
+    <h2 data-i18n="table_title">발행자 스프레드 (최신일 기준)</h2>
     <div class="tblwrap"><table id="tbl">
       <thead><tr>
-        <th data-k="issuer">발행자</th><th data-k="rating">등급</th>
-        <th data-k="spread">스프레드(bp)</th><th data-k="vs_peer">동급대비(bp)</th>
-        <th data-k="chg_5d">5일변화</th><th data-k="chg_20d">20일변화</th>
-        <th data-k="n">거래건수</th>
+        <th data-k="issuer" data-i18n="th_issuer">발행자</th><th data-k="rating" data-i18n="th_rating">등급</th>
+        <th data-k="spread" data-i18n="th_spread">스프레드(bp)</th><th data-k="vs_peer" data-i18n="th_vs_peer">동급대비(bp)</th>
+        <th data-k="chg_5d" data-i18n="th_chg5d">5일변화</th><th data-k="chg_20d" data-i18n="th_chg20d">20일변화</th>
+        <th data-k="n" data-i18n="th_n">거래건수</th>
       </tr></thead>
       <tbody></tbody>
     </table></div>
-    <div class="note">스프레드 = 회사채 수익률 − 잔존기간 매칭 국채 수익률 (거래대금 가중평균).
+    <div class="note" data-i18n="table_note">스프레드 = 회사채 수익률 − 잔존기간 매칭 국채 수익률 (거래대금 가중평균).
     동급대비 = 동일 신용등급 발행자들의 중간값 대비 괴리. 양수 = 동급보다 위험하게 거래됨.</div>
   </div>
 
   <div class="card">
-    <h2>발행자 추이 <span style="font-weight:400;font-size:12px"><a href="./trends/">산업별 전체 추이 →</a></span></h2>
+    <h2><span data-i18n="trend_title">발행자 추이</span> <span style="font-weight:400;font-size:12px"><a href="./trends/" data-i18n="trends_link">산업별 전체 추이 →</a></span></h2>
     <select id="issuerSel"></select>
     <div id="ts"></div>
   </div>
@@ -106,8 +109,112 @@
 const ISSUERS = window.DASHBOARD_DATA.issuers;
 const CURVE = window.DASHBOARD_DATA.curve;
 const ALERTS = window.DASHBOARD_DATA.alerts;
+const META = window.DASHBOARD_DATA.meta;
 window.BONDS = /*BONDS_JSON*/;
 const TENORS = ["3M","6M","1Y","2Y","3Y","5Y","10Y","20Y","30Y"];
+
+// ---- i18n ----
+const I18N = {
+ko: {
+  title: "회사채 신용 스프레드 모니터",
+  curve: "국채 수익률 곡선",
+  alerts: "확대 주의보",
+  alerts_note: "최근 5거래일간 스프레드가 15bp 이상 벌어진 발행자. 시장이 해당 회사의 신용위험을 다시 가격하기 시작했다는 신호일 수 있음. (5일 이동중앙값 기준, 일 3건 이상 거래된 발행자만 집계)",
+  table_title: "발행자 스프레드 (최신일 기준)",
+  th_issuer: "발행자", th_rating: "등급", th_spread: "스프레드(bp)", th_vs_peer: "동급대비(bp)",
+  th_chg5d: "5일변화", th_chg20d: "20일변화", th_n: "거래건수",
+  table_note: "스프레드 = 회사채 수익률 − 잔존기간 매칭 국채 수익률 (거래대금 가중평균). 동급대비 = 동일 신용등급 발행자들의 중간값 대비 괴리. 양수 = 동급보다 위험하게 거래됨.",
+  trend_title: "발행자 추이",
+  trends_link: "산업별 전체 추이 →",
+  lang_btn: "EN",
+  no_alerts: "현재 5일 기준 급격한 스프레드 확대 종목 없음",
+  alerts_sub: n => `5일간 15bp 이상 확대 ${n}곳 — 클릭하면 보유 채권 나열`,
+  contagion: "계열 내 전파 신호",
+  simultaneous: n => `${n}곳 동시 확대`,
+  issuers_count: n => `${n}곳`,
+  sev_surge: "급등", sev_sharp: "크게 확대", sev_widen: "확대", sev_hint: "확대 조짐",
+  high90: "90일 최고치",
+  above_peer: (r, v) => `동급(${r}) 평균보다 +${v}bp 높음`,
+  below_peer: (r, v) => `동급(${r}) 평균보다 ${v}bp 낮음`,
+  days20: v => `20일간 +${v}bp`,
+  days5: v => `5일간 +${v}bp`,
+  current: v => `현재 ${v}bp`,
+  no_bonds: "최근 거래 채권 데이터 없음",
+  yield: "수익률", spread: "스프레드", eokwon: "억원",
+  median: "중간값",
+  spread_bp: v => `${v} 스프레드(bp)`,
+  peer_median: r => `${r} 등급 중간값(bp)`,
+  ind_median: v => `${v} 중간값(bp)`,
+  meta: (a, b, n, u, upd) => `데이터: ${a} ~ ${b} (${n}거래일) · 유니버스 ${u}개 발행자 · 업데이트 ${upd}`,
+  updated: "업데이트",
+},
+en: {
+  title: "Corporate Bond Credit Spread Monitor",
+  curve: "KTB Yield Curve",
+  alerts: "Widening Alerts",
+  alerts_note: "Issuers whose spreads widened 15bp+ over 5 trading days. May signal the market repricing credit risk. (5-day rolling median, issuers with 3+ trades/day only)",
+  table_title: "Issuer Spreads (Latest)",
+  th_issuer: "Issuer", th_rating: "Rating", th_spread: "Spread(bp)", th_vs_peer: "vs Peer(bp)",
+  th_chg5d: "5d Chg", th_chg20d: "20d Chg", th_n: "Trades",
+  table_note: "Spread = corporate yield − tenor-matched KTB yield (amount-weighted). vs Peer = deviation from same-rating median. Positive = trading riskier than peers.",
+  trend_title: "Issuer Trends",
+  trends_link: "All trends by industry →",
+  lang_btn: "한",
+  no_alerts: "No issuers with sharp spread widening over 5 days",
+  alerts_sub: n => `${n} issuers widened 15bp+ in 5d — click for bond list`,
+  contagion: "Intra-group Contagion Signal",
+  simultaneous: n => `${n} issuers widening together`,
+  issuers_count: n => `${n} issuers`,
+  sev_surge: "surging", sev_sharp: "sharply wider", sev_widen: "widening", sev_hint: "widening signs",
+  high90: "90d high",
+  above_peer: (r, v) => `+${v}bp above ${r} peer avg`,
+  below_peer: (r, v) => `${v}bp below ${r} peer avg`,
+  days20: v => `+${v}bp over 20d`,
+  days5: v => `+${v}bp over 5d`,
+  current: v => `${v}bp now`,
+  no_bonds: "No recent bond trade data",
+  yield: "Yield", spread: "Spread", eokwon: "₩100m",
+  median: "Median",
+  spread_bp: v => `${v} spread (bp)`,
+  peer_median: r => `${r} peer median (bp)`,
+  ind_median: v => `${v} median (bp)`,
+  meta: (a, b, n, u, upd) => `Data: ${a} – ${b} (${n} trading days) · ${u}-issuer universe · Updated ${upd}`,
+  updated: "Updated",
+}
+};
+const IND_EN = {
+  "은행": "Banks", "카드": "Cards", "캐피탈": "Finance Cos", "금융지주": "Holdings",
+  "증권": "Securities", "보험": "Insurance", "정책금융": "Policy Banks",
+  "공기업": "Public Corps", "국채/통안": "Govt/MSB", "SPC": "SPCs", "일반기업": "Corporates"
+};
+let LANG = localStorage.getItem('bond-lang') || 'ko';
+const t = k => I18N[LANG][k];
+const indName = ind => LANG === 'en' ? (IND_EN[ind] || ind) : ind;
+const _rerender = [];
+function applyI18n(){
+  document.documentElement.lang = LANG === 'ko' ? 'ko' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = t(el.dataset.i18n);
+    if (typeof v === 'string') el.textContent = v;
+  });
+  document.title = t('title');
+  const mb = document.getElementById('metaLine');
+  if (mb && typeof META !== 'undefined')
+    mb.textContent = t('meta')(META.first, META.last, META.n_days, META.n_universe, META.updated);
+  const lb = document.getElementById('langBtn');
+  if (lb) lb.textContent = t('lang_btn');
+  _rerender.forEach(fn => fn());
+}
+function setLang(l){
+  LANG = l;
+  localStorage.setItem('bond-lang', l);
+  applyI18n();
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const lb = document.getElementById('langBtn');
+  if (lb) lb.addEventListener('click', () => setLang(LANG === 'ko' ? 'en' : 'ko'));
+  applyI18n();
+});
 
 // ---- yield curve ----
 (function(){
@@ -125,41 +232,41 @@ const TENORS = ["3M","6M","1Y","2Y","3Y","5Y","10Y","20Y","30Y"];
 // ---- alerts v2: group contagion + click drill-down to bonds ----
 function bondRows(issuer){
   const bs = (window.BONDS || {})[issuer];
-  if (!bs || !bs.length) return '<div class="bonds"><span class="none">최근 거래 채권 데이터 없음</span></div>';
+  if (!bs || !bs.length) return `<div class="bonds"><span class="none">${t('no_bonds')}</span></div>`;
   return '<div class="bonds">' + bs.map(b =>
     `<div class="bond"><span class="bname">${b.bond}</span>` +
-    `<span>수익률 ${b.yld}%</span>` +
-    `<span class="${b.spread >= 50 ? 'up' : ''}">스프레드 ${b.spread >= 0 ? '+' : ''}${b.spread}bp</span>` +
-    `<span>${(b.amt / 1e8).toFixed(1)}억원</span></div>`
+    `<span>${t('yield')} ${b.yld}%</span>` +
+    `<span class="${b.spread >= 50 ? 'up' : ''}">${t('spread')} ${b.spread >= 0 ? '+' : ''}${b.spread}bp</span>` +
+    `<span>${(b.amt / 1e8).toFixed(1)}${t('eokwon')}</span></div>`
   ).join('') + '</div>';
 }
 function alertCard(r){
-  const bits = [`5일간 <b>+${r.chg_5d}bp ${r.sev}</b>`, `현재 ${r.spread}bp`];
-  if (r.high90) bits.push('90일 최고치');
-  if (r.vs_peer >= 30) bits.push(`동급(${r.rating}) 평균보다 +${Math.round(r.vs_peer)}bp 높음`);
-  else if (r.vs_peer <= -30) bits.push(`동급(${r.rating}) 평균보다 ${Math.round(r.vs_peer)}bp 낮음`);
-  if (r.chg_20d != null && r.chg_20d >= 30) bits.push(`20일간 +${r.chg_20d}bp`);
+  const bits = [t('days5')(r.chg_5d) + ' ' + `<b>${t('sev_' + r.sev)}</b>`, t('current')(r.spread)];
+  if (r.high90) bits.push(t('high90'));
+  if (r.vs_peer >= 30) bits.push(t('above_peer')(r.rating, Math.round(r.vs_peer)));
+  else if (r.vs_peer <= -30) bits.push(t('below_peer')(r.rating, Math.round(r.vs_peer)));
+  if (r.chg_20d != null && r.chg_20d >= 30) bits.push(t('days20')(r.chg_20d));
   const hasBonds = (window.BONDS || {})[r.issuer];
   return `<div class="alert" data-issuer="${r.issuer}"${hasBonds ? ' data-clickable="1"' : ''}>` +
-    `<b>${r.issuer}</b> <span class="meta">${r.rating} · ${r.industry}</span>` +
+    `<b>${r.issuer}</b> <span class="meta">${r.rating} · ${indName(r.industry)}</span>` +
     `${hasBonds ? ' <span class="chev">▸</span>' : ''}<br>${bits.join(' · ')}</div>`;
 }
-(function(){
+function renderAlerts(){
   const el = document.getElementById('alerts');
   const A = ALERTS;
-  if (!A.items.length) { el.innerHTML = '<div class="ok">현재 5일 기준 급격한 스프레드 확대 종목 없음</div>'; return; }
-  let h = `<div class="asub">5일간 15bp 이상 확대 ${A.items.length}곳 — 클릭하면 보유 채권 나열</div>`;
+  if (!A.items.length) { el.innerHTML = `<div class="ok">${t('no_alerts')}</div>`; return; }
+  let h = `<div class="asub">${t('alerts_sub')(A.items.length)}</div>`;
   if (A.group_signals.length) {
-    h += '<div class="sig"><div class="sig-t">계열 내 전파 신호</div>' + A.group_signals.map(s =>
-      `<div class="sigrow">▸ <b>${s.group}</b> ${s.count}곳 동시 확대<br>` +
-      `<span class="siglist">${s.top.map(t => `${t.issuer} +${t.chg_5d}bp`).join(' · ')}</span></div>`
+    h += `<div class="sig"><div class="sig-t">${t('contagion')}</div>` + A.group_signals.map(s =>
+      `<div class="sigrow">▸ <b>${s.group}</b> ${t('simultaneous')(s.count)}<br>` +
+      `<span class="siglist">${s.top.map(x => `${x.issuer} +${x.chg_5d}bp`).join(' · ')}</span></div>`
     ).join('') + '</div>';
   }
   const groups = {};
   A.items.forEach(r => { (groups[r.group] = groups[r.group] || []).push(r); });
   const order = Object.keys(groups).sort((a, b) => groups[b][0].chg_5d - groups[a][0].chg_5d);
   h += order.map(g =>
-    `<div class="agrp"><div class="agrp-h">${g} <span>${groups[g].length}곳</span></div>` +
+    `<div class="agrp"><div class="agrp-h">${g} <span>${t('issuers_count')(groups[g].length)}</span></div>` +
     groups[g].map(alertCard).join('') + '</div>'
   ).join('');
   el.innerHTML = h;
@@ -179,7 +286,8 @@ function alertCard(r){
       card.querySelector('.chev').textContent = '▾';
     });
   });
-})();
+}
+_rerender.push(renderAlerts);
 
 // ---- table (grouped by industry) ----
 (function(){
@@ -208,7 +316,7 @@ function alertCard(r){
         return (typeof av === 'string' ? av.localeCompare(bv, 'ko') : av - bv) * sortDir;
       });
       const m = med(groups[ind].map(r => r.spread)).toFixed(1);
-      return `<tr class="grp"><td colspan="7">${ind} <span>중앙값 ${m}bp · ${groups[ind].length}개사</span></td></tr>` +
+      return `<tr class="grp"><td colspan="7">${indName(ind)} <span>${t('median')} ${m}bp · ${t('issuers_count')(groups[ind].length)}</span></td></tr>` +
              rows.map(rowHtml).join('');
     }).join('');
   }
@@ -217,6 +325,7 @@ function alertCard(r){
     if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = (k === 'issuer' || k === 'rating') ? 1 : -1; }
     render();
   }));
+  _rerender.push(render);
   render();
 })();
 
@@ -231,12 +340,12 @@ function alertCard(r){
     const peer = s.spread_sm.map((v, i) => v - s.vs_peer[i]);
     const ind = ISSUERS.industries[s.industry];
     const traces = [
-      { x: s.dates.map(fmtD), y: s.spread_sm, mode: 'lines', name: sel.value + ' 스프레드(bp)', line: { width: 2.5, color: '#2563eb' } },
-      { x: s.dates.map(fmtD), y: peer, mode: 'lines', name: s.rating + ' 등급 중간값(bp)',
+      { x: s.dates.map(fmtD), y: s.spread_sm, mode: 'lines', name: t('spread_bp')(sel.value), line: { width: 2.5, color: '#2563eb' } },
+      { x: s.dates.map(fmtD), y: peer, mode: 'lines', name: t('peer_median')(s.rating),
         line: { width: 1.5, dash: 'dash', color: '#999' } }
     ];
     if (ind) traces.push({ x: ind.dates.map(fmtD), y: ind.spread_sm, mode: 'lines',
-      name: s.industry + ' 중간값(bp)', line: { width: 1.5, dash: 'dot', color: '#b45309' } });
+      name: t('ind_median')(indName(s.industry)), line: { width: 1.5, dash: 'dot', color: '#b45309' } });
     Plotly.newPlot('ts', traces, {
       margin: { t: 10, r: 10, b: 40, l: 50 },
       yaxis: { title: 'bp' }, legend: { orientation: 'h', y: -0.28 }, height: 340
@@ -244,6 +353,7 @@ function alertCard(r){
   }
   sel.addEventListener('change', draw);
   sel.value = names.includes('한국전력공사채권') ? '한국전력공사채권' : names[0];
+  _rerender.push(draw);
   draw();
 })();
 </script>

@@ -26,11 +26,14 @@
 </head>
 <body>
 <div class="wrap">
-  <h1>발행자 스프레드 추이</h1>
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h1 data-i18n="title">발행자 스프레드 추이</h1>
+    <button id="langBtn" style="padding:6px 12px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;font-size:13px">EN</button>
+  </div>
   <div class="sub">최근 250거래일 (20240408 ~ 20261016) · 20거래일 이동중앙값 · 유동성 상위 발행자</div>
-  <div style="margin-bottom:16px"><a class="back" style="margin:0" href="../">← 오늘자 스프레드 모니터</a></div>
+  <div style="margin-bottom:16px"><a class="back" style="margin:0" href="../" data-i18n="back">← 오늘자 스프레드 모니터</a></div>
   <div id="sections"></div>
-  <div class="note">20거래일 이동중앙값 기준이라 단기 노이즈가 제거됨.
+  <div class="note" data-i18n="note">20거래일 이동중앙값 기준이라 단기 노이즈가 제거됨.
   단기 = 잔존기간 1년 이하, 장기 = 1년 초과. 같은 회사의 단기 스프레드가 치솟으면
   유동성 경색 신호일 수 있음. 스프레드 = 자사 수익률 − 잔존기간 매칭 국고채 수익률.</div>
 </div>
@@ -38,6 +41,36 @@
 <script>
 (function(){
   const T = window.TRENDS;
+  const I18N = {
+    ko: {
+      title: "발행자 스프레드 추이",
+      back: "← 오늘자 스프레드 모니터",
+      note: "20거래일 이동중앙값 기준이라 단기 노이즈가 제거됨.
+  단기 = 잔존기간 1년 이하, 장기 = 1년 초과. 같은 회사의 단기 스프레드가 치솟으면
+  유동성 경색 신호일 수 있음. 스프레드 = 자사 수익률 − 잔존기간 매칭 국고채 수익률.",
+      short: "단기 (≤1년)", long: "장기 (>1년)", median: "중간값",
+      count: n => `${n}개 발행자 · 20일 이동중앙값`,
+      lang_btn: "EN",
+    },
+    en: {
+      title: "Issuer Spread Trends",
+      back: "← Today's Spread Monitor",
+      note: "20-trading-day rolling medians filter out short-term noise.
+  Short = remaining maturity ≤1Y, Long = >1Y. A spike in a company's short-term spread
+  may signal liquidity stress. Spread = own yield − tenor-matched KTB yield.",
+      short: "Short (≤1Y)", long: "Long (>1Y)", median: "Median",
+      count: n => `${n} issuers · 20d rolling median`,
+      lang_btn: "한",
+    }
+  };
+  const IND_EN = {
+    "은행": "Banks", "카드": "Cards", "캐피탈": "Finance Cos", "금융지주": "Holdings",
+    "증권": "Securities", "보험": "Insurance", "정책금융": "Policy Banks",
+    "공기업": "Public Corps", "국채/통안": "Govt/MSB", "SPC": "SPCs", "일반기업": "Corporates"
+  };
+  let LANG = localStorage.getItem('bond-lang') || 'ko';
+  const t = k => I18N[LANG][k];
+  const indName = ind => LANG === 'en' ? (IND_EN[ind] || ind) : ind;
   const fmtD = d => d.slice(0, 4) + '-' + d.slice(4, 6) + '-' + d.slice(6);
   const dates = T.dates.map(fmtD);
   const groups = {};
@@ -45,15 +78,22 @@
     (groups[s.industry] = groups[s.industry] || []).push([name, s]);
   });
   const order = Object.keys(groups).sort((a, b) => groups[b].length - groups[a].length);
-  const host = document.getElementById('sections');
-  host.innerHTML = order.map((ind, i) =>
-    `<div class="card"><h2>${ind}</h2>` +
-    `<div class="meta">${groups[ind].length}개 발행자 · 20일 이동중앙값</div>` +
-    `<div class="trow">` +
-    `<div class="tcol"><h3>단기 (≤1년)</h3><div class="chart" id="ch${i}s"></div></div>` +
-    `<div class="tcol"><h3>장기 (&gt;1년)</h3><div class="chart" id="ch${i}l"></div></div>` +
-    `</div></div>`
-  ).join('');
+  function renderSections(){
+    const host = document.getElementById('sections');
+    host.innerHTML = order.map((ind, i) =>
+      `<div class="card"><h2>${indName(ind)}</h2>` +
+      `<div class="meta">${t('count')(groups[ind].length)}</div>` +
+      `<div class="trow">` +
+      `<div class="tcol"><h3>${t('short')}</h3><div class="chart" id="ch${i}s"></div></div>` +
+      `<div class="tcol"><h3>${t('long')}</h3><div class="chart" id="ch${i}l"></div></div>` +
+      `</div></div>`
+    ).join('');
+    order.forEach((ind, i) => {
+      const members = groups[ind].sort((a, b) => a[0].localeCompare(b[0], 'ko'));
+      drawChart('ch' + i + 's', members, 'short', '#2563eb');
+      drawChart('ch' + i + 'l', members, 'long', '#c93a3e');
+    });
+  }
   function medOf(members, key) {
     return dates.map((_, di) => {
       const vs = members.map(([, s]) => s[key][di]).filter(v => v != null).sort((a, b) => a - b);
@@ -68,7 +108,7 @@
       line: { width: 1.5, color: color }, opacity: 0.55,
       hovertemplate: '%{y:.1f}bp<extra>' + name + '</extra>'
     }));
-    traces.push({ x: dates, y: medOf(members, key), mode: 'lines', name: '중간값',
+    traces.push({ x: dates, y: medOf(members, key), mode: 'lines', name: t('median'),
       line: { width: 3, color: '#111' } });
     Plotly.newPlot(id, traces, {
       margin: { t: 10, r: 10, b: 40, l: 45 },
@@ -76,11 +116,23 @@
       height: 260
     }, { displayModeBar: false, responsive: true });
   }
-  order.forEach((ind, i) => {
-    const members = groups[ind].sort((a, b) => a[0].localeCompare(b[0], 'ko'));
-    drawChart('ch' + i + 's', members, 'short', '#2563eb');
-    drawChart('ch' + i + 'l', members, 'long', '#c93a3e');
+  function applyI18n(){
+    document.documentElement.lang = LANG === 'ko' ? 'ko' : 'en';
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const v = t(el.dataset.i18n);
+      if (typeof v === 'string') el.textContent = v;
+    });
+    document.title = t('title') + " — " + (LANG === 'ko' ? "회사채 신용 스프레드 모니터" : "Corporate Bond Credit Spread Monitor");
+    const lb = document.getElementById('langBtn');
+    if (lb) lb.textContent = t('lang_btn');
+    renderSections();
+  }
+  document.getElementById('langBtn').addEventListener('click', () => {
+    LANG = LANG === 'ko' ? 'en' : 'ko';
+    localStorage.setItem('bond-lang', LANG);
+    applyI18n();
   });
+  applyI18n();
 })();
 </script>
 </body>
