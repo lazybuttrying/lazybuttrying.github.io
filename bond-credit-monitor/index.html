@@ -31,6 +31,8 @@
   .alert[data-clickable]:hover { background: #ffefef; }
   .chev { color: #c93a3e; font-size: 12px; }
   .bondwrap { margin: -4px 0 8px; }
+  .bondrow td { background: #fafafa; padding: 0 !important; }
+  .bondrow .bonds { border: none; border-radius: 0; }
   .bonds { background: #fafafa; border: 1px solid #eee; border-radius: 8px;
            padding: 8px 12px; font-size: 12.5px; }
   .bond { display: flex; justify-content: space-between; gap: 8px; padding: 5px 0;
@@ -321,8 +323,9 @@ _rerender.push(renderAlerts);
   let sortKey = 'spread', sortDir = -1;
   function fmt(v, suf){ return v == null ? '-' : (v > 0 ? '+' : '') + v + (suf || ''); }
   function rowHtml(r){
-    return `<tr>
-      <td><b>${r.issuer}</b>${r.in_universe ? '' : ' <span style="color:#aaa">·</span>'}</td>
+    const hasB = (window.BONDS || {})[r.issuer];
+    return `<tr${hasB ? ` data-issuer="${r.issuer}" style="cursor:pointer"` : ''}>
+      <td><b>${r.issuer}</b>${r.in_universe ? '' : ' <span style="color:#aaa">·</span>'}${hasB ? ' <span style="color:#aaa;font-size:10px">▸</span>' : ''}</td>
       <td>${r.rating || '-'}</td><td>${r.spread}</td>
       <td class="${r.vs_peer >= 20 ? 'up' : ''}">${fmt(r.vs_peer)}</td>
       <td class="${r.chg_5d >= 15 ? 'up' : (r.chg_5d <= -15 ? 'dn' : '')}">${fmt(r.chg_5d)}</td>
@@ -351,6 +354,18 @@ _rerender.push(renderAlerts);
     if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = (k === 'issuer' || k === 'rating') ? 1 : -1; }
     render();
   }));
+  // table row click -> bond drill-down
+  tb.addEventListener('click', e => {
+    const tr = e.target.closest('tr[data-issuer]');
+    if (!tr) return;
+    const iss = tr.dataset.issuer;
+    const next = tr.nextElementSibling;
+    if (next && next.classList.contains('bondrow')) { next.remove(); return; }
+    const br = document.createElement('tr');
+    br.className = 'bondrow';
+    br.innerHTML = `<td colspan="7">${bondRows(iss)}</td>`;
+    tr.after(br);
+  });
   _rerender.push(render);
   render();
 })();
