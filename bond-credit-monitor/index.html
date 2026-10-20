@@ -89,6 +89,7 @@
       <thead><tr>
         <th data-k="issuer" data-i18n="th_issuer">발행자</th><th data-k="rating" data-i18n="th_rating">등급</th>
         <th data-k="spread" data-i18n="th_spread">스프레드(bp)</th><th data-k="vs_peer" data-i18n="th_vs_peer">동급대비(bp)</th>
+        <th data-k="z_90d" data-i18n="th_z">정상대비(z)</th>
         <th data-k="chg_5d" data-i18n="th_chg5d">5일변화</th><th data-k="chg_20d" data-i18n="th_chg20d">20일변화</th>
         <th data-k="n" data-i18n="th_n">거래건수</th>
       </tr></thead>
@@ -99,7 +100,7 @@
   </div>
 
   <div class="card">
-    <h2><span data-i18n="trend_title">발행자 추이</span> <span style="font-weight:400;font-size:12px"><a href="./trends/" data-i18n="trends_link">산업별 전체 추이 →</a></span></h2>
+    <h2><span data-i18n="trend_title">발행자 추이</span> <span style="font-weight:400;font-size:12px"><a href="./trends/" data-i18n="trends_link">산업별 전체 추이 →</a> · <a href="./concepts/" data-i18n="concepts_link">신용평가 개념 가이드 →</a></span></h2>
     <select id="issuerSel"></select>
     <div id="ts"></div>
   </div>
@@ -124,10 +125,11 @@ ko: {
   alerts_note: "최근 5거래일간 스프레드가 15bp 이상 벌어진 발행자. 시장이 해당 회사의 신용위험을 다시 가격하기 시작했다는 신호일 수 있음. (5일 이동중앙값 기준, 일 3건 이상 거래된 발행자만 집계)",
   table_title: "발행자 스프레드 (최신일 기준)",
   th_issuer: "발행자", th_rating: "등급", th_spread: "스프레드(bp)", th_vs_peer: "동급대비(bp)",
-  th_chg5d: "5일변화", th_chg20d: "20일변화", th_n: "거래건수",
+  th_chg5d: "5일변화", th_chg20d: "20일변화", th_n: "거래건수", th_z: "정상대비(z)",
   table_note: "스프레드 = 회사채 수익률 − 잔존기간 매칭 국채 수익률 (거래대금 가중평균). 동급대비 = 동일 신용등급 발행자들의 중간값 대비 괴리. 양수 = 동급보다 위험하게 거래됨.",
   trend_title: "발행자 추이",
   trends_link: "산업별 전체 추이 →",
+  concepts_link: "신용평가 개념 가이드 →",
   lang_btn: "EN",
   no_alerts: "현재 5일 기준 급격한 스프레드 확대 종목 없음",
   alerts_sub: n => `5일간 15bp 이상 확대 ${n}곳 — 클릭하면 보유 채권 나열`,
@@ -168,10 +170,11 @@ en: {
   alerts_note: "Issuers whose spreads widened 15bp+ over 5 trading days. May signal the market repricing credit risk. (5-day rolling median, issuers with 3+ trades/day only)",
   table_title: "Issuer Spreads (Latest)",
   th_issuer: "Issuer", th_rating: "Rating", th_spread: "Spread(bp)", th_vs_peer: "vs Peer(bp)",
-  th_chg5d: "5d Chg", th_chg20d: "20d Chg", th_n: "Trades",
+  th_chg5d: "5d Chg", th_chg20d: "20d Chg", th_n: "Trades", th_z: "vs Normal(z)",
   table_note: "Spread = corporate yield − tenor-matched KTB yield (amount-weighted). vs Peer = deviation from same-rating median. Positive = trading riskier than peers.",
   trend_title: "Issuer Trends",
   trends_link: "All trends by industry →",
+  concepts_link: "Credit concepts guide →",
   lang_btn: "한",
   no_alerts: "No issuers with sharp spread widening over 5 days",
   alerts_sub: n => `${n} issuers widened 15bp+ in 5d — click for bond list`,
@@ -328,6 +331,7 @@ _rerender.push(renderAlerts);
       <td><b>${r.issuer}</b>${r.in_universe ? '' : ' <span style="color:#aaa">·</span>'}${hasB ? ' <span style="color:#aaa;font-size:10px">▸</span>' : ''}</td>
       <td>${r.rating || '-'}</td><td>${r.spread}</td>
       <td class="${r.vs_peer >= 20 ? 'up' : ''}">${fmt(r.vs_peer)}</td>
+      <td class="${r.z_90d >= 2 ? 'up' : (r.z_90d <= -2 ? 'dn' : '')}">${r.z_90d == null ? '-' : (r.z_90d > 0 ? '+' : '') + r.z_90d}</td>
       <td class="${r.chg_5d >= 15 ? 'up' : (r.chg_5d <= -15 ? 'dn' : '')}">${fmt(r.chg_5d)}</td>
       <td class="${r.chg_20d >= 30 ? 'up' : (r.chg_20d <= -30 ? 'dn' : '')}">${fmt(r.chg_20d)}</td>
       <td>${r.n}</td></tr>`;
@@ -345,7 +349,7 @@ _rerender.push(renderAlerts);
         return (typeof av === 'string' ? av.localeCompare(bv, 'ko') : av - bv) * sortDir;
       });
       const m = med(groups[ind].map(r => r.spread)).toFixed(1);
-      return `<tr class="grp"><td colspan="7">${indName(ind)} <span>${t('median')} ${m}bp · ${t('issuers_count')(groups[ind].length)}</span></td></tr>` +
+      return `<tr class="grp"><td colspan="8">${indName(ind)} <span>${t('median')} ${m}bp · ${t('issuers_count')(groups[ind].length)}</span></td></tr>` +
              rows.map(rowHtml).join('');
     }).join('');
   }
@@ -363,7 +367,7 @@ _rerender.push(renderAlerts);
     if (next && next.classList.contains('bondrow')) { next.remove(); return; }
     const br = document.createElement('tr');
     br.className = 'bondrow';
-    br.innerHTML = `<td colspan="7">${bondRows(iss)}</td>`;
+    br.innerHTML = `<td colspan="8">${bondRows(iss)}</td>`;
     tr.after(br);
   });
   _rerender.push(render);
