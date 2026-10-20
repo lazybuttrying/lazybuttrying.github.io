@@ -1,0 +1,1 @@
+import{b as e}from"./preload-helper-CDb91EIY.js";import{t}from"./vendor-katex-CjL-v9K_.js";function n(n,r){n.replaceChildren();for(let i of e(r))if(i.kind===`math`){let e=document.createElement(`span`);t.render(i.tex,e,{displayMode:!1,throwOnError:!1}),n.append(e)}else n.append(document.createTextNode(i.text))}export{n as renderRichText};

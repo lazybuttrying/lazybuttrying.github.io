@@ -2,38 +2,32 @@
 <html lang="ko">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="MWG Microeconomic Theory Part I: interactive visualizations of preference, demand, production, and uncertainty." />
     <title>Microeconomics</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
-    <script type="module" crossorigin src="/microeconomics/assets/home-DvHQEDmu.js"></script>
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-intro-micro-qrkK-yXo.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-preference-choice-DHADeoDM.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-consumer-choice-m85Yr5r8.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-classical-demand-HYUGGD7x.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-aggregate-demand-D_kTyFjK.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-production-CO2LaqYD.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-uncertainty-Zj78zDyC.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-game-theory-Dgn0fDje.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-competitive-markets-D_p70Q9f.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-externalities-public-goods-DpBBm9Vu.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-market-power-DNLAmu1k.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-equilibrium-welfare-B2VR0sR8.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-ge-positive-theory-C6PNadC8.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-ge-foundations-0K6FfXkG.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-ge-uncertainty-u1SZn0tz.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-ge-time-DRiKbBY5.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-social-choice-D6duL_pF.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-information-economics-Cni0dOXr.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-adverse-selection-D4jDG0F3.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-principal-agent-D3onbzlg.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-mechanism-design-R8JcHTBO.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-implementation-CoXD6M9B.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/preload-helper-CLK5qKkW.js">
-    <link rel="stylesheet" crossorigin href="/microeconomics/assets/preload-helper-Bv8OIvWp.css">
+    <script>
+      (function () {
+        var BASE = '/microeconomics/';
+        var CHAPTERS = ["intro-micro","preference-choice","consumer-choice","classical-demand","aggregate-demand","production","uncertainty","game-theory","competitive-markets","externalities-public-goods","market-power","equilibrium-welfare","ge-positive-theory","ge-foundations","ge-uncertainty","ge-time","social-choice","information-economics","adverse-selection","principal-agent","mechanism-design","implementation"];
+        var stored = null;
+        try { stored = localStorage.getItem('lang'); } catch (e) {}
+        var lang = stored === 'en' || stored === 'ko' ? stored : 'ko';
+        var rel = location.pathname.indexOf(BASE) === 0
+          ? location.pathname.slice(BASE.length)
+          : location.pathname.replace(/^\//, '');
+        var segments = rel.split('/').filter(Boolean);
+        var first = segments[0] || '';
+        var target;
+        if (first === 'ko' || first === 'en') {
+          target = BASE + first + '/';
+        } else if (CHAPTERS.indexOf(first) !== -1) {
+          target = BASE + lang + '/' + segments.join('/') + '/' + location.search;
+        } else {
+          target = BASE + lang + '/';
+        }
+        location.replace(target);
+      })();
+    </script>
   </head>
   <body>
-    <div id="app"></div>
+    <p>Page not found. <a href="/microeconomics/ko/">한국어 홈</a> · <a href="/microeconomics/en/">English home</a></p>
   </body>
 </html>

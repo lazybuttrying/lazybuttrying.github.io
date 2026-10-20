@@ -1,0 +1,1 @@
+var e=class{sum=0;compensation=0;add(e){let t=e-this.compensation,n=this.sum+t;this.compensation=n-this.sum-t,this.sum=n}get value(){return this.sum}};export{e as t};
