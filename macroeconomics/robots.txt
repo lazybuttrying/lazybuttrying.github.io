@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sdykim.me/macroeconomics/sitemap.xml
