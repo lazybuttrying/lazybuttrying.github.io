@@ -1,14 +1,12 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="MWG Microeconomic Theory Part I: interactive visualizations of preference, demand, production, and uncertainty." />
     <title>Microeconomics</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js"></script>
-    <script type="module" crossorigin src="/microeconomics/assets/home-2lH7mJNn.js"></script>
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-intro-micro-DLqMdvhV.js">
+    <script type="module" crossorigin src="/microeconomics/assets/home-DOPd67e3.js"></script>
+    <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-intro-micro-Dm73WiJB.js">
     <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-preference-choice-DHADeoDM.js">
     <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-consumer-choice-m85Yr5r8.js">
     <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-classical-demand-HYUGGD7x.js">
@@ -30,10 +28,224 @@
     <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-principal-agent-D3onbzlg.js">
     <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-mechanism-design-R8JcHTBO.js">
     <link rel="modulepreload" crossorigin href="/microeconomics/assets/meta-implementation-CoXD6M9B.js">
-    <link rel="modulepreload" crossorigin href="/microeconomics/assets/preload-helper-C3CQzomp.js">
+    <link rel="modulepreload" crossorigin href="/microeconomics/assets/preload-helper-DBZKzBgj.js">
     <link rel="stylesheet" crossorigin href="/microeconomics/assets/preload-helper-Bv8OIvWp.css">
+      <meta name="description" content="Interactive visualizations for learning the ideas of MWG Microeconomic Theory, Part I (Individual Decision-Making), by moving them yourself." />
+    <link rel="canonical" href="https://sdykim.me/microeconomics/en/" />
+    <link rel="alternate" hreflang="ko" href="https://sdykim.me/microeconomics/ko/" />
+    <link rel="alternate" hreflang="en" href="https://sdykim.me/microeconomics/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://sdykim.me/microeconomics/ko/" />
+    <meta property="og:title" content="Microeconomics" />
+    <meta property="og:description" content="Interactive visualizations for learning the ideas of MWG Microeconomic Theory, Part I (Individual Decision-Making), by moving them yourself." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sdykim.me/microeconomics/en/" />
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app"><h1>Microeconomics</h1>
+<p>Interactive visualizations for learning the ideas of MWG Microeconomic Theory, Part I (Individual Decision-Making), by moving them yourself.</p>
+<ul>
+<li><a href="/microeconomics/en/intro-micro/">1. Intro to Microeconomics</a> — First steps in microeconomics — no calculus, learn by touching sliders. From gasoline prices and lunch menus to cafes, subscriptions, and cigarette taxes: see the logic behind everyday choices.</li>
+<li><a href="/microeconomics/en/preference-choice/">2. Preference and Choice</a> — Foundations of rational choice — from the axioms of preference relations to choice rules and WARP.</li>
+<li><a href="/microeconomics/en/consumer-choice/">3. Consumer Choice</a> — The geometry of the budget set and Walrasian demand — how price and income shifts move the demand curve.</li>
+<li><a href="/microeconomics/en/classical-demand/">4. Classical Demand Theory</a> — From indifference curves through utility maximization and the Slutsky decomposition to duality with expenditure minimization — the heart of demand theory.</li>
+<li><a href="/microeconomics/en/aggregate-demand/">5. Aggregate Demand</a> — What survives when individual demands are added up — the properties of aggregate demand and the representative consumer.</li>
+<li><a href="/microeconomics/en/production/">6. Production</a> — From isoquants through cost minimization to average and marginal cost curves — a tour of producer theory.</li>
+<li><a href="/microeconomics/en/uncertainty/">7. Choice under Uncertainty</a> — From expected utility through the measurement of risk aversion to the demand for insurance — choice in the face of uncertain prospects.</li>
+<li><a href="/microeconomics/en/game-theory/">8. Game Theory</a> — The grammar of strategic choice — from normal-form games and best responses through Nash equilibrium, mixed strategies, backward induction in dynamic games, and repeated games.</li>
+<li><a href="/microeconomics/en/competitive-markets/">9. Competitive Markets</a> — Price is set where supply meets demand, and a tax wedged between them evaporates welfare exactly equal to the Harberger triangle.</li>
+<li><a href="/microeconomics/en/externalities-public-goods/">10. Externalities and Public Goods</a> — Two scenes of market failure — externalities, where harm to others goes unpriced, and public goods, which everyone uses but no one buys.</li>
+<li><a href="/microeconomics/en/market-power/">11. Market Power</a> — The economics of the price-setter — monopoly marginal revenue, Cournot reaction functions, and the art of charging each consumer a different price.</li>
+<li><a href="/microeconomics/en/equilibrium-welfare/">12. Equilibrium and Welfare</a> — Find competitive equilibrium in the Edgeworth box and see Pareto efficiency and the two welfare theorems with your own eyes.</li>
+<li><a href="/microeconomics/en/ge-positive-theory/">13. The Positive Theory of Equilibrium</a> — Does equilibrium exist, is it unique, can we get there — answered through the geometry of excess demand and tatonnement dynamics.</li>
+<li><a href="/microeconomics/en/ge-foundations/">14. Foundations of Competitive Equilibrium</a> — Why is the price mechanism justified — the cooperative foundations of competitive equilibrium, via the shrinking core and blocking coalitions.</li>
+<li><a href="/microeconomics/en/ge-uncertainty/">15. General Equilibrium under Uncertainty</a> — State-contingent commodities and Arrow–Debreu equilibrium — the mutuality principle of full insurance and the scarcity premium in state prices.</li>
+<li><a href="/microeconomics/en/ge-time/">16. Equilibrium and Time</a> — Two-period interest determination and overlapping generations — present-value budgets, credit market clearing, and the infinite-horizon warning.</li>
+<li><a href="/microeconomics/en/social-choice/">17. Social Choice and Welfare</a> — Arrow's impossibility theorem and social welfare functions — the trade-offs of preference aggregation and inequality aversion.</li>
+<li><a href="/microeconomics/en/information-economics/">18. Economics of Information</a> — Information is itself a good — how much a signal improves a decision, and when to stop searching optimally.</li>
+<li><a href="/microeconomics/en/adverse-selection/">19. Adverse Selection and Signaling</a> — When information is asymmetric, how markets unravel — and how they save themselves: the lemons market, education signaling, and screening menus.</li>
+<li><a href="/microeconomics/en/principal-agent/">20. The Principal-Agent Problem</a> — What does a contract look like when effort is unobservable — find the optimal performance pay where incentive compatibility meets participation, then decide whether the incentives are worth buying.</li>
+<li><a href="/microeconomics/en/mechanism-design/">21. Mechanism Design</a> — Focus on direct mechanisms via the revelation principle, design the optimal auction with virtual values, then verify numerically why truth-telling is dominant in a second-price auction.</li>
+<li><a href="/microeconomics/en/implementation/">22. Implementation Theory</a> — Can a desired social choice rule be &quot;implemented&quot; as the outcome of Nash equilibrium — see the mandatory screening test, Maskin monotonicity, with your own eyes.</li>
+</ul>
+<p><a href="/microeconomics/en/glossary/">Glossary</a></p>
+<section class="home-map">
+<h2>Concept Map</h2>
+<p>All scenes linked by prerequisite relations. Drag nodes, zoom in, and click a node to open its scene.</p>
+<div class="map-mount">
+<section>
+<h2>1. Intro to Microeconomics</h2>
+<ul>
+<li><a href="/microeconomics/en/intro-micro/supply-demand/">Where Demand Meets Supply</a></li>
+<li><a href="/microeconomics/en/intro-micro/consumer-choice/">Splitting the Lunch Budget</a> <span class="path-step-chapter">← <a href="/microeconomics/en/competitive-markets/supply-demand/">Supply, Demand, and Equilibrium</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/costs/">The Cafe Owner's Math</a> <span class="path-step-chapter">← <a href="/microeconomics/en/intro-micro/consumer-choice/">Splitting the Lunch Budget</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/market-power/">Competition vs Monopoly</a> <span class="path-step-chapter">← <a href="/microeconomics/en/intro-micro/costs/">The Cafe Owner's Math</a>, <a href="/microeconomics/en/competitive-markets/supply-demand/">Supply, Demand, and Equilibrium</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/policy/">Taxes and Price Ceilings</a> <span class="path-step-chapter">← <a href="/microeconomics/en/competitive-markets/supply-demand/">Supply, Demand, and Equilibrium</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/oligopoly/">Two Firms Watching Each Other</a> <span class="path-step-chapter">← <a href="/microeconomics/en/intro-micro/market-power/">Competition vs Monopoly</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/externality/">The Factory and the River</a> <span class="path-step-chapter">← <a href="/microeconomics/en/intro-micro/policy/">Taxes and Price Ceilings</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/commons/">Tragedy of the Shared Pasture</a> <span class="path-step-chapter">← <a href="/microeconomics/en/externalities-public-goods/externality/">Externalities and the Pigouvian Tax</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/rent/">Why Does the Superstar Earn So Much?</a> <span class="path-step-chapter">← <a href="/microeconomics/en/intro-micro/commons/">Tragedy of the Shared Pasture</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/pricing-schemes/">The Amusement Park Pricing Puzzle</a> <span class="path-step-chapter">← <a href="/microeconomics/en/intro-micro/market-power/">Competition vs Monopoly</a></span></li>
+<li><a href="/microeconomics/en/intro-micro/tax-types/">Three Ways to Tax</a> <span class="path-step-chapter">← <a href="/microeconomics/en/intro-micro/policy/">Taxes and Price Ceilings</a></span></li>
+</ul>
+</section>
+<section>
+<h2>2. Preference and Choice</h2>
+<ul>
+<li><a href="/microeconomics/en/preference-choice/preference-relations/">Preference Relations and Axioms</a></li>
+<li><a href="/microeconomics/en/preference-choice/choice-and-warp/">Choice Rules and WARP</a> <span class="path-step-chapter">← <a href="/microeconomics/en/preference-choice/preference-relations/">Preference Relations and Axioms</a></span></li>
+</ul>
+</section>
+<section>
+<h2>3. Consumer Choice</h2>
+<ul>
+<li><a href="/microeconomics/en/consumer-choice/budget-set/">The Budget Set</a></li>
+<li><a href="/microeconomics/en/consumer-choice/walrasian-demand/">Walrasian Demand and the Demand Curve</a> <span class="path-step-chapter">← <a href="/microeconomics/en/consumer-choice/budget-set/">The Budget Set</a></span></li>
+</ul>
+</section>
+<section>
+<h2>4. Classical Demand Theory</h2>
+<ul>
+<li><a href="/microeconomics/en/classical-demand/indifference-curves/">Indifference Curves and MRS</a></li>
+<li><a href="/microeconomics/en/classical-demand/utility-maximization/">Utility Maximization</a> <span class="path-step-chapter">← <a href="/microeconomics/en/classical-demand/indifference-curves/">Indifference Curves and MRS</a></span></li>
+<li><a href="/microeconomics/en/classical-demand/slutsky/">The Slutsky Decomposition</a> <span class="path-step-chapter">← <a href="/microeconomics/en/classical-demand/utility-maximization/">Utility Maximization</a></span></li>
+<li><a href="/microeconomics/en/classical-demand/expenditure-duality/">Expenditure Minimization and Duality</a> <span class="path-step-chapter">← <a href="/microeconomics/en/classical-demand/utility-maximization/">Utility Maximization</a>, <a href="/microeconomics/en/classical-demand/slutsky/">The Slutsky Decomposition</a></span></li>
+</ul>
+</section>
+<section>
+<h2>5. Aggregate Demand</h2>
+<ul>
+<li><a href="/microeconomics/en/aggregate-demand/aggregation/">Aggregating Demand</a></li>
+<li><a href="/microeconomics/en/aggregate-demand/representative-consumer/">The Representative Consumer</a> <span class="path-step-chapter">← <a href="/microeconomics/en/aggregate-demand/aggregation/">Aggregating Demand</a></span></li>
+</ul>
+</section>
+<section>
+<h2>6. Production</h2>
+<ul>
+<li><a href="/microeconomics/en/production/isoquants/">Isoquants</a></li>
+<li><a href="/microeconomics/en/production/cost-minimization/">Cost Minimization</a> <span class="path-step-chapter">← <a href="/microeconomics/en/production/isoquants/">Isoquants</a></span></li>
+<li><a href="/microeconomics/en/production/cost-curves/">Cost Curves</a> <span class="path-step-chapter">← <a href="/microeconomics/en/production/cost-minimization/">Cost Minimization</a></span></li>
+</ul>
+</section>
+<section>
+<h2>7. Choice under Uncertainty</h2>
+<ul>
+<li><a href="/microeconomics/en/uncertainty/expected-utility/">Expected Utility</a></li>
+<li><a href="/microeconomics/en/uncertainty/risk-aversion/">Measuring Risk Aversion</a> <span class="path-step-chapter">← <a href="/microeconomics/en/uncertainty/expected-utility/">Expected Utility</a></span></li>
+<li><a href="/microeconomics/en/uncertainty/insurance/">Demand for Insurance</a> <span class="path-step-chapter">← <a href="/microeconomics/en/uncertainty/expected-utility/">Expected Utility</a></span></li>
+</ul>
+</section>
+<section>
+<h2>8. Game Theory</h2>
+<ul>
+<li><a href="/microeconomics/en/game-theory/normal-form/">Normal-Form Games and Best Responses</a></li>
+<li><a href="/microeconomics/en/game-theory/mixed-strategies/">Mixed Strategies and the Indifference Condition</a> <span class="path-step-chapter">← <a href="/microeconomics/en/game-theory/normal-form/">Normal-Form Games and Best Responses</a></span></li>
+<li><a href="/microeconomics/en/game-theory/zero-sum/">Zero-Sum Games and Minimax</a> <span class="path-step-chapter">← <a href="/microeconomics/en/game-theory/mixed-strategies/">Mixed Strategies and the Indifference Condition</a></span></li>
+<li><a href="/microeconomics/en/game-theory/nash-equilibrium/">Nash Equilibrium and Best-Response Correspondences</a></li>
+<li><a href="/microeconomics/en/game-theory/dominance/">Iterated Elimination of Strictly Dominated Strategies</a> <span class="path-step-chapter">← <a href="/microeconomics/en/game-theory/nash-equilibrium/">Nash Equilibrium and Best-Response Correspondences</a></span></li>
+<li><a href="/microeconomics/en/game-theory/game-tree/">Extensive-Form Games and Backward Induction</a></li>
+<li><a href="/microeconomics/en/game-theory/repeated-games/">Repeated Games and Cooperation</a> <span class="path-step-chapter">← <a href="/microeconomics/en/game-theory/game-tree/">Extensive-Form Games and Backward Induction</a></span></li>
+</ul>
+</section>
+<section>
+<h2>9. Competitive Markets</h2>
+<ul>
+<li><a href="/microeconomics/en/competitive-markets/supply-demand/">Supply, Demand, and Equilibrium</a></li>
+<li><a href="/microeconomics/en/competitive-markets/welfare/">Tax vs Quota: Deadweight Loss</a> <span class="path-step-chapter">← <a href="/microeconomics/en/competitive-markets/supply-demand/">Supply, Demand, and Equilibrium</a></span></li>
+</ul>
+</section>
+<section>
+<h2>10. Externalities and Public Goods</h2>
+<ul>
+<li><a href="/microeconomics/en/externalities-public-goods/externality/">Externalities and the Pigouvian Tax</a></li>
+<li><a href="/microeconomics/en/externalities-public-goods/public-goods/">Public Goods and Free-Riding</a> <span class="path-step-chapter">← <a href="/microeconomics/en/externalities-public-goods/externality/">Externalities and the Pigouvian Tax</a></span></li>
+</ul>
+</section>
+<section>
+<h2>11. Market Power</h2>
+<ul>
+<li><a href="/microeconomics/en/market-power/monopoly/">Monopoly: Marginal Revenue and Deadweight Loss</a></li>
+<li><a href="/microeconomics/en/market-power/cournot/">Cournot Oligopoly</a> <span class="path-step-chapter">← <a href="/microeconomics/en/market-power/monopoly/">Monopoly: Marginal Revenue and Deadweight Loss</a></span></li>
+<li><a href="/microeconomics/en/market-power/price-discrimination/">Price Discrimination</a> <span class="path-step-chapter">← <a href="/microeconomics/en/market-power/monopoly/">Monopoly: Marginal Revenue and Deadweight Loss</a></span></li>
+</ul>
+</section>
+<section>
+<h2>12. Equilibrium and Welfare</h2>
+<ul>
+<li><a href="/microeconomics/en/equilibrium-welfare/edgeworth-box/">The Edgeworth Box and Competitive Equilibrium</a></li>
+<li><a href="/microeconomics/en/equilibrium-welfare/welfare-theorems/">The Two Welfare Theorems</a> <span class="path-step-chapter">← <a href="/microeconomics/en/equilibrium-welfare/edgeworth-box/">The Edgeworth Box and Competitive Equilibrium</a></span></li>
+</ul>
+</section>
+<section>
+<h2>13. The Positive Theory of Equilibrium</h2>
+<ul>
+<li><a href="/microeconomics/en/ge-positive-theory/tatonnement/">Tatonnement Dynamics</a></li>
+<li><a href="/microeconomics/en/ge-positive-theory/excess-demand/">Excess Demand: Existence and Uniqueness</a> <span class="path-step-chapter">← <a href="/microeconomics/en/ge-positive-theory/tatonnement/">Tatonnement Dynamics</a></span></li>
+</ul>
+</section>
+<section>
+<h2>14. Foundations of Competitive Equilibrium</h2>
+<ul>
+<li><a href="/microeconomics/en/ge-foundations/core-convergence/">Shrinking of the Core (Debreu–Scarf)</a></li>
+<li><a href="/microeconomics/en/ge-foundations/blocking/">Blocking Coalitions</a> <span class="path-step-chapter">← <a href="/microeconomics/en/ge-foundations/core-convergence/">Shrinking of the Core (Debreu–Scarf)</a></span></li>
+</ul>
+</section>
+<section>
+<h2>15. General Equilibrium under Uncertainty</h2>
+<ul>
+<li><a href="/microeconomics/en/ge-uncertainty/arrow-debreu/">Arrow–Debreu Equilibrium</a></li>
+<li><a href="/microeconomics/en/ge-uncertainty/state-prices/">State Prices and Scarcity</a> <span class="path-step-chapter">← <a href="/microeconomics/en/ge-uncertainty/arrow-debreu/">Arrow–Debreu Equilibrium</a></span></li>
+</ul>
+</section>
+<section>
+<h2>16. Equilibrium and Time</h2>
+<ul>
+<li><a href="/microeconomics/en/ge-time/intertemporal/">Intertemporal Equilibrium and the Interest Rate</a></li>
+<li><a href="/microeconomics/en/ge-time/olg/">Overlapping Generations and the Golden Rule</a> <span class="path-step-chapter">← <a href="/microeconomics/en/ge-time/intertemporal/">Intertemporal Equilibrium and the Interest Rate</a></span></li>
+</ul>
+</section>
+<section>
+<h2>17. Social Choice and Welfare</h2>
+<ul>
+<li><a href="/microeconomics/en/social-choice/arrow-theorem/">Arrow's Theorem</a></li>
+<li><a href="/microeconomics/en/social-choice/welfare-functions/">Social Welfare Functions</a> <span class="path-step-chapter">← <a href="/microeconomics/en/social-choice/arrow-theorem/">Arrow's Theorem</a></span></li>
+</ul>
+</section>
+<section>
+<h2>18. Economics of Information</h2>
+<ul>
+<li><a href="/microeconomics/en/information-economics/value-of-information/">The Value of Information</a></li>
+<li><a href="/microeconomics/en/information-economics/search/">Optimal Sequential Search</a> <span class="path-step-chapter">← <a href="/microeconomics/en/information-economics/value-of-information/">The Value of Information</a></span></li>
+</ul>
+</section>
+<section>
+<h2>19. Adverse Selection and Signaling</h2>
+<ul>
+<li><a href="/microeconomics/en/adverse-selection/lemons/">Akerlof's Lemons Market</a></li>
+<li><a href="/microeconomics/en/adverse-selection/signaling/">Education Signaling</a> <span class="path-step-chapter">← <a href="/microeconomics/en/adverse-selection/lemons/">Akerlof's Lemons Market</a></span></li>
+<li><a href="/microeconomics/en/adverse-selection/screening/">Screening Menus</a> <span class="path-step-chapter">← <a href="/microeconomics/en/adverse-selection/signaling/">Education Signaling</a></span></li>
+</ul>
+</section>
+<section>
+<h2>20. The Principal-Agent Problem</h2>
+<ul>
+<li><a href="/microeconomics/en/principal-agent/moral-hazard/">Moral Hazard and Incentives</a></li>
+<li><a href="/microeconomics/en/principal-agent/participation/">Which Effort to Implement</a> <span class="path-step-chapter">← <a href="/microeconomics/en/principal-agent/moral-hazard/">Moral Hazard and Incentives</a></span></li>
+</ul>
+</section>
+<section>
+<h2>21. Mechanism Design</h2>
+<ul>
+<li><a href="/microeconomics/en/mechanism-design/revelation/">The Revelation Principle and Optimal Auctions</a></li>
+<li><a href="/microeconomics/en/mechanism-design/vickrey/">Second-Price Auction: Truth-Telling Is Dominant</a> <span class="path-step-chapter">← <a href="/microeconomics/en/mechanism-design/revelation/">The Revelation Principle and Optimal Auctions</a></span></li>
+</ul>
+</section>
+<section>
+<h2>22. Implementation Theory</h2>
+<ul>
+<li><a href="/microeconomics/en/implementation/nash-implementation/">Maskin Monotonicity</a></li>
+</ul>
+</section>
+</div>
+</section></div>
   </body>
 </html>
