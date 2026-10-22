@@ -1,0 +1,21 @@
+var e=[{id:`small-economy-gdp`,difficulty:1,topics:[`gdp-flow`],statement:{ko:String.raw`작은 나라의 소비가 \(C = 250\), 투자가 \(I = 100\), 정부지출이 \(G = 90\), 순수출이 \(NX = -40\)이다.
+
+GDP와 소비의 몫을 구하라.`,en:String.raw`A small economy has consumption \(C = 250\), investment \(I = 100\), government spending \(G = 90\), and net exports \(NX = -40\).
+
+Find GDP and the consumption share.`},solution:[{text:{ko:String.raw`GDP는 지출의 합이다: \(250 + 100 + 90 - 40 = 400\).`,en:String.raw`GDP is the sum of spending: \(250 + 100 + 90 - 40 = 400\).`}},{text:{ko:String.raw`소비의 몫은 \(250 / 400 = 0.625\), 즉 \(62.5\%\)다. 순수출이 마이너스여도 소비는 여전히 원의 대부분을 차지한다.`,en:String.raw`The consumption share is \(250 / 400 = 0.625\), that is \(62.5\%\). Even with negative net exports, consumption still fills most of the circle.`}}],viz:{sceneId:`gdp-flow`,preset:{cons:250,inv:100,gov:90,nx:-40},presetCaption:{ko:String.raw`GDP \(400\)인 경제 — 소비가 \(62.5\%\)를 차지한다.`,en:String.raw`A \(400\) GDP economy — consumption takes \(62.5\%\).`}}},{id:`three-schools-shock-five`,difficulty:2,topics:[`schools-map`],statement:{ko:String.raw`수요 충격이 산출 격차를 \(-5\%\)로 만들었다.
+
+(1) 케인즈 세계에서 \(10\)기간 뒤 격차는?
+
+(2) 새케인즈 세계에서 \(3\)기간 뒤 격차와 물가수준(시작 \(100\))은?`,en:String.raw`A demand shock sets the output gap to \(-5\%\).
+
+(1) In the Keynesian world, what is the gap after \(10\) periods?
+
+(2) In the New Keynesian world, what are the gap and the price level (starting at \(100\)) after \(3\) periods?`},solution:[{text:{ko:String.raw`(1) 케인즈는 가격이 얼어붙었다고 본다 (\(\lambda = 0\)). 격차는 \(g_t = -5 \cdot (1 - 0)^t = -5\) — \(10\)기간이 지나도 처음 그대로다.`,en:String.raw`(1) Keynes treats prices as frozen (\(\lambda = 0\)). The gap is \(g_t = -5 \cdot (1 - 0)^t = -5\) — after \(10\) periods it is exactly where it started.`}},{text:{ko:String.raw`(2) 새케인즈에서는 격차가 매 기간 \(0.6\)배가 된다: \(g_3 = -5 \cdot 0.6^3 = -5 \cdot 0.216 = -1.08\%\).
+
+그 사이 물가는 \(5 \cdot (1 - 0.216) = 3.92\)만큼 내려와 \(100 - 3.92 = 96.08\)이다.
+
+남은 격차 \(1.08\)과 물가가 메운 \(3.92\)를 더하면 충격 \(5\)와 정확히 일치한다.`,en:String.raw`(2) In the New Keynesian world the gap shrinks to \(0.6\) of itself each period: \(g_3 = -5 \cdot 0.6^3 = -5 \cdot 0.216 = -1.08\%\).
+
+Meanwhile prices fall by \(5 \cdot (1 - 0.216) = 3.92\), leaving the price level at \(100 - 3.92 = 96.08\).
+
+The remaining gap, \(1.08\), plus what prices absorbed, \(3.92\), adds back up to exactly the shock, \(5\).`}}],viz:{sceneId:`schools-map`,preset:{shock:5,regime:`new-keynesian`,horizon:12},presetCaption:{ko:String.raw`충격 \(5\), 새케인즈 — 격차가 \(0.6\)배씩 줄어드는 경로.`,en:String.raw`Shock \(5\), New Keynesian — the gap shrinking by a factor of \(0.6\) each period.`}}}];export{e as exercises};

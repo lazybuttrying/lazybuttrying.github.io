@@ -1,0 +1,25 @@
+var e=[{id:`coffee-price-quadruples`,difficulty:1,topics:[`price-vs-level`],statement:{ko:String.raw`☕ 커피 \(2\), 🍞 빵 \(4\), 월급 \(100\)인 경제에서 커피값만 \(8\)로 네 배가 됐다.
+
+커피와 빵 소비량, 물가 지수, 실질 소득을 구하라.`,en:String.raw`In an economy with ☕ coffee at \(2\), 🍞 bread at \(4\), and pay of \(100\), the coffee price alone quadruples to \(8\).
+
+Find coffee and bread consumption, the price index, and real income.`},solution:[{text:{ko:String.raw`커피는 소득의 절반을 쓰는 재화라, 가격이 네 배가 되면 양은 \(\frac{1}{4}\)이 된다: \(x_1 = 0.5 \cdot 100 / 8 = 6.25\)잔. 빵 지출은 소득의 절반 그대로라 \(x_2 = 0.5 \cdot 100 / 4 = 12.5\)개로 변하지 않는다.`,en:String.raw`Coffee always takes half of income, so quadrupling its price quarters the quantity: \(x_1 = 0.5 \cdot 100 / 8 = 6.25\) cups. Bread spending is still half of income, so \(x_2 = 0.5 \cdot 100 / 4 = 12.5\) loaves, unchanged.`}},{text:{ko:String.raw`물가 지수는 원래 장바구니(커피 \(25\), 빵 \(12.5\))를 새 가격으로 산 값이다: \((8 \cdot 25 + 4 \cdot 12.5) / 100 = 2.5\), 즉 \(250\).
+
+실질 소득은 \(100 / 2.5 = 40\)이다.
+
+한 재화의 가격만 뛰어도 물가는 오르고 실질 소득은 깎인다 — 상대 가격 변화와 물가 상승이 겹친 경우다.`,en:String.raw`The price index re-prices the base basket (\(25\) cups, \(12.5\) loaves): \((8 \cdot 25 + 4 \cdot 12.5) / 100 = 2.5\), an index of \(250\).
+
+Real income is \(100 / 2.5 = 40\).
+
+One good's price jumping alone still lifts the price level and cuts real income — a relative-price change and a level rise rolled into one.`}}],viz:{sceneId:`price-vs-level`,preset:{coffee:8,inflate:!1},presetCaption:{ko:String.raw`커피값만 \(8\) — 커피는 \(6.25\)잔으로, 지수는 \(250\)으로.`,en:String.raw`Coffee alone at \(8\) — coffee falls to \(6.25\) cups, the index rises to \(250\).`}}},{id:`eight-percent-money`,difficulty:2,topics:[`quantity-theory`],statement:{ko:String.raw`어떤 나라의 통화 증가율이 연 \(8\%\), 실질 성장률이 연 \(2\%\)이고 유통속도는 일정하다.
+
+(1) 인플레이션율은?
+
+(2) \(5\)년 뒤 물가수준(시작 \(100\))은?
+
+(3) 실질 화폐잔고는 어떻게 변하는가?`,en:String.raw`A country's money supply grows at \(8\%\) a year, real output at \(2\%\) a year, and velocity is constant.
+
+(1) What is inflation?
+
+(2) Where is the price level (starting at \(100\)) after \(5\) years?
+
+(3) What happens to real money balances?`},solution:[{text:{ko:String.raw`(1) 인플레이션은 통화 증가에서 실질 성장이 흡수한 몫을 뺀 나머지다: \(\pi = 8 - 2 = 6\%\).`,en:String.raw`(1) Inflation is money growth minus the share absorbed by real growth: \(\pi = 8 - 2 = 6\%\).`}},{text:{ko:String.raw`(2) 물가는 매년 \(1.06\)배가 된다: \(P(5) = 100 \cdot 1.06^5 \approx 133.8\).`,en:String.raw`(2) Prices multiply by \(1.06\) each year: \(P(5) = 100 \cdot 1.06^5 \approx 133.8\).`}},{text:{ko:String.raw`(3) 실질 화폐잔고 \(M / P\)는 돈이 \(8\%\), 물가가 \(6\%\)로 자라니 대략 연 \(2\%\)씩 늘어난다 — 정확히는 \(5\)년 뒤 \(100 \cdot (1.08 / 1.06)^5 \approx 109.8\)이다. 유통속도가 일정하면 \(M / P = Y / V\)라서, 실질 잔고는 실질 산출과 나란히 자랄 수밖에 없다.`,en:String.raw`(3) Real balances \(M / P\) grow at roughly \(2\%\) a year, since money grows at \(8\%\) and prices at \(6\%\) — exactly, \(100 \cdot (1.08 / 1.06)^5 \approx 109.8\) after \(5\) years. With velocity constant, \(M / P = Y / V\), so real balances have no choice but to grow alongside real output.`}}],viz:{sceneId:`quantity-theory`,preset:{moneyGrowth:8,realGrowth:2,velRising:!1},presetCaption:{ko:String.raw`통화 증가 \(8\%\), 실질 성장 \(2\%\) — 물가 경로는 연 \(6\%\)로 오른다.`,en:String.raw`Money growth \(8\%\), real growth \(2\%\) — the price path climbs at \(6\%\) a year.`}}}];export{e as exercises};

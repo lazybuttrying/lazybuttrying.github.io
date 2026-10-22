@@ -1,0 +1,33 @@
+var e=[{id:`saving-too-much`,difficulty:2,topics:[`solow`],statement:{ko:String.raw`감가상각률이 \(\delta = 0.1\)인 Solow 경제에서 정상상태 소비 \(c^* = y^* - \delta k^*\)를 저축률 \(s = 0.2\), \(s = 0.4\), \(s = 0.8\)에 대해 각각 구하라.
+
+저축을 늘릴수록 정상상태에서 먹는 양도 늘까?`,en:String.raw`In a Solow economy with depreciation \(\delta = 0.1\), find steady-state consumption \(c^* = y^* - \delta k^*\) for saving rates \(s = 0.2\), \(s = 0.4\), and \(s = 0.8\).
+
+Does eating more in the steady state always follow from saving more?`},solution:[{text:{ko:String.raw`\(s = 0.2\): \(y^* = 2\), \(k^* = 4\)라서 낡은 기계를 갈아 끼우는 데 \(\delta k^* = 0.4\)가 들고 \(c^* = 2 - 0.4 = 1.6\)이다.
+
+\(s = 0.4\): \(y^* = 4\), \(k^* = 16\), 교체 비용 \(1.6\), \(c^* = 4 - 1.6 = 2.4\)다.
+
+여기까지는 저축이 소비를 늘린다.`,en:String.raw`For \(s = 0.2\): \(y^* = 2\) and \(k^* = 4\), so replacing worn machines costs \(\delta k^* = 0.4\) and \(c^* = 2 - 0.4 = 1.6\).
+
+For \(s = 0.4\): \(y^* = 4\), \(k^* = 16\), replacement costs \(1.6\), and \(c^* = 4 - 1.6 = 2.4\).
+
+Up to here, saving more does mean eating more.`}},{text:{ko:String.raw`그런데 \(s = 0.8\)이면 \(y^* = 8\), \(k^* = 64\)가 되어 교체 비용만 \(6.4\)가 들고 \(c^* = 8 - 6.4 = 1.6\)으로 도로 줄어든다.
+
+기계를 너무 많이 쌓으면 산출의 대부분이 그 기계를 유지하는 데 새어 나가기 때문이다.
+
+정상상태 소비는 \(s = 0.5\)에서 \(c^* = 2.5\)로 꼭짓점을 찍는다.`,en:String.raw`But at \(s = 0.8\), \(y^* = 8\) and \(k^* = 64\), replacement alone eats \(6.4\), and \(c^* = 8 - 6.4 = 1.6\) — back down again.
+
+Pile up too many machines and most of the output leaks into maintaining them.
+
+Steady-state consumption peaks at \(s = 0.5\), where \(c^* = 2.5\).`}}],viz:{sceneId:`solow`,preset:{saving:.4,depr:.1,start:`poor`},presetCaption:{ko:String.raw`저축률 \(0.4\) — 정상상태 \(k^* = 16\), \(y^* = 4\), \(c^* = 2.4\).`,en:String.raw`Saving rate \(0.4\) — steady state \(k^* = 16\), \(y^* = 4\), \(c^* = 2.4\).`}}},{id:`patience-ladder`,difficulty:3,topics:[`ramsey-dp`],statement:{ko:String.raw`이자율 \(r = 0.04\), 소득 \(y = 4\)인 가계가 자산 \(a = 10\)을 들고 있다.
+
+인내심이 \(\beta = 0.80\), \(0.90\), \(0.95\)일 때 최적의 다음 기간 자산을 각각 구하고, 이 가계가 자산을 줄이지 않게 되는 가장 작은 \(\beta\) (소수 둘째 자리 격자)를 찾아라.`,en:String.raw`A household with interest rate \(r = 0.04\) and income \(y = 4\) holds assets \(a = 10\).
+
+Find its optimal next-period assets for patience \(\beta = 0.80\), \(0.90\), and \(0.95\), then find the smallest \(\beta\) (on a two-decimal grid) at which this household stops running its assets down.`},solution:[{text:{ko:String.raw`가치 반복으로 구한 규칙을 자산 \(10\)에서 읽으면: \(\beta = 0.80\)이면 \(a' = 4\) (소비 \(10.4\)), \(\beta = 0.90\)이면 \(a' = 7\) (소비 \(7.4\)), \(\beta = 0.95\)이면 \(a' = 9\) (소비 \(5.4\))다. 자원은 셋 다 \((1.04)(10) + 4 = 14.4\)로 같고, 인내심이 한 칸 오를 때마다 오늘의 접시에서 내일의 곳간으로 옮겨 간다.`,en:String.raw`Reading the value-iteration policy at assets \(10\): \(\beta = 0.80\) gives \(a' = 4\) (consumption \(10.4\)), \(\beta = 0.90\) gives \(a' = 7\) (consumption \(7.4\)), and \(\beta = 0.95\) gives \(a' = 9\) (consumption \(5.4\)). Resources are \(14.4\) in all three cases — each step of patience moves food from today's plate to tomorrow's storehouse.`}},{text:{ko:String.raw`자산이 줄지 않으려면 \(a' \ge 10\)이 필요하다.
+
+\(\beta = 0.95\)에서는 \(a' = 9\)로 아직 한 칸 모자라고, \(\beta = 0.96\)에서 \(a' = 10\) (소비 \(4.4\))이 되어 처음으로 제자리를 지킨다.
+
+이 경계는 \(\beta (1 + r) = 1\), 즉 \(\beta = 1 / 1.04 \approx 0.9615\) 근처에 있다: 이자를 감안한 인내심이 정확히 균형을 이루는 지점이다.`,en:String.raw`Not running assets down requires \(a' \ge 10\).
+
+At \(\beta = 0.95\), \(a' = 9\) still falls one step short; at \(\beta = 0.96\), \(a' = 10\) (consumption \(4.4\)) holds the line for the first time.
+
+The border sits near where \(\beta (1 + r) = 1\), that is \(\beta = 1 / 1.04 \approx 0.9615\): the point where patience, grossed up by the interest rate, exactly balances.`}}],viz:{sceneId:`ramsey-dp`,preset:{rate:.04,patience:.9},presetCaption:{ko:String.raw`이자율 \(0.04\), 인내심 \(0.90\) — 자산 \(10\)에서 소비 \(7.4\), 저축 \(7\).`,en:String.raw`Rate \(0.04\), patience \(0.90\) — at assets \(10\): consumption \(7.4\), saving \(7\).`}}}];export{e as exercises};
