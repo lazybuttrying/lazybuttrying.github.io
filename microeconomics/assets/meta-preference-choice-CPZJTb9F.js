@@ -1,0 +1,53 @@
+var e=[{id:`warp-violation`,statement:{ko:String.raw`상황 1 \((p, w) = ((1,1), 60)\)에서 \(x = (10, 50)\)을, 상황 2 \((p', w') = ((2,1), 90)\)에서 \(y = (30, 30)\)을 선택했다.
+
+두 묶음이 모두 각자의 예산 안에 있는지 확인하고, WARP가 위반되는지 판정하라.`,en:String.raw`The consumer chose \(x = (10, 50)\) in situation 1 \((p, w) = ((1,1), 60)\) and \(y = (30, 30)\) in situation 2 \((p', w') = ((2,1), 90)\).
+
+Check that both bundles are inside their budgets and decide whether WARP is violated.`},display:[String.raw`p \cdot y = 60 \le 60 = p \cdot x \quad\Rightarrow\quad x \succsim^* y`,String.raw`p' \cdot x = 70 \le 90 = p' \cdot y \quad\Rightarrow\quad y \succsim^* x`],preset:{x1:10,x2:50,y1:30,y2:30},presetCaption:{ko:String.raw`\(x = (10, 50)\), \(y = (30, 30)\) — 양방향 현시선호, WARP 위반.`,en:String.raw`\(x = (10, 50)\), \(y = (30, 30)\) — revealed preference both ways, WARP violated.`},proof:[{text:{ko:String.raw`예산 확인: \(p \cdot x = 10 + 50 = 60 \le 60\), \(p' \cdot y = 60 + 30 = 90 \le 90\) — 둘 다 예산선 위에 있어 투영되지 않는다.`,en:String.raw`Budget check: \(p \cdot x = 10 + 50 = 60 \le 60\) and \(p' \cdot y = 60 + 30 = 90 \le 90\) — both sit on their budget lines, so no clamping occurs.`}},{text:{ko:String.raw`상황 1에서 \(y\)의 비용은 \(p \cdot y = 30 + 30 = 60 \le 60 = p \cdot x\)이다. \(y\)도 살 수 있었는데 \(x\)를 골랐으므로 \(x\)가 \(y\)보다 현시선호된다: \(x \succsim^* y\).`,en:String.raw`In situation 1, \(y\) costs \(p \cdot y = 30 + 30 = 60 \le 60 = p \cdot x\). Since \(y\) was affordable but \(x\) was chosen, \(x\) is revealed preferred to \(y\): \(x \succsim^* y\).`}},{text:{ko:String.raw`상황 2에서 \(x\)의 비용은 \(p' \cdot x = 20 + 50 = 70 \le 90 = p' \cdot y\)이다.
+
+\(x\)도 살 수 있었는데 \(y\)를 골랐으므로 \(y \succsim^* x\)이다.
+
+양방향 현시선호가 서로 다른 두 묶음에 대해 성립하므로 WARP가 위반된다 — 이 선택 쌍을 합리화하는 선호관계는 존재하지 않는다.`,en:String.raw`In situation 2, \(x\) costs \(p' \cdot x = 20 + 50 = 70 \le 90 = p' \cdot y\).
+
+Since \(x\) was affordable but \(y\) was chosen, \(y \succsim^* x\).
+
+Revealed preference runs both ways between two distinct bundles, so WARP is violated — no preference relation can rationalize this pair of choices.`}}]},{id:`warp-holds`,statement:{ko:String.raw`상황 1에서 \(x = (30, 30)\)을, 상황 2에서 \(y = (10, 70)\)을 선택했다.
+
+현시선호가 어느 방향으로만 성립하는지 보이고, WARP가 성립함을 확인하라.`,en:String.raw`The consumer chose \(x = (30, 30)\) in situation 1 and \(y = (10, 70)\) in situation 2.
+
+Show in which single direction revealed preference holds, and verify that WARP holds.`},display:[String.raw`p \cdot y = 80 > 60 = p \cdot x`,String.raw`p' \cdot x = 90 \le 90 = p' \cdot y \quad\Rightarrow\quad y \succsim^* x`],preset:{x1:30,x2:30,y1:10,y2:70},presetCaption:{ko:String.raw`\(x = (30, 30)\), \(y = (10, 70)\) — 한 방향 현시선호만, WARP 성립.`,en:String.raw`\(x = (30, 30)\), \(y = (10, 70)\) — revealed preference one way only, WARP holds.`},proof:[{text:{ko:String.raw`예산 확인: \(p \cdot x = 60 \le 60\), \(p' \cdot y = 20 + 70 = 90 \le 90\) — 투영 없음.`,en:String.raw`Budget check: \(p \cdot x = 60 \le 60\) and \(p' \cdot y = 20 + 70 = 90 \le 90\) — no clamping.`}},{text:{ko:String.raw`상황 1에서 \(y\)의 비용은 \(p \cdot y = 10 + 70 = 80 > 60 = p \cdot x\)이다. \(y\)는 애초에 살 수 없었으므로 \(x\)에 대한 현시선호는 성립하지 않는다.`,en:String.raw`In situation 1, \(y\) costs \(p \cdot y = 10 + 70 = 80 > 60 = p \cdot x\). Since \(y\) was not affordable at all, there is no revealed preference for \(x\).`}},{text:{ko:String.raw`상황 2에서 \(x\)의 비용은 \(p' \cdot x = 60 + 30 = 90 \le 90 = p' \cdot y\)이므로 \(y \succsim^* x\)이다. 현시선호가 한 방향으로만 성립하므로 WARP가 성립한다 — 이 데이터는 효용극대화와 모순되지 않는다.`,en:String.raw`In situation 2, \(x\) costs \(p' \cdot x = 60 + 30 = 90 \le 90 = p' \cdot y\), so \(y \succsim^* x\). Revealed preference holds in only one direction, so WARP holds — this data does not contradict utility maximization.`}}]}],t=[{id:`cd-ranking`,statement:{ko:String.raw`\(u(x_1, x_2) = x_1^{0.4} x_2^{0.6}\)인 콥-더글러스 소비자가 있다.
+
+두 묶음 \(A = (4, 3)\), \(B = (3, 5)\)의 효용을 직접 계산하고 어느 쪽이 더 선호되는지 판정하라.`,en:String.raw`A Cobb-Douglas consumer has \(u(x_1, x_2) = x_1^{0.4} x_2^{0.6}\).
+
+Compute the utility of the two bundles \(A = (4, 3)\) and \(B = (3, 5)\) directly and decide which is preferred.`},display:[String.raw`x \succsim y \iff u(x) \ge u(y)`],preset:{family:`Cobb-Douglas`,a:.4,ax1:4,ax2:3,bx1:3,bx2:5},presetCaption:{ko:String.raw`\(a = 0.4\), \(A = (4, 3)\), \(B = (3, 5)\) — 무차별곡선 2개와 판정.`,en:String.raw`\(a = 0.4\), \(A = (4, 3)\), \(B = (3, 5)\) — two indifference curves and the verdict.`},proof:[{text:{ko:String.raw`로그를 취하면 \(a = 0.4\)일 때 \(\ln u = 0.4 \ln x_1 + 0.6 \ln x_2\)이다.`,en:String.raw`Taking logs with \(a = 0.4\) gives \(\ln u = 0.4 \ln x_1 + 0.6 \ln x_2\).`}},{text:{ko:String.raw`\(A\)에 대해 \(\ln u(A) = 0.4 \ln 4 + 0.6 \ln 3 \approx 0.5545 + 0.6592 = 1.2137\)이므로 \(u(A) \approx 3.37\)이다.`,en:String.raw`For \(A\): \(\ln u(A) = 0.4 \ln 4 + 0.6 \ln 3 \approx 0.5545 + 0.6592 = 1.2137\), so \(u(A) \approx 3.37\).`}},{text:{ko:String.raw`\(B\)에 대해 \(\ln u(B) = 0.4 \ln 3 + 0.6 \ln 5 \approx 0.4394 + 0.9657 = 1.4051\)이므로 \(u(B) \approx 4.08\)이다. \(u(B) > u(A)\)이므로 \(B \succ A\) — 그림에서 \(B\)를 지나는 점선 무차별곡선이 \(A\)의 실선보다 바깥에 있다.`,en:String.raw`For \(B\): \(\ln u(B) = 0.4 \ln 3 + 0.6 \ln 5 \approx 0.4394 + 0.9657 = 1.4051\), so \(u(B) \approx 4.08\). Since \(u(B) > u(A)\), \(B \succ A\) — in the picture the dashed indifference curve through \(B\) lies outside the solid one through \(A\).`}}]},{id:`complements-kink`,statement:{ko:String.raw`완전보완재 효용 \(u(x_1, x_2) = \min\{x_1, x_2\}\)를 생각하자.
+
+\(A = (4, 4)\)와 \(B = (6, 4)\) 중 어느 쪽이 선호되는가?
+
+\(B\)가 \(x_1\)을 더 많이 가졌는데도 답이 달라지지 않는 이유를 설명하라.`,en:String.raw`Consider perfect-complements utility \(u(x_1, x_2) = \min\{x_1, x_2\}\).
+
+Which of \(A = (4, 4)\) and \(B = (6, 4)\) is preferred?
+
+Explain why the answer does not change even though \(B\) has more \(x_1\).`},display:[String.raw`u(A) = \min\{4, 4\} = 4, \qquad u(B) = \min\{6, 4\} = 4`],preset:{family:`Perfect complements`,a:.4,ax1:4,ax2:4,bx1:6,bx2:4},presetCaption:{ko:String.raw`완전보완재, \(A = (4, 4)\), \(B = (6, 4)\) — \(B\)는 \(A\)의 무차별곡선 위에 있다.`,en:String.raw`Perfect complements, \(A = (4, 4)\), \(B = (6, 4)\) — \(B\) sits on \(A\)'s indifference curve.`},proof:[{text:{ko:String.raw`\(u(A) = \min\{4, 4\} = 4\), \(u(B) = \min\{6, 4\} = 4\)이므로 \(A \sim B\) — 무차별하다.`,en:String.raw`\(u(A) = \min\{4, 4\} = 4\) and \(u(B) = \min\{6, 4\} = 4\), so \(A \sim B\) — the consumer is indifferent.`}},{text:{ko:String.raw`완전보완재의 무차별곡선은 \((4, 4)\)에서 꺾이는 L자이다.
+
+\(B = (6, 4)\)는 그 L자의 수평 가지 위에 정확히 놓인다 — \(x_2 = 4\)가 묶여 있는 한 \(x_1\)을 4에서 6으로 늘려도 효용이 전혀 오르지 않는다.
+
+이것이 "완전보완"의 의미이다: 짝을 이루지 못한 재화의 추가분은 가치가 없다.`,en:String.raw`The indifference curve is L-shaped with its kink at \((4, 4)\).
+
+\(B = (6, 4)\) lies exactly on the horizontal arm of that L — with \(x_2\) stuck at 4, raising \(x_1\) from 4 to 6 adds no utility at all.
+
+That is what "perfect complements" means: unmatched extra units of a good are worthless.`}}]}],n={id:`preference-choice`,title:{ko:`선호와 선택`,en:`Preference and Choice`},summary:{ko:`합리적 선택의 기초 — 선호관계의 공리에서 선택규칙과 약현시선호공리(WARP)까지.`,en:`Foundations of rational choice — from the axioms of preference relations to choice rules and WARP.`},scenes:[{id:`preference-relations`,title:{ko:`선호관계와 공리`,en:`Preference Relations and Axioms`},order:1,summary:{ko:String.raw`이 씬에서는 선호를 2재화 평면에 직접 그려 본다.
+
+어떤 두 묶음이든 더 좋은 쪽을 고를 수 있어야 한다. 순서가 앞뒤로 꼬이면 안 된다. 이런 순서는 아래 식처럼 효용 숫자로 적을 수 있다. 효용함수 형태를 바꾸면 곡선 지도가 바뀐다. 공리가 깨지면 무슨 일이 생기는지도 본다.
+
+예를 들면, 🍎 사과 묶음이 🍌 바나나 묶음보다 좋다고 해보자. 바나나 묶음은 🍞 빵 묶음보다 좋다. 그러면 사과 묶음이 빵 묶음보다 좋아야 앞뒤가 맞는다.`,en:String.raw`This scene draws your preferences on the two-good plane.
+
+A ranking is rational when nothing is left unranked. It also never loops back on itself. Such a ranking can be written as utility numbers, as in the formula below. Change the utility family and the whole curve map changes. You also see what breaks when an axiom fails.
+
+For example, suppose a 🍎 apple bundle beats a 🍌 banana bundle. And the banana bundle beats a 🍞 bread bundle. Then the apple bundle must beat the bread bundle too.`},tex:[String.raw`x \succsim y \iff u(x) \ge u(y)`,String.raw`\text{complete} + \text{transitive} \Rightarrow \text{rational}`],controls:[{kind:`select`,key:`family`,label:{ko:`효용함수 형태`,en:`utility family`},options:[`Cobb-Douglas`,`Perfect substitutes`,`Perfect complements`],init:`Cobb-Douglas`},{kind:`slider`,key:`a`,label:{ko:`콥-더글러스 지수 a`,en:`Cobb-Douglas exponent a`},min:.2,max:.8,step:.05,init:.4},{kind:`slider`,key:`ax1`,label:{ko:`묶음 A의 x1`,en:`bundle A x1`},min:.5,max:10,step:.1,init:4},{kind:`slider`,key:`ax2`,label:{ko:`묶음 A의 x2`,en:`bundle A x2`},min:.5,max:10,step:.1,init:3},{kind:`slider`,key:`bx1`,label:{ko:`묶음 B의 x1`,en:`bundle B x1`},min:.5,max:10,step:.1,init:3},{kind:`slider`,key:`bx2`,label:{ko:`묶음 B의 x2`,en:`bundle B x2`},min:.5,max:10,step:.1,init:5}],problems:t},{id:`choice-and-warp`,title:{ko:`선택규칙과 WARP`,en:`Choice Rules and WARP`},order:2,summary:{ko:String.raw`이 씬에서는 두 가지 예산 상황에서 묶음을 직접 골라 본다.
+
+고른 묶음은 그 사람의 취향을 드러낸다. 살 수 있었는데 안 산 묶음은 고른 것보다 못하다고 본다. 그런데 두 상황이 서로의 선택을 뒤집으면 모순이다. 그 모순을 잡는 규칙이 아래 식의 WARP다.
+
+예를 들면, 💰 돈 1,000원이 있어 🍎 사과를 골랐는데 🍌 바나나도 살 수 있었다. 다음 날 바나나를 골랐는데 사과도 살 수 있었다. 두 선택이 서로를 뒤집어 모순이 된다.`,en:String.raw`In this scene you pick bundles yourself under two different budgets.
+
+A chosen bundle reveals what you like. A bundle you could afford but skipped counts as worse. If two situations flip each other's picks, that is a contradiction. The formula below, WARP, is the rule that catches it.
+
+For example, you have 💰 1,000 won and pick 🍎 apples, though 🍌 bananas cost no more. The next day you pick bananas, though apples cost no more. Your two picks now contradict each other.`},tex:[String.raw`x \text{ chosen at } (p,w),\ p\cdot y \le w \Rightarrow y \text{ not chosen at } (p',w') \text{ when } p'\cdot x \le w'`],prerequisites:[`preference-relations`],controls:[{kind:`slider`,key:`x1`,label:{ko:`상황 1 선택 x1`,en:`situation 1 choice x1`},min:0,max:60,step:1,init:30},{kind:`slider`,key:`x2`,label:{ko:`상황 1 선택 x2`,en:`situation 1 choice x2`},min:0,max:60,step:1,init:30},{kind:`slider`,key:`y1`,label:{ko:`상황 2 선택 y1`,en:`situation 2 choice y1`},min:0,max:90,step:1,init:45},{kind:`slider`,key:`y2`,label:{ko:`상황 2 선택 y2`,en:`situation 2 choice y2`},min:0,max:90,step:1,init:45}],problems:e}]};export{n as t};
