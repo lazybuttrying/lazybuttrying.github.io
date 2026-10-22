@@ -1,0 +1,41 @@
+var e=[{id:`sell-the-lottery-ticket`,difficulty:2,topics:[`expected-utility-vs-profit`],statement:{ko:String.raw`반반의 확률로 \(180\) 아니면 \(20\)을 받는 복권을 공짜로 받았다 (기대값 \(100\)).
+
+효용이 \(u(x) = \sqrt{x}\)라면, 이 복권을 확실한 금액과 맞바꾸는 매각 제안을 어디까지 받아들일 수 있는가?
+
+그리고 같은 복권을 손실 보험으로 읽으면 공정 보험료와 최대 보험료는 얼마인가?`,en:String.raw`You are handed, for free, a lottery ticket that pays \(180\) or \(20\) with equal probability (expected value \(100\)).
+
+With utility \(u(x) = \sqrt{x}\), what is the smallest sure amount you would trade the ticket for?
+
+Read as insurance against the loss instead, what are the fair premium and the maximum premium?`},solution:[{text:{ko:String.raw`기대효용은 \(EU = 0.5\sqrt{180} + 0.5\sqrt{20} \approx 8.94\)다.
+
+확실성 등가는 \(CE = EU^2 = \frac{1}{4}(180 + 20 + 2\sqrt{180 \cdot 20}) = \frac{1}{4}(200 + 120) = 80\)이다.
+
+확실한 \(80\) 이상을 주면 팔고, 그 아래면 복권을 들고 있는 편이 낫다.`,en:String.raw`Expected utility is \(EU = 0.5\sqrt{180} + 0.5\sqrt{20} \approx 8.94\).
+
+The certainty equivalent is \(CE = EU^2 = \frac{1}{4}(180 + 20 + 2\sqrt{180 \cdot 20}) = \frac{1}{4}(200 + 120) = 80\).
+
+Sell for any sure \(80\) or more; below that, keep the ticket.`}},{text:{ko:String.raw`위험 프리미엄은 \(100 - 80 = 20\)이다: 기대값 \(100\)짜리 도박이 확실한 \(80\)과 맞먹는다. 보험으로 읽으면 손실 \(160\)이 확률 \(0.5\)로 닥치니 공정 보험료는 \(0.5 \cdot 160 = 80\)이고, 최대 보험료는 \(180 - 80 = 100\) — 공정 보험료에 위험 프리미엄 \(20\)을 얹은 값과 정확히 일치한다.`,en:String.raw`The risk premium is \(100 - 80 = 20\): a gamble worth \(100\) on average feels like a sure \(80\). Read as insurance, a loss of \(160\) hits with probability \(0.5\), so the fair premium is \(0.5 \cdot 160 = 80\) and the maximum premium is \(180 - 80 = 100\) — exactly the fair premium plus the risk premium of \(20\).`}}],viz:{sceneId:`expected-utility-vs-profit`,preset:{prob:.5,spread:80,copies:4},presetCaption:{ko:String.raw`재산 \(180\) 또는 \(20\) — 확실성 등가 \(80\)이 곡선 위에 찍힌다.`,en:String.raw`Wealth \(180\) or \(20\) — the certainty equivalent \(80\) is marked on the curve.`}}},{id:`fear-freezes-both-sides`,difficulty:3,topics:[`uncertainty-shocks`],statement:{ko:String.raw`실직 확률이 \(50\%\)까지 올랐다.
+
+(1) 씬의 가계(오늘 소득 \(100\), 내일 \(60\) 또는 \(20\), \(\beta = 0.9\))는 저축을 얼마로 늘리고 오늘 소비는 얼마가 되는가? 위험이 없을 때와 비교하라.
+
+(2) 같은 씬의 공장 투자(비용 \(100\), 내일 가치 \(110 \pm 12\))는 지금 투자와 기다림 중 어느 쪽이 이기는가? 기다림의 선택지 가치는 얼마인가?`,en:String.raw`The job-loss probability has risen to \(50\%\).
+
+(1) How much does the scene's household (income \(100\) today, \(60\) or \(20\) tomorrow, \(\beta = 0.9\)) save, and what is its consumption today? Compare with the no-risk case.
+
+(2) For the scene's factory investment (cost \(100\), value tomorrow \(110 \pm 12\)), does investing now or waiting win, and what is the option value of waiting?`},solution:[{text:{ko:String.raw`(1) 위험이 없으면 저축은 약 \(11.5\), 오늘 소비는 \(88.5\)다.
+
+실직 확률이 \(0.5\)가 되면 최적 저축은 \(25.25\)로 뛰고 오늘 소비는 \(74.75\)까지 떨어진다.
+
+소득의 평균은 그대로인데도 \(13.75\)만큼 더 저축한다 — 순수하게 두려움이 만든 예비적 저축이다.`,en:String.raw`(1) With no risk, saving is about \(11.5\) and consumption today is \(88.5\).
+
+At a job-loss probability of \(0.5\), optimal saving jumps to \(25.25\) and consumption today falls to \(74.75\).
+
+Average income never changed, yet the household saves \(13.75\) more — precautionary saving made purely of fear.`}},{text:{ko:String.raw`(2) 지금 투자하면 기대이윤은 \(110 - 100 = 10\)이다.
+
+기다리면 나쁜 상태(가치 \(98 < 100\))를 건너뛸 수 있어 \(0.5 \cdot (122 - 100) + 0.5 \cdot 0 = 11\)이고, 한 기간 할인 \(0.95\)를 적용해도 \(10.45 > 10\)이라 기다림이 이긴다.
+
+선택지의 순수 가치는 \(11 - 10 = 1\)이다. 퍼짐 \(12\)는 뒤집힘 문턱인 약 \(11.1\)을 갓 넘은 값이다.`,en:String.raw`(2) Investing now earns expected profit \(110 - 100 = 10\).
+
+Waiting skips the bad state (value \(98 < 100\)), giving \(0.5 \cdot (122 - 100) + 0.5 \cdot 0 = 11\), and even after the one-period discount of \(0.95\) that is \(10.45 > 10\), so waiting wins.
+
+The pure option value is \(11 - 10 = 1\). A spread of \(12\) has just crossed the flip threshold of about \(11.1\).`}},{text:{ko:String.raw`두 결정 모두 평균이 아니라 불확실성에 반응했다. 가계와 기업이 동시에 물러서면 총수요와 투자가 함께 줄고, 이것이 불확실성 충격이 침체가 되는 경로다.`,en:String.raw`Both decisions reacted to uncertainty, not to any average. When households and firms pull back at the same time, aggregate demand and investment fall together — the path by which an uncertainty shock becomes a recession.`}}],viz:{sceneId:`uncertainty-shocks`,preset:{risk:.5,spread:12},presetCaption:{ko:String.raw`실직 확률 \(50\%\), 퍼짐 \(12\) — 저축 막대가 뛰고 기다림이 막 뒤집힌 상태.`,en:String.raw`Job-loss risk \(50\%\), spread \(12\) — saving jumped, and waiting has just taken the lead.`}}}];export{e as exercises};
