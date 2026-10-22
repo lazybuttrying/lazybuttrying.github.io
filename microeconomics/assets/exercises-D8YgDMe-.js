@@ -1,0 +1,57 @@
+var e=[{id:`strict-preference-transitive`,difficulty:1,topics:[`preference-relations`],statement:{ko:String.raw`소비자가 \((5, 1) \succ (3, 3)\)이고 \((3, 3) \succ (2, 4)\)라고 보고했다.
+
+선호관계 \(\succsim\)가 완비적이고 이행적이라고 할 때, \((5, 1)\)과 \((2, 4)\)의 관계에 대해 무엇을 말할 수 있는가?`,en:String.raw`A consumer reports \((5, 1) \succ (3, 3)\) and \((3, 3) \succ (2, 4)\).
+
+If the preference relation \(\succsim\) is complete and transitive, what can be said about \((5, 1)\) versus \((2, 4)\)?`},display:[String.raw`x \succ y \iff x \succsim y \text{ and not } y \succsim x`],solution:[{text:{ko:String.raw`엄밀한 선호 \(\succ\)는 \(\succsim\)가 완비적이고 이행적이면 이행적이다. \((5,1) \succ (3,3)\)이고 \((3,3) \succ (2,4)\)이므로 \((5, 1) \succ (2, 4)\)이다.`,en:String.raw`Strict preference \(\succ\) is transitive whenever \(\succsim\) is complete and transitive. From \((5,1) \succ (3,3)\) and \((3,3) \succ (2,4)\) we get \((5, 1) \succ (2, 4)\).`}},{text:{ko:String.raw`이행성의 증명 스케치: \(x \succsim y\), \(\lnot(y \succsim x)\), \(y \succsim z\), \(\lnot(z \succsim y)\)라 하자.
+
+이행성에 의해 \(x \succsim z\)이다.
+
+만약 \(z \succsim x\)라면 \(y \succsim z \succsim x\)에서 \(y \succsim x\)가 되어 모순이다.
+
+따라서 \(\lnot(z \succsim x)\), 즉 \(x \succ z\)이다.`,en:String.raw`Proof sketch of transitivity: let \(x \succsim y\), \(\lnot(y \succsim x)\), \(y \succsim z\), \(\lnot(z \succsim y)\).
+
+Transitivity gives \(x \succsim z\).
+
+If \(z \succsim x\) held, then \(y \succsim z \succsim x\) would give \(y \succsim x\), a contradiction.
+
+Hence \(\lnot(z \succsim x)\), i.e. \(x \succ z\).`}}]},{id:`substitutes-mrs`,difficulty:2,topics:[`preference-relations`],statement:{ko:String.raw`\(u(x_1, x_2) = x_1 + x_2\)인 완전대체재 소비자를 생각하자.
+
+한계대체율 \(MRS = \frac{\partial u / \partial x_1}{\partial u / \partial x_2}\)를 구하고, \((6, 6)\)을 지나는 무차별곡선의 식을 쓰라.
+
+\(B = (9, 4)\)는 \(A = (6, 6)\)보다 선호되는가?`,en:String.raw`Consider a perfect-substitutes consumer with \(u(x_1, x_2) = x_1 + x_2\).
+
+Find the marginal rate of substitution \(MRS = \frac{\partial u / \partial x_1}{\partial u / \partial x_2}\) and write the equation of the indifference curve through \((6, 6)\).
+
+Is \(B = (9, 4)\) preferred to \(A = (6, 6)\)?`},display:[String.raw`u(x_1, x_2) = x_1 + x_2`],solution:[{text:{ko:String.raw`\(\partial u / \partial x_1 = 1\), \(\partial u / \partial x_2 = 1\)이므로 모든 점에서 \(MRS = 1/1 = 1\)이다 — 재화 1 한 단위를 포기하면 재화 2 한 단위로 정확히 보상된다.`,en:String.raw`\(\partial u / \partial x_1 = 1\) and \(\partial u / \partial x_2 = 1\), so \(MRS = 1/1 = 1\) everywhere — giving up one unit of good 1 is exactly compensated by one unit of good 2.`}},{text:{ko:String.raw`\((6, 6)\)의 효용은 \(12\)이므로 무차별곡선은 \(x_1 + x_2 = 12\), 즉 \(x_2 = 12 - x_1\)인 직선이다. 기울기가 \(-1\)인 직선들의 집합이 무차별곡선 지도 전체이다.`,en:String.raw`Utility at \((6, 6)\) is \(12\), so the indifference curve is \(x_1 + x_2 = 12\), i.e. \(x_2 = 12 - x_1\). The whole indifference map is the family of parallel lines with slope \(-1\).`}},{text:{ko:String.raw`\(u(B) = 9 + 4 = 13 > 12 = u(A)\)이므로 \(B \succ A\)이다. 아래 그림에서 \(B\)를 지나는 점선이 \(A\)의 실선보다 바깥쪽에 있음을 확인하라.`,en:String.raw`\(u(B) = 9 + 4 = 13 > 12 = u(A)\), so \(B \succ A\). In the figure below, check that the dashed line through \(B\) lies outside the solid line through \(A\).`}}],viz:{sceneId:`preference-relations`,preset:{family:`Perfect substitutes`,a:.4,ax1:6,ax2:6,bx1:9,bx2:4},presetCaption:{ko:String.raw`완전대체재, \(A = (6, 6)\), \(B = (9, 4)\) — 기울기 \(-1\)인 직선 무차별곡선.`,en:String.raw`Perfect substitutes, \(A = (6, 6)\), \(B = (9, 4)\) — straight-line indifference curves of slope \(-1\).`}}},{id:`warp-numeric-test`,difficulty:2,topics:[`choice-and-warp`],statement:{ko:String.raw`\((p, w) = ((1, 1), 60)\)에서 \(x = (20, 40)\)을 선택하고, \((p', w') = ((3, 1), 100)\)에서 \(y = (25, 25)\)를 선택했다.
+
+현시선호 관계를 계산하고 WARP 위반 여부를 판정하라.`,en:String.raw`The consumer chose \(x = (20, 40)\) at \((p, w) = ((1, 1), 60)\) and \(y = (25, 25)\) at \((p', w') = ((3, 1), 100)\).
+
+Compute the revealed-preference relations and decide whether WARP is violated.`},display:[String.raw`p \cdot x = 60, \quad p' \cdot y = 100`],solution:[{text:{ko:String.raw`예산 확인: \(p \cdot x = 20 + 40 = 60 \le 60\), \(p' \cdot y = 75 + 25 = 100 \le 100\) — 둘 다 예산 안에 있다.`,en:String.raw`Budget check: \(p \cdot x = 20 + 40 = 60 \le 60\) and \(p' \cdot y = 75 + 25 = 100 \le 100\) — both bundles are affordable.`}},{text:{ko:String.raw`상황 1에서 \(y\)의 비용은 \(p \cdot y = 25 + 25 = 50 \le 60 = p \cdot x\)이다. \(y\)도 살 수 있었으므로 \(x \succsim^* y\)이다.`,en:String.raw`In situation 1, \(y\) costs \(p \cdot y = 25 + 25 = 50 \le 60 = p \cdot x\). Since \(y\) was affordable, \(x \succsim^* y\).`}},{text:{ko:String.raw`상황 2에서 \(x\)의 비용은 \(p' \cdot x = 60 + 40 = 100 \le 100 = p' \cdot y\)이다.
+
+\(x\)도 살 수 있었으므로 \(y \succsim^* x\)이다.
+
+서로 다른 두 묶음에 대해 양방향 현시선호가 성립하므로 WARP가 위반된다.`,en:String.raw`In situation 2, \(x\) costs \(p' \cdot x = 60 + 40 = 100 \le 100 = p' \cdot y\).
+
+Since \(x\) was affordable, \(y \succsim^* x\).
+
+Revealed preference holds both ways between two distinct bundles, so WARP is violated.`},display:[String.raw`x \succsim^* y \text{ and } y \succsim^* x,\ x \ne y \quad\Rightarrow\quad \text{WARP violated}`]}]},{id:`intransitive-cycle`,difficulty:3,topics:[`preference-relations`,`choice-and-warp`],statement:{ko:String.raw`세 묶음 \(A = (4, 4)\), \(B = (5, 2)\), \(C = (2, 5)\)에 대한 쌍별 선택 결과가 다음과 같다(각 쌍에서 유일한 승자가 있다): \(A\)가 \(B\)를 이기고, \(B\)가 \(C\)를 이기며, \(C\)가 \(A\)를 이긴다.
+
+이 세 선택을 모두 합리화하는 완비적이고 이행적인 선호관계 \(\succsim\)는 존재하지 않음을 증명하라.`,en:String.raw`Pairwise choices over the three bundles \(A = (4, 4)\), \(B = (5, 2)\), \(C = (2, 5)\) came out as follows (each pair has a unique winner): \(A\) beats \(B\), \(B\) beats \(C\), and \(C\) beats \(A\).
+
+Prove that no complete and transitive preference relation \(\succsim\) rationalizes all three choices.`},display:[String.raw`A \text{ chosen over } B, \quad B \text{ chosen over } C, \quad C \text{ chosen over } A`],solution:[{text:{ko:String.raw`\(\succsim\)가 세 선택을 합리화한다고 가정하자.
+
+\(\{A, B\}\)에서 \(A\)만 선택되었다는 것은 \(A \succsim B\)이면서 \(\lnot(B \succsim A)\)라는 뜻, 즉 \(A \succ B\)이다.
+
+마찬가지로 \(B \succ C\), \(C \succ A\)를 얻는다.`,en:String.raw`Suppose \(\succsim\) rationalizes the three choices.
+
+That \(A\) alone was chosen from \(\{A, B\}\) means \(A \succsim B\) and \(\lnot(B \succsim A)\), i.e. \(A \succ B\).
+
+Likewise \(B \succ C\) and \(C \succ A\).`}},{text:{ko:String.raw`\(\succsim\)가 완비적이고 이행적이므로 \(\succ\)도 이행적이다(연습 1의 증명). \(A \succ B\)와 \(B \succ C\)에서 \(A \succ C\)를 얻는다.`,en:String.raw`Since \(\succsim\) is complete and transitive, so is \(\succ\) (the proof in exercise 1). From \(A \succ B\) and \(B \succ C\) we get \(A \succ C\).`}},{text:{ko:String.raw`그런데 \(C \succ A\)는 \(C \succsim A\)이면서 \(\lnot(A \succsim C)\)임을 뜻하고, \(A \succ C\)는 \(A \succsim C\)를 요구한다 — 모순이다.
+
+따라서 그런 \(\succsim\)는 존재하지 않는다.
+
+이것이 이행성이 깨질 때 벌어지는 일이다: 순환하는 선택은 어떤 합리적 선호로도 설명되지 않으며, 현시선호 관점에서는 \(A \succsim^* B \succsim^* C \succsim^* A\)라는 WARP 위반이 된다.`,en:String.raw`But \(C \succ A\) means \(C \succsim A\) and \(\lnot(A \succsim C)\), while \(A \succ C\) requires \(A \succsim C\) — a contradiction.
+
+Hence no such \(\succsim\) exists.
+
+This is what breaks when transitivity fails: cycling choices are explained by no rational preference, and in revealed-preference terms they are a WARP violation \(A \succsim^* B \succsim^* C \succsim^* A\).`}}]}];export{e as exercises};
