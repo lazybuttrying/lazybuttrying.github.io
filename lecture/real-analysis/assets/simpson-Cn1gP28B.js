@@ -1,0 +1,1 @@
+function e(e,t,n,r){let i=r%2==0?r:r+1,a=(n-t)/i,o=e(t)+e(n);for(let n=1;n<i;n++)o+=(n%2==0?2:4)*e(t+n*a);return o*a/3}export{e as t};
