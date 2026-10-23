@@ -11,6 +11,9 @@ series: "환율"
 series_part: 0
 series_url: /exchange-rates/
 
+header:
+  teaser: /assets/images/fx-series-intro.jpg
+
 permalink: /finance/exchange-rate-series-intro/
 
 toc: true
