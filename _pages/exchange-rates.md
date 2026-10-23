@@ -1,5 +1,5 @@
 ---
-title: "환율이 만들어지는 법"
+title: "환율"
 permalink: /exchange-rates/
 layout: single
 comments: false
