@@ -1,0 +1,53 @@
+var e=[{id:`prices-halve`,kind:`compute`,statement:{ko:String.raw`중앙은행은 돈을 더 찍지 않았는데 물가 수준이 어느 날 절반으로 떨어졌다 (\(P: 1 \to 0.5\)).
+
+총수요는 어떻게 될까?`,en:String.raw`The central bank printed nothing, yet the price level halves one day (\(P: 1 \to 0.5\)).
+
+What happens to aggregate demand?`},preset:{priceLevel:.5,money:100},presetCaption:{ko:String.raw`물가 \(0.5\), 통화량 \(100\) — 돈은 그대로, 물가만 절반.`,en:String.raw`Price level \(0.5\), money \(100\) — same money, half the prices.`},proof:[{text:{ko:String.raw`실질화폐잔고는 \(M/P = 100 / 0.5 = 200\)이다. 기준인 \(100\)보다 \(100\)이나 많다 — 지갑 속 돈의 구매력이 두 배가 된 셈이다.`,en:String.raw`Real balances are \(M/P = 100 / 0.5 = 200\), a full \(100\) above the baseline of \(100\) — the money in everyone's wallet suddenly buys twice as much.`}},{text:{ko:String.raw`불어난 잔고는 세 갈래로 새어 나간다: 부의 효과 \(+30\), 금리 효과 \(+50\), 환율 효과 \(+20\). 합치면 \(Y = 1000 + 100 = 1100\)이다.`,en:String.raw`The extra balances fan out through three channels: wealth \(+30\), interest \(+50\), exchange rate \(+20\). Together, \(Y = 1000 + 100 = 1100\).`}},{text:{ko:String.raw`주의할 점: 어느 한 재화가 싸져서 갈아탄 게 아니다. 모든 재화의 가격이 함께 떨어졌으니 대체할 상대가 없다 — 미시의 대체효과와는 전혀 다른 이야기다.`,en:String.raw`Notice what did not happen: nobody switched to a cheaper good. Every price fell together, so there was nothing to substitute toward — this is not the micro substitution effect at all.`}}],answer:{ko:String.raw`\(Y = 1100\)`,en:String.raw`\(Y = 1100\)`}},{id:`print-money`,statement:{ko:String.raw`이번에는 물가가 그대로인데 중앙은행이 통화량을 두 배로 찍었다 (\(M: 100 \to 200\)).
+
+앞 문제와 어디까지 같고 어디서 다를까?`,en:String.raw`This time prices stay put and the central bank doubles the money supply (\(M: 100 \to 200\)).
+
+How far does this match the previous problem, and where does it differ?`},preset:{priceLevel:1,money:200},presetCaption:{ko:String.raw`물가 \(1\), 통화량 \(200\) — 곡선 자체가 오른쪽으로 이동.`,en:String.raw`Price level \(1\), money \(200\) — the curve itself shifts right.`},proof:[{text:{ko:String.raw`실질화폐잔고는 \(200 / 1 = 200\)으로 앞 문제와 같다. 차이 \(\Delta = +100\)이 같으니 세 갈래 합도 같고, \(Y = 1100\)도 같다.`,en:String.raw`Real balances are \(200 / 1 = 200\), exactly as in the previous problem. The same gap \(\Delta = +100\) means the same channel sum, so \(Y = 1100\) again.`}},{text:{ko:String.raw`다른 점은 도달 방식이다. 앞 문제는 곡선 위의 점을 따라 내려간 것이고, 이번에는 곡선 전체가 오른쪽으로 이동했다 — 점선으로 남은 곡선이 돈을 찍기 전의 AD다.`,en:String.raw`The difference is how we got here. Last time we slid down along one curve; this time the whole curve moved right — the dashed curve left behind is the AD from before the printing.`}},{text:{ko:String.raw`그래서 함정이 있다: 물가까지 두 배로 따라 오르면 실질잔고는 \(200 / 2 = 100\)으로 되돌아가고 효과는 사라진다. 장기 중립성의 씨앗이 여기 있다.`,en:String.raw`And here is the trap: if prices also double in response, real balances fall back to \(200 / 2 = 100\) and the effect evaporates. This is the seed of long-run neutrality.`}}]}],t=[{id:`boom-then-prices`,statement:{ko:String.raw`정부가 지출을 늘려 총수요가 \(20\)만큼 오른쪽으로 밀려왔다.
+
+첫해의 생산과 물가는 얼마이고, \(10\)년이 지나면 무엇이 남아 있을까?`,en:String.raw`The government spends more and aggregate demand shifts right by \(20\).
+
+What are output and the price level in the first year, and what is left after \(10\) years?`},preset:{shockType:`demand`,shockSize:20,time:0},presetCaption:{ko:String.raw`수요 충격 \(20\), \(0\)년째 — 기대물가는 아직 \(10\)에 묶여 있다.`,en:String.raw`Demand shock \(20\), year \(0\) — expected prices are still stuck at \(10\).`},proof:[{text:{ko:String.raw`단기에는 기대물가 \(P^e = 10\)이 단기공급곡선을 붙잡고 있어서, 균형은 \(Y = 113.3\), \(P = 11.33\)이다. 생산이 자연수준 \(100\)을 훌쩍 넘는다 — 공장은 잔업하고 가게는 사람을 더 뽑는다.`,en:String.raw`In the short run the expected price \(P^e = 10\) pins the short-run supply curve, so equilibrium is \(Y = 113.3\), \(P = 11.33\). Output sails past its natural level of \(100\) — factories run overtime and shops hire.`}},{text:{ko:String.raw`해가 지나며 사람들은 오른 물가를 기대에 반영한다.
+
+\(P^e\)가 따라 오르면 단기공급곡선이 위로 밀려나고 생산은 한 해에 격차의 상당 부분을 반납한다.
+
+시간 슬라이더를 끝까지 밀어 보면 된다.`,en:String.raw`Year by year, people build the higher prices into their expectations.
+
+As \(P^e\) catches up, the short-run supply curve climbs and output hands back a chunk of the gap each year.
+
+Push the time slider to the end and watch.`}},{text:{ko:String.raw`결국 생산은 \(Y = 100\)으로 돌아오고 물가는 \(P = 14\)에 안착한다. 수요 충격이 길게 남기는 것은 생산이 아니라 물가뿐이다.`,en:String.raw`In the end output returns to \(Y = 100\) and the price level settles at \(P = 14\). All a demand shock leaves behind, given time, is higher prices — not higher output.`}}]},{id:`oil-shock`,statement:{ko:String.raw`유가가 뛰어 생산비가 올랐다 — 단기공급곡선이 \(2\)만큼 위로 밀리는 공급 충격이다.
+
+생산과 물가는 첫해에 어떻게 움직일까?`,en:String.raw`Oil prices jump and production costs rise — a supply shock that lifts the short-run supply curve by \(2\).
+
+How do output and prices move in the first year?`},preset:{shockType:`supply`,shockSize:20,time:0},presetCaption:{ko:String.raw`공급 충격 크기 \(20\) (곡선은 \(+2\) 위로), \(0\)년째.`,en:String.raw`Supply shock of size \(20\) (the curve lifts by \(+2\)), year \(0\).`},proof:[{text:{ko:String.raw`새 균형은 \(Y = 93.3\), \(P = 11.33\)이다. 생산은 자연수준 아래로 떨어지고 물가는 오른다 — 둘 다 나빠지는 스태그플레이션이다.`,en:String.raw`The new equilibrium is \(Y = 93.3\), \(P = 11.33\).
+
+Output drops below its natural level while prices rise — both go the wrong way.
+
+That is stagflation.`}},{text:{ko:String.raw`미시에서 한 시장의 공급이 줄 때와 비슷해 보이지만, 여기서는 경제 전체의 물가와 생산이 함께 흔들린다. 그래서 중앙은행이 난감하다: 금리를 내리면 물가가 더 뛰고, 올리면 생산이 더 준다.`,en:String.raw`It looks like a supply drop in one micro market, but here the whole economy's prices and output shake together. That is the central bank's dilemma: cut rates and prices jump further; raise them and output falls further.`}},{text:{ko:String.raw`이 충격은 일시적이라 해마다 절반씩 약해진다.
+
+기대물가도 한때 올랐다가 되돌아와, 결국 \(Y = 100\), \(P = 10\)으로 복귀한다.
+
+시간 슬라이더로 확인해 보자.`,en:String.raw`This shock is temporary and halves every year.
+
+Expected prices rise for a while, then settle back, and in the end \(Y = 100\), \(P = 10\) is restored.
+
+Check it with the time slider.`}}]}],n={id:`ad-as`,title:{ko:`총수요와 총공급`,en:`Aggregate Demand and Supply`},summary:{ko:String.raw`미시에서는 한 시장의 수요와 공급으로 그 시장의 가격을 정했다. 거시에서는 시야를 경제 전체로 넓힌다 — 모든 시장의 수요를 합친 총수요와 모든 기업의 공급을 합친 총공급이, 물가 수준과 총생산을 한꺼번에 정한다. 곡선의 생김새는 미시와 닮았지만, 기울어지는 이유는 전혀 다르다.`,en:String.raw`In micro, one market's demand and supply set that market's price. In macro, the lens widens to the whole economy: aggregate demand and aggregate supply — every market's demand and every firm's supply summed — set the price level and total output together. The curves look like their micro cousins, but the reasons they slope are entirely different.`},scenes:[{id:`ad-curve`,title:{ko:`총수요는 왜 우하향할까`,en:`Why Aggregate Demand Slopes Down`},order:1,summary:{ko:String.raw`미시에서 수요곡선은 싼 것으로 갈아타기 때문에 우하향했다. 거시의 총수요에는 갈아탈 상대가 없다. 모든 가격이 함께 움직이기 때문이다.
+
+물가 전체가 떨어지면 지갑 속 💰 돈의 가치가 커진다. 돈이 넉넉해지면 사람들은 더 쓴다. 이자도 싸져서 빌려 쓰는 사람이 는다. 🧑 외국 사람도 우리 물건을 더 사 간다. 이 세 길이 합쳐져 지출이 는다. 중앙은행이 돈을 새로 찍으면 곡선 자체가 오른쪽으로 옮겨 간다.
+
+예를 들면, 동네 🏪 가게 물건 값이 전부 반값이 됐다고 하자. 용돈은 그대로인데 살 수 있는 🍬 사탕이 두 배가 된다. 반 친구 모두가 전보다 더 많이 사게 된다. 누가 다른 가게로 갈아탄 게 아니다. 모두의 지갑이 두 배로 두꺼워진 것이다.`,en:String.raw`In micro, demand curves slope down because buyers switch to the cheaper good. In macro, aggregate demand has nothing to switch to. All prices move together instead.
+
+When the whole price level falls, the 💰 money in your wallet buys more. Feeling richer, people spend more. Interest rates also fall, so borrowing gets cheaper. 🧑 Foreigners buy more of our goods too. Together, these three paths raise spending. When the central bank prints more money, the whole curve itself shifts right.
+
+For example, imagine every price at the corner 🏪 shop drops to half overnight. Your allowance stays the same, but it now buys twice as many 🍬 candies. You and your classmates all buy more than before. Nobody switched shops — every wallet simply got twice as fat.`},tex:[String.raw`\Delta (M/P) = \frac{M}{P} - 100`,String.raw`Y = 1000 + 0.3\,\Delta (M/P) + 0.5\,\Delta (M/P) + 0.2\,\Delta (M/P)`],controls:[{kind:`slider`,key:`priceLevel`,label:{ko:`물가 수준 P`,en:`price level P`},min:.5,max:2,step:.05,init:1},{kind:`slider`,key:`money`,label:{ko:`통화량 M`,en:`money supply M`},min:50,max:200,step:5,init:100}],problems:e},{id:`as-shocks`,title:{ko:`충격이 지나간 자리`,en:`After the Shock`},order:2,summary:{ko:String.raw`미시에서 공급곡선은 비용을 따라 그어진다. 거시의 단기 공급은 사람들이 예상한 물가에 매달려 있다.
+
+물가가 예상보다 높으면 🏪 가게들이 신이 나서 더 만든다. 하지만 예상이 따라잡으면 생산은 원래 자리로 돌아온다. 수요가 늘어난 충격은 시간이 지나면 물가만 올려 놓는다. 🛢️ 기름값 같은 공급 충격은 생산을 줄이고 물가를 올려 둘 다 나쁘게 만든다. 그래도 충격이 약해지면 경제는 천천히 제자리로 돌아온다.
+
+예를 들면, 분식집 🧑 아저씨가 떡볶이 값을 3,000원쯤으로 예상하고 재료를 준비했다고 하자. 그런데 동네 축제가 열려 손님이 몰리면 아저씨는 밤늦게까지 더 만든다. 다음 해 아저씨는 처음부터 값을 올려 잡고, 만드는 양은 평소로 돌아온다. 바쁜 한철이 지나고 남는 것은 오른 값뿐이다.`,en:String.raw`In micro, a supply curve is drawn along costs. In macro, short-run supply hangs on the prices people expected.
+
+When prices turn out higher than expected, 🏪 shops happily produce more. Once expectations catch up, output returns to its normal place. A demand shock ends up raising only prices over time. A supply shock, like pricier 🛢️ oil, cuts output and raises prices together. As the shock fades, the economy slowly finds its way back.
+
+For example, a snack bar 🧑 owner expects plates to sell at 3,000 won and stocks up for a normal week. A festival suddenly floods the shop, so the owner cooks late into the night. Next year the owner plans for higher prices from the start, and output is back to normal. After the busy spell, only the higher prices remain.`},tex:[String.raw`P = P^e + 0.1\,(Y - Y^*)`,String.raw`Y = 150 - 5P`],prerequisites:[`ad-curve`],controls:[{kind:`select`,key:`shockType`,label:{ko:`충격 종류 (none / demand / supply)`,en:`shock type (none / demand / supply)`},options:[`none`,`demand`,`supply`],init:`demand`},{kind:`slider`,key:`shockSize`,label:{ko:`충격 크기`,en:`shock size`},min:0,max:30,step:1,init:20},{kind:`slider`,key:`time`,label:{ko:`시간 t (년) — 기대가 조정된다`,en:`time t (years) — expectations adjust`},min:0,max:10,step:1,init:0}],problems:t}]};export{n as t};
