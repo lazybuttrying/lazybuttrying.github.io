@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Macroeconomics from a micro base: interactive visualizations of GDP, aggregate demand and supply, inflation, unemployment, and monetary and fiscal policy." />
+    <title>Macroeconomics</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/katex.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.19.0/dist/katex.min.js"></script>
+    <script type="module" crossorigin src="/lecture/macroeconomics/assets/home-DgmrHqjs.js"></script>
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-macro-intro-CtEZ5dJx.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-ad-as-D7_SzVlb.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-demand-spending-84zAGz1M.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-money-prices-CgzTIzOz.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-interest-markets-B_I5Na30.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-wages-unemployment-B7gIuqc6.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-open-economy-CGhCX_np.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-growth-DOGfd6fH.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/meta-uncertainty-macro-BZQ78-W7.js">
+    <link rel="modulepreload" crossorigin href="/lecture/macroeconomics/assets/preload-helper-ChX5H0Oe.js">
+    <link rel="stylesheet" crossorigin href="/lecture/macroeconomics/assets/preload-helper-B-3z7G-n.css">
+      <meta name="description" content="미시에서 배운 한 사람의 선택을 모든 사람의 선택으로 합치면 무엇이 달라지는지 — 거시경제학의 개념을 직접 움직여 보며 익히는 인터랙티브 시각화 모음입니다." />
+    <link rel="canonical" href="https://sdykim.me/lecture/macroeconomics/ko/" />
+    <link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/macroeconomics/ko/" />
+    <link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/macroeconomics/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/macroeconomics/ko/" />
+    <meta property="og:title" content="Macroeconomics" />
+    <meta property="og:description" content="미시에서 배운 한 사람의 선택을 모든 사람의 선택으로 합치면 무엇이 달라지는지 — 거시경제학의 개념을 직접 움직여 보며 익히는 인터랙티브 시각화 모음입니다." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sdykim.me/lecture/macroeconomics/ko/" />
+  </head>
+  <body>
+    <div id="app"><h1>Macroeconomics</h1>
+<p>미시에서 배운 한 사람의 선택을 모든 사람의 선택으로 합치면 무엇이 달라지는지 — 거시경제학의 개념을 직접 움직여 보며 익히는 인터랙티브 시각화 모음입니다.</p>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/macro-intro/">1. 거시경제학의 눈</a> — 미시경제학이 시장 하나의 균형을 물었다면, 거시경제학은 경제 전체의 크기와 흔들림을 묻는다. 돈이 경제를 한 바퀴 도는 그림으로 GDP를 재고, 같은 충격 앞에서도 학파마다 다른 답이 나오는 이유 — 결국 가격의 움직임 속도라는 단 하나의 가정 차이 — 를 본다.</li>
+<li><a href="/lecture/macroeconomics/ko/ad-as/">2. 총수요와 총공급</a> — 미시에서는 한 시장의 수요와 공급으로 그 시장의 가격을 정했다. 거시에서는 시야를 경제 전체로 넓힌다 — 모든 시장의 수요를 합친 총수요와 모든 기업의 공급을 합친 총공급이, 물가 수준과 총생산을 한꺼번에 정한다. 곡선의 생김새는 미시와 닮았지만, 기울어지는 이유는 전혀 다르다.</li>
+<li><a href="/lecture/macroeconomics/ko/demand-spending/">3. 지출, 승수, 저축의 역설</a> — 미시에서는 한 사람의 지출이 그 사람의 선택으로 끝나지만, 거시에서는 내 지출이 곧 네 소득이다. 지출과 소득이 서로를 만들며 증폭되는 승수, 그리고 모두가 아끼려 할 때 오히려 아무도 더 저축하지 못하는 저축의 역설을 만져본다.</li>
+<li><a href="/lecture/macroeconomics/ko/money-prices/">4. 화폐와 물가</a> — 미시에서 가격은 물건과 물건 사이의 교환 비율이었는데, 거시에서는 모든 가격을 한데 묶은 물가수준과, 그 수준을 재는 자인 화폐가 주인공이 된다. 상대 가격이 하나도 안 변했는데 물가만 오를 수 있는지, 돈을 두 배로 늘리면 정말 가격만 두 배가 되는지 — 물가수준과 교환방정식으로 화폐 중립성의 씨앗을 본다.</li>
+<li><a href="/lecture/macroeconomics/ko/interest-markets/">5. 이자율은 어디서 정해지나</a> — 미시에서는 이자율이 카페 한 곳이 빌린 대출의 이자처럼 개별 거래의 가격이었는데, 거시에서는 경제 전체의 저축과 투자, 나아가 총수요를 좌우하는 단 하나의 가격이 된다. 그런데 그 하나의 가격이 어느 시장에서 정해지는지를 두고 학파가 갈린다 — 고전학파는 저축된 돈의 시장을 보고, 케인즈는 화폐 시장을 본다.</li>
+<li><a href="/lecture/macroeconomics/ko/wages-unemployment/">6. 임금의 두 얼굴과 실업</a> — 미시에서 임금은 회사가 내는 비용이었고, 가격은 어긋나면 곧바로 제자리로 돌아갔다. 거시에서 임금은 비용인 동시에 가계의 소득이고, 가격은 메뉴 비용에 발이 묶여 있다. 임금의 두 얼굴이 만드는 구성의 오류, 그리고 가격이 안 움직일 때 수량과 일자리가 대신 충격을 맞는 방식을 두 모형으로 만져본다.</li>
+<li><a href="/lecture/macroeconomics/ko/open-economy/">7. 개방경제와 무역</a> — 미시에서는 나라와 나라의 거래도 시장 하나의 균형으로 봤는데, 거시에서는 경제 전체의 저축과 투자가 무역의 결과를 정한다. 무역수지는 저축에서 투자를 뺀 값(<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>N</mi><mi>X</mi><mo>=</mo><mi>S</mi><mo>−</mo><mi>I</mi></mrow><annotation encoding="application/x-tex">NX = S - I</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">N</span><span class="mord mathnormal" style="margin-right:0.0785em;">X</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord mathnormal" style="margin-right:0.0576em;">S</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.0785em;">I</span></span></span></span>)이라는 항등식에서 출발해, 왜 관세로 적자를 고칠 수 없는지, 그리고 환율이 바로 그 항등식을 맞추려고 움직이는 가격인지를 본다.</li>
+<li><a href="/lecture/macroeconomics/ko/growth/">8. 성장: Solow와 그 너머</a> — 미시에서는 기업 한 곳의 생산과 가계 한 곳의 선택이 각각 따로 결정됐는데, 거시에서는 모든 기업의 기계를 합치고 모든 가계의 저축을 합쳐 수십 년을 굴려 본다. 자본만 쌓아서는 왜 성장이 멈추는지(Solow), 그리고 저축률이라는 숫자 뒤에 숨어 있던 가계의 선택을 동적 프로그래밍으로 어떻게 꺼내는지(Ramsey)를 본다.</li>
+<li><a href="/lecture/macroeconomics/ko/uncertainty-macro/">9. 위험과 불확실성</a> — 미시경제학이 한 사람의 위험 회피와 한 기업의 기대이윤을 따로 다뤘다면, 거시경제학에서는 그 태도들이 합쳐져 경기 자체를 움직인다. 확률을 아는 리스크 앞에서는 사람이 보험을 사고 기업이 분산으로 버티지만, 확률 자체를 모르는 불확실성이 커지면 가계는 예비적 저축으로, 기업은 투자 관망으로 물러선다 — 평균은 하나도 나빠지지 않았는데 수요가 얼어붙는 이유를 본다.</li>
+</ul>
+<p><a href="/lecture/macroeconomics/ko/glossary/">용어 사전</a></p>
+<section class="home-map">
+<h2>개념 지도</h2>
+<p>전 씬을 선수 관계로 엮은 지도. 노드를 드래그하고 확대해 보세요. 노드를 클릭하면 해당 씬으로 이동합니다.</p>
+<div class="map-mount">
+<section>
+<h2>1. 거시경제학의 눈</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/macro-intro/gdp-flow/">돈이 도는 원: GDP</a></li>
+<li><a href="/lecture/macroeconomics/ko/macro-intro/schools-map/">하나의 충격, 세 학파</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/macro-intro/gdp-flow/">돈이 도는 원: GDP</a></span></li>
+</ul>
+</section>
+<section>
+<h2>2. 총수요와 총공급</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/ad-as/ad-curve/">총수요는 왜 우하향할까</a></li>
+<li><a href="/lecture/macroeconomics/ko/ad-as/as-shocks/">충격이 지나간 자리</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/ad-as/ad-curve/">총수요는 왜 우하향할까</a></span></li>
+</ul>
+</section>
+<section>
+<h2>3. 지출, 승수, 저축의 역설</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/demand-spending/multiplier/">지출이 메아리치는 승수</a></li>
+<li><a href="/lecture/macroeconomics/ko/demand-spending/paradox-of-thrift/">저축의 역설: 모두가 아끼면 모두가 가난해진다</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/demand-spending/multiplier/">지출이 메아리치는 승수</a></span></li>
+</ul>
+</section>
+<section>
+<h2>4. 화폐와 물가</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/money-prices/price-vs-level/">가격은 비율, 물가는 수준</a></li>
+<li><a href="/lecture/macroeconomics/ko/money-prices/quantity-theory/">교환방정식과 화폐 중립성</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/money-prices/price-vs-level/">가격은 비율, 물가는 수준</a></span></li>
+</ul>
+</section>
+<section>
+<h2>5. 이자율은 어디서 정해지나</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/interest-markets/loanable-funds/">저축의 시장: 대부자금</a></li>
+<li><a href="/lecture/macroeconomics/ko/interest-markets/liquidity-preference/">화폐의 시장: 유동성 선호</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/interest-markets/loanable-funds/">저축의 시장: 대부자금</a></span></li>
+</ul>
+</section>
+<section>
+<h2>6. 임금의 두 얼굴과 실업</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/wages-unemployment/two-faces-of-wages/">임금의 두 얼굴: 한 회사 vs 경제 전체</a></li>
+<li><a href="/lecture/macroeconomics/ko/wages-unemployment/menu-costs/">메뉴 비용: 가격이 안 움직일 때</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/wages-unemployment/two-faces-of-wages/">임금의 두 얼굴: 한 회사 vs 경제 전체</a></span></li>
+</ul>
+</section>
+<section>
+<h2>7. 개방경제와 무역</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/open-economy/trade-balance/">무역수지는 저축 빼기 투자</a></li>
+<li><a href="/lecture/macroeconomics/ko/open-economy/exchange-rate/">환율이 고리를 닫는다</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/open-economy/trade-balance/">무역수지는 저축 빼기 투자</a></span></li>
+</ul>
+</section>
+<section>
+<h2>8. 성장: Solow와 그 너머</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/growth/solow/">기계만 쌓아서는 못 크는 나라</a></li>
+<li><a href="/lecture/macroeconomics/ko/growth/ramsey-dp/">저축률은 어디서 오는가</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/growth/solow/">기계만 쌓아서는 못 크는 나라</a></span></li>
+</ul>
+</section>
+<section>
+<h2>9. 위험과 불확실성</h2>
+<ul>
+<li><a href="/lecture/macroeconomics/ko/uncertainty-macro/expected-utility-vs-profit/">기대효용 대 기대이윤</a></li>
+<li><a href="/lecture/macroeconomics/ko/uncertainty-macro/uncertainty-shocks/">불확실성이 경기침체가 될 때</a> <span class="path-step-chapter">← <a href="/lecture/macroeconomics/ko/uncertainty-macro/expected-utility-vs-profit/">기대효용 대 기대이윤</a></span></li>
+</ul>
+</section>
+</div>
+</section></div>
+  </body>
+</html>
