@@ -1,0 +1,34 @@
+<!doctype html>
+  <html lang="ko">
+    <head>
+      <meta charset="utf-8" />
+      <title>Microeconomics</title>
+      <script>
+        (function () {
+          var BASE = '/microeconomics/';
+          var CHAPTERS = ["intro-micro","preference-choice","consumer-choice","classical-demand","aggregate-demand","production","uncertainty","game-theory","competitive-markets","externalities-public-goods","market-power","equilibrium-welfare","ge-positive-theory","ge-foundations","ge-uncertainty","ge-time","social-choice","information-economics","adverse-selection","principal-agent","mechanism-design","implementation"];
+          var stored = null;
+          try { stored = localStorage.getItem('lang'); } catch (e) {}
+          var lang = stored === 'en' || stored === 'ko' ? stored : 'ko';
+          var rel = location.pathname.indexOf(BASE) === 0
+            ? location.pathname.slice(BASE.length)
+            : location.pathname.replace(/^\//, '');
+          var segments = rel.split('/').filter(Boolean);
+          var first = segments[0] || '';
+          var target;
+          if (first === 'ko' || first === 'en') {
+            target = BASE + first + '/';
+          } else if (CHAPTERS.indexOf(first) !== -1) {
+            target = BASE + lang + '/' + segments.join('/') + '/' + location.search;
+          } else {
+            target = BASE + lang + '/';
+          }
+          location.replace(target);
+        })();
+      </script>
+    </head>
+    <body>
+      <p>Page not found. <a href="/microeconomics/ko/">한국어 홈</a> · <a href="/microeconomics/en/">English home</a></p>
+    </body>
+  </html>
+  

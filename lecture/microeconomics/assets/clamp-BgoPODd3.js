@@ -1,0 +1,1 @@
+function e(e,t,n,r,i=!1){let a=Number(e);return Number.isFinite(a)?Math.min(n,Math.max(t,i?Math.floor(a):a)):r}export{e as t};

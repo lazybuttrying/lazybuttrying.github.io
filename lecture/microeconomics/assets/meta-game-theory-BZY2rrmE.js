@@ -1,0 +1,163 @@
+var e=[{id:`pd-dominance`,statement:{ko:String.raw`죄수의 딜레마에서 각 플레이어의 최적대응을 전부 찾고, 순수전략 내쉬 균형이 유일함을 보여라.`,en:String.raw`In the Prisoner's Dilemma, find every best response and show the pure-strategy Nash equilibrium is unique.`},display:[String.raw`\begin{matrix} & C & D \\ C & (3,3) & (0,5) \\ D & (5,0) & (1,1) \end{matrix}`],preset:{game:`Prisoner's Dilemma`,row:`Bottom`,col:`Right`},presetCaption:{ko:String.raw`죄수의 딜레마 — 선택된 셀 \((D, D)\).`,en:String.raw`Prisoner's Dilemma — selected cell \((D, D)\).`},proof:[{text:{ko:String.raw`P1 입장에서: P2가 \(C\)이면 \(D\)가 \(5 > 3\)으로 낫고, P2가 \(D\)이면 \(D\)가 \(1 > 0\)으로 낫다.
+
+즉 \(D\)는 P1의 강우월전략이다.
+
+대칭적으로 \(D\)는 P2의 강우월전략이다.`,en:String.raw`For player 1: against \(C\), \(D\) wins \(5 > 3\); against \(D\), \(D\) wins \(1 > 0\).
+
+So \(D\) is player 1's strictly dominant strategy.
+
+Symmetrically, \(D\) strictly dominates for player 2.`}},{text:{ko:String.raw`각 열에서 P1의 최적대응은 항상 \(D\)(아래 행), 각 행에서 P2의 최적대응은 항상 \(D\)(오른쪽 열)이다.
+
+둘 다 최적대응인 셀은 \((D, D)\) 하나뿐이므로 유일한 순수전략 내쉬 균형이다.
+
+\((C, C)\)의 \((3, 3)\)보다 파레토 열등하지만, 일방적 이탈 유인이 사라지지 않는다.`,en:String.raw`Player 1's best response in each column is always \(D\) (bottom row); player 2's best response in each row is always \(D\) (right column).
+
+The only cell where both hold is \((D, D)\) — the unique pure-strategy Nash equilibrium.
+
+It is Pareto dominated by \((C, C)\)'s \((3, 3)\), but the unilateral incentive to deviate never disappears.`}}]},{id:`stag-hunt-two-equilibria`,statement:{ko:String.raw`Stag Hunt 게임의 순수전략 내쉬 균형을 모두 찾고, 두 균형의 파레토 순위를 비교하라.`,en:String.raw`Find all pure-strategy Nash equilibria of the Stag Hunt game and compare their Pareto ranking.`},display:[String.raw`\begin{matrix} & S & H \\ S & (4,4) & (0,3) \\ H & (3,0) & (3,3) \end{matrix}`],preset:{game:`Stag Hunt`,row:`Top`,col:`Left`},presetCaption:{ko:String.raw`Stag Hunt — 선택된 셀 \((S, S)\).`,en:String.raw`Stag Hunt — selected cell \((S, S)\).`},proof:[{text:{ko:String.raw`P1의 최적대응: \(S\) 열에서는 \(4 > 3\)이므로 \(S\), \(H\) 열에서는 \(3 > 0\)이므로 \(H\). P2도 대칭적으로 \(S\) 행에서는 \(S\), \(H\) 행에서는 \(H\)가 최적대응이다.`,en:String.raw`Player 1's best responses: \(S\) against the \(S\) column (\(4 > 3\)), \(H\) against the \(H\) column (\(3 > 0\)). Symmetrically for player 2: \(S\) against the \(S\) row, \(H\) against the \(H\) row.`}},{text:{ko:String.raw`둘 다 최적대응인 셀은 \((S, S)\)와 \((H, H)\) — 순수전략 내쉬 균형이 두 개다. \((S, S)\)는 \((4, 4)\)로 \((H, H)\)의 \((3, 3)\)을 파레토 지배한다.
+
+그러나 \((H, H)\)도 균형이다: 상대가 토끼를 잡으러 가면 나도 토끼가 낫다.
+
+어떤 균형이 실현될지는 "믿음"의 문제 — 이것이 균형 선택(equilibrium selection) 문제의 시초다.`,en:String.raw`The cells where both best-respond are \((S, S)\) and \((H, H)\) — two pure-strategy Nash equilibria. \((S, S)\) Pareto-dominates \((H, H)\) (\((4,4)\) vs \((3,3)\)).
+
+Yet \((H, H)\) is still an equilibrium: if the other hunts hare, hare is my best reply too.
+
+Which equilibrium materializes is a matter of beliefs — the seed of the equilibrium selection problem.`}}]}],t=[{id:`pennies-indifference`,statement:{ko:String.raw`Matching Pennies에서 P1이 무차별해지는 P2의 혼합 \(q^*\)를 구하고, 그 이유를 설명하라.`,en:String.raw`In Matching Pennies, find the mix \(q^*\) of player 2 that makes player 1 indifferent, and explain why.`},display:[String.raw`u_1(H, q) = q \cdot 1 + (1-q) \cdot (-1) = 2q - 1`,String.raw`u_1(T, q) = q \cdot (-1) + (1-q) \cdot 1 = 1 - 2q`],preset:{game:`Matching Pennies`,q:.5},presetCaption:{ko:String.raw`Matching Pennies — \(q = 1/2\)에서 P1 무차별.`,en:String.raw`Matching Pennies — P1 indifferent at \(q = 1/2\).`},proof:[{text:{ko:String.raw`P2가 확률 \(q\)로 \(H\)를 낸다고 하자.
+
+P1이 \(H\)를 내면 기대보수는 \(2q - 1\), \(T\)를 내면 \(1 - 2q\)이다.
+
+무차별 조건 \(2q - 1 = 1 - 2q\)에서 \(q^* = 1/2\)를 얻는다.`,en:String.raw`Let player 2 play \(H\) with probability \(q\).
+
+Player 1's expected payoff from \(H\) is \(2q - 1\), from \(T\) is \(1 - 2q\).
+
+The indifference condition \(2q - 1 = 1 - 2q\) gives \(q^* = 1/2\).`}},{text:{ko:String.raw`핵심 통찰: 혼합균형에서 각 플레이어는 "상대를 무차별하게 만드는" 혼합을 택한다 — 자기 보수를 극대화하는 게 아니라 상대가 섞도록 유인하는 것이다.
+
+\(q < 1/2\)이면 \(T\)가 낫고(\(1-2q > 2q-1\)), \(q > 1/2\)이면 \(H\)가 낫다.
+
+오직 \(q^*\)에서만 P1은 어떤 혼합도 (약)최적이다.`,en:String.raw`The key insight: in a mixed equilibrium each player chooses the mix that "makes the opponent indifferent" — not the mix maximizing their own payoff, but the one giving the opponent the incentive to mix.
+
+If \(q < 1/2\), \(T\) is better (\(1-2q > 2q-1\)); if \(q > 1/2\), \(H\) is better.
+
+Only at \(q^*\) is every mix of player 1 (weakly) optimal.`}}]},{id:`bos-mixed`,statement:{ko:String.raw`Battle of the Sexes에서 P1을 무차별하게 만드는 \(q^*\)와 P2를 무차별하게 만드는 \(p^*\)를 각각 구하라.`,en:String.raw`In the Battle of the Sexes, find \(q^*\) making player 1 indifferent and \(p^*\) making player 2 indifferent.`},display:[String.raw`u_1(O, q) = 3q, \qquad u_1(F, q) = 2(1-q)`,String.raw`u_2(p, O) = 2p, \qquad u_2(p, F) = 3(1-p)`],preset:{game:`Battle of the Sexes`,q:.4},presetCaption:{ko:String.raw`Battle of the Sexes — \(q^* = 0.4\)에서 P1 무차별.`,en:String.raw`Battle of the Sexes — P1 indifferent at \(q^* = 0.4\).`},proof:[{text:{ko:String.raw`P1: \(u_1(O,q) = 3q\), \(u_1(F,q) = 2(1-q)\). \(3q = 2 - 2q\)에서 \(q^* = 2/5 = 0.4\).
+
+P2: \(u_2(p,O) = 2p\), \(u_2(p,F) = 3(1-p)\). \(2p = 3 - 3p\)에서 \(p^* = 3/5 = 0.6\).`,en:String.raw`Player 1: \(u_1(O,q) = 3q\), \(u_1(F,q) = 2(1-q)\). From \(3q = 2 - 2q\), \(q^* = 2/5 = 0.4\).
+
+Player 2: \(u_2(p,O) = 2p\), \(u_2(p,F) = 3(1-p)\). From \(2p = 3 - 3p\), \(p^* = 3/5 = 0.6\).`}},{text:{ko:String.raw`따라서 완전혼합 내쉬 균형은 \((p^*, q^*) = (0.6, 0.4)\)이다.
+
+이때 P1의 기대보수는 \(3 \times 0.4 = 1.2\), P2의 기대보수는 \(2 \times 0.6 = 1.2\)이다.
+
+두 순수전략 균형 \((O,O)\)의 \((3,2)\)나 \((F,F)\)의 \((2,3)\)보다 둘 다 못하다 — 혼합균형이 파레토 열등할 수 있음을 보여준다.`,en:String.raw`The fully mixed Nash equilibrium is \((p^*, q^*) = (0.6, 0.4)\).
+
+Expected payoffs are \(3 \times 0.4 = 1.2\) for player 1 and \(2 \times 0.6 = 1.2\) for player 2 — worse for both than either pure equilibrium \((3,2)\) or \((2,3)\).
+
+Mixed equilibria can be Pareto inferior.`}}]}],n=[{id:`pennies-value`,statement:{ko:String.raw`Matching Pennies를 영합게임으로 보고 maximin과 minimax를 구한 뒤, 안장점이 없음을 확인하고 혼합균형과 게임의 값을 계산하라.`,en:String.raw`View Matching Pennies as a zero-sum game: compute maximin and minimax, confirm there is no saddle point, then find the mixed equilibrium and the value of the game.`},display:[String.raw`\max_r \min_c u_{rc} = \max(-1, -1) = -1, \qquad \min_c \max_r u_{rc} = \min(1, 1) = 1`],preset:{a:1,b:-1,c:-1,d:1},presetCaption:{ko:String.raw`Matching Pennies — maximin \(-1 < 1 =\) minimax, 안장점 없음.`,en:String.raw`Matching Pennies — maximin \(-1 < 1 =\) minimax, no saddle point.`},proof:[{text:{ko:String.raw`행 최소값은 둘 다 \(-1\)이므로 maximin \(=-1\), 열 최대값은 둘 다 \(1\)이므로 minimax \(= 1\). \(-1 < 1\)이므로 안장점이 없다 — 어떤 셀도 "행 최소이면서 열 최대"가 아니다.`,en:String.raw`Both row minima are \(-1\), so maximin \({}= -1\); both column maxima are \(1\), so minimax \(= 1\). Since \(-1 < 1\), no saddle point exists — no cell is simultaneously a row minimum and a column maximum.`}},{text:{ko:String.raw`완전혼합 공식에 대입하면 \(p^* = \frac{d-c}{a-b-c+d} = \frac{2}{4} = \frac12\), \(q^* = \frac{d-b}{a-b-c+d} = \frac12\), 값 \(v = \frac{ad-bc}{a-b-c+d} = 0\)이다. 폰 노이만의 미니맥스 정리대로, 혼합을 허용하면 maximin과 minimax가 \(0\)에서 일치한다.`,en:String.raw`The fully mixed formulas give \(p^* = \frac{d-c}{a-b-c+d} = \frac{2}{4} = \frac12\), \(q^* = \frac12\), value \(v = \frac{ad-bc}{a-b-c+d} = 0\). As von Neumann's minimax theorem promises, allowing mixing makes maximin and minimax coincide at \(0\).`}}]},{id:`saddle-vs-mixed`,statement:{ko:String.raw`아래 보수행렬의 영합게임에서 maximin·minimax를 구하고, 안장점이 없으면 혼합균형 \((p^*, q^*)\)와 게임의 값을 계산하라.`,en:String.raw`For the zero-sum game with the payoff matrix below, find maximin and minimax; with no saddle point, compute the mixed equilibrium \((p^*, q^*)\) and the value.`},display:[String.raw`\begin{pmatrix}4 & 1 \\ 2 & 3\end{pmatrix}`,String.raw`p^* = \frac{d-c}{a-b-c+d}, \quad q^* = \frac{d-b}{a-b-c+d}, \quad v = \frac{ad-bc}{a-b-c+d}`],preset:{a:4,b:1,c:2,d:3},presetCaption:{ko:String.raw`\(\begin{pmatrix}4 & 1 \\ 2 & 3\end{pmatrix}\) — 혼합균형 \(p^* = 1/4\), \(q^* = 1/2\), \(v = 2.5\).`,en:String.raw`\(\begin{pmatrix}4 & 1 \\ 2 & 3\end{pmatrix}\) — mixed equilibrium \(p^* = 1/4\), \(q^* = 1/2\), \(v = 2.5\).`},proof:[{text:{ko:String.raw`행 최소값: \(\min(4,1) = 1\), \(\min(2,3) = 2\) → maximin \(= 2\) (아래 행).
+
+열 최대값: \(\max(4,2) = 4\), \(\max(1,3) = 3\) → minimax \(= 3\) (오른쪽 열).
+
+\(2 \ne 3\)이므로 안장점이 없다.`,en:String.raw`Row minima: \(\min(4,1) = 1\), \(\min(2,3) = 2\), so maximin \(= 2\) (bottom row).
+
+Column maxima: \(\max(4,2) = 4\), \(\max(1,3) = 3\), so minimax \(= 3\) (right column).
+
+Since \(2 \ne 3\), there is no saddle point.`}},{text:{ko:String.raw`\(a - b - c + d = 4\), 따라서 \(p^* = \frac{3-2}{4} = \frac14\), \(q^* = \frac{3-1}{4} = \frac12\), \(v = \frac{12-2}{4} = 2.5\). 검증: \(q^*\)에서 P1의 두 행 기대보수는 \(4 \cdot \frac12 + 1 \cdot \frac12 = 2.5 = 2 \cdot \frac12 + 3 \cdot \frac12\)로 일치한다.`,en:String.raw`With \(a - b - c + d = 4\): \(p^* = \frac{3-2}{4} = \frac14\), \(q^* = \frac{3-1}{4} = \frac12\), \(v = \frac{12-2}{4} = 2.5\). Check: at \(q^*\), player 1's expected payoffs are \(4 \cdot \frac12 + 1 \cdot \frac12 = 2.5 = 2 \cdot \frac12 + 3 \cdot \frac12\) — equal, as indifference requires.`}}]}],r=[{id:`stag-hunt-three-equilibria`,statement:{ko:String.raw`Stag Hunt 게임의 최적대응 대응을 그리고, 내쉬 균형이 세 개임을 보여라(순수 2개 + 혼합 1개).`,en:String.raw`Draw the best-response correspondences of the Stag Hunt game and show there are three Nash equilibria (two pure, one mixed).`},display:[String.raw`u_1(S,q) = 4q, \quad u_1(H,q) = 3`,String.raw`q^* = 3/4, \quad p^* = 3/4`],preset:{game:`Stag Hunt`},presetCaption:{ko:String.raw`Stag Hunt — 대응의 교점이 3개.`,en:String.raw`Stag Hunt — three intersections of the correspondences.`},proof:[{text:{ko:String.raw`P1: \(u_1(S, q) = 4q\), \(u_1(H, q) = 3q + 3(1-q) = 3\). \(4q = 3\)에서 \(q^* = 3/4\).
+
+\(q < 3/4\)이면 \(H\)가, \(q > 3/4\)이면 \(S\)가 최적이다. 대칭성으로 P2의 무차별점은 \(p^* = 3/4\)이다.`,en:String.raw`Player 1: \(u_1(S, q) = 4q\), \(u_1(H, q) = 3q + 3(1-q) = 3\). From \(4q = 3\), \(q^* = 3/4\): \(H\) is best for \(q < 3/4\), \(S\) for \(q > 3/4\).
+
+By symmetry player 2's indifference point is \(p^* = 3/4\).`}},{text:{ko:String.raw`대응의 교점: \((q,p) = (0,0)\) 즉 \((H,H)\), \((1,1)\) 즉 \((S,S)\), 그리고 \((3/4, 3/4)\)의 완전혼합 균형. 세 점 모두에서 각자의 대응이 서로를 "붙잡고" 있다 — 일방적 이탈 유인이 없다.`,en:String.raw`Intersections: \((q,p) = (0,0)\) i.e. \((H,H)\), \((1,1)\) i.e. \((S,S)\), and the fully mixed \((3/4, 3/4)\). At each, the correspondences "hold" each other — no unilateral deviation pays.`}}]},{id:`pennies-unique-mixed`,statement:{ko:String.raw`Matching Pennies에는 순수전략 내쉬 균형이 없고, 유일한 균형이 \((p^*, q^*) = (1/2, 1/2)\)임을 보여라.`,en:String.raw`Show Matching Pennies has no pure-strategy Nash equilibrium and its unique equilibrium is \((p^*, q^*) = (1/2, 1/2)\).`},display:[String.raw`BR_1(q) = \begin{cases} 1 & q > 1/2 \\ [0,1] & q = 1/2 \\ 0 & q < 1/2 \end{cases}`],preset:{game:`Matching Pennies`},presetCaption:{ko:String.raw`Matching Pennies — 대응이 만나는 점은 정중앙 하나뿐.`,en:String.raw`Matching Pennies — the correspondences meet only at the center.`},proof:[{text:{ko:String.raw`네 셀을 검사하면: \((H,H)\)에서 P2는 \(T\)로 바꾸고 싶고(\(1 > -1\)), \((H,T)\)에서 P1은 \(T\)로(\(1 > -1\)), \((T,H)\)에서 P1은 \(H\)로, \((T,T)\)에서 P2는 \(H\)로 바꾸고 싶다. 어느 셀도 쌍방 최적대응이 아니다.`,en:String.raw`Check the four cells: at \((H,H)\) player 2 wants \(T\) (\(1 > -1\)); at \((H,T)\) player 1 wants \(T\); at \((T,H)\) player 1 wants \(H\); at \((T,T)\) player 2 wants \(H\). No cell is a mutual best response.`}},{text:{ko:String.raw`혼합에서는 \(u_1(H,q) = 2q-1\), \(u_1(T,q) = 1-2q\)에서 \(q^* = 1/2\), 대칭적으로 \(p^* = 1/2\). 대응 그림에서 두 계단함수는 \((1/2, 1/2)\)에서 정확히 한 번 만난다 — 유일한 내쉬 균형이다.`,en:String.raw`In mixtures, \(u_1(H,q) = 2q-1\) and \(u_1(T,q) = 1-2q\) give \(q^* = 1/2\), and symmetrically \(p^* = 1/2\). In the correspondence diagram the two step functions cross exactly once, at \((1/2, 1/2)\) — the unique Nash equilibrium.`}}]}],i=[{id:`ieds-rounds`,statement:{ko:String.raw`\(3 \times 3\) 게임에서 강열등전략 소거를 3라운드까지 수행하고, 각 라운드에서 무엇이 왜 제거되는지 밝혀라.`,en:String.raw`Run iterated elimination of strictly dominated strategies for three rounds in the \(3 \times 3\) game, identifying what is removed and why each round.`},display:[String.raw`\begin{matrix} & L & C & R \\ U & (4,3) & (5,1) & (6,2) \\ M & (2,1) & (8,4) & (3,6) \\ D & (3,0) & (9,6) & (2,8) \end{matrix}`],preset:{round:3},presetCaption:{ko:String.raw`3라운드 후 — P1은 \(U\)만 남고 P2는 \(L\)을 택한다.`,en:String.raw`After 3 rounds — only \(U\) survives for P1; P2 picks \(L\).`},proof:[{text:{ko:String.raw`라운드 1: P2의 보수만 보면 \(C\) 열 \((1, 4, 6)\) vs \(R\) 열 \((2, 6, 8)\) — 모든 행에서 \(R\)이 크므로 \(R\)이 \(C\)를 강우월한다. \(C\) 제거.`,en:String.raw`Round 1: comparing player 2's payoffs, column \(C\) \((1,4,6)\) vs column \(R\) \((2,6,8)\) — \(R\) is larger in every row, so \(R\) strictly dominates \(C\). Remove \(C\).`}},{text:{ko:String.raw`라운드 2 (\(\{L,R\}\) 하에서): P1의 \(M\) 행 \((2,3)\) vs \(U\) 행 \((4,6)\) — \(U\)가 강우월한다. \(M\) 제거.
+
+라운드 3: \(D\) 행 \((3,2)\) vs \(U\) 행 \((4,6)\) — 다시 \(U\)가 강우월한다. \(D\) 제거.`,en:String.raw`Round 2 (against \(\{L,R\}\)): player 1's row \(M\) \((2,3)\) vs row \(U\) \((4,6)\) — \(U\) strictly dominates. Remove \(M\).
+
+Round 3: row \(D\) \((3,2)\) vs row \(U\) \((4,6)\) — \(U\) strictly dominates again. Remove \(D\).`}},{text:{ko:String.raw`P1에게는 \(U\)만 남았다.
+
+P2는 \(U\)에 대해 \(L\)(보수 \(3\))과 \(R\)(보수 \(2\)) 중 \(L\)을 택한다.
+
+최종 결과 \((U, L) = (4, 3)\) — 내쉬 균형이기도 하다(일방적 이탈이 손해).`,en:String.raw`Only \(U\) survives for player 1.
+
+Against \(U\), player 2 prefers \(L\) (payoff \(3\)) over \(R\) (payoff \(2\)).
+
+Final outcome \((U, L) = (4, 3)\) — also a Nash equilibrium (unilateral deviation loses).`}}]},{id:`ieds-never-kills-nash`,statement:{ko:String.raw`강열등전략 소거는 내쉬 균형을 절대 제거하지 않음을 증명하라.`,en:String.raw`Prove that iterated elimination of strictly dominated strategies never eliminates a Nash equilibrium.`},preset:{round:3},presetCaption:{ko:String.raw`소거 완료 상태 — 균형 \((U, L)\)은 살아남았다.`,en:String.raw`Elimination complete — the equilibrium \((U, L)\) survived.`},proof:[{text:{ko:String.raw`\(s_i'\)가 \(s_i\)를 강우월한다는 것은 모든 \(s_{-i}\)에 대해 \(u_i(s_i', s_{-i}) > u_i(s_i, s_{-i})\)라는 뜻이다. 내쉬 균형 \(s^*\)에서 \(s_i^*\)가 강열등전략이라면, \(s_i'\)로 바꾸면 상대 전략 \(s_{-i}^*\)에 대해 보수가 엄격히 올라가므로 \(s^*\)는 균형일 수 없다 — 모순.`,en:String.raw`That \(s_i'\) strictly dominates \(s_i\) means \(u_i(s_i', s_{-i}) > u_i(s_i, s_{-i})\) for every \(s_{-i}\). If a Nash equilibrium \(s^*\) used a strictly dominated \(s_i^*\), deviating to \(s_i'\) would strictly raise the payoff against \(s_{-i}^*\) — contradicting equilibrium.`}},{text:{ko:String.raw`따라서 첫 라운드에서 제거되는 전략은 어떤 내쉬 균형의 구성요소도 될 수 없다.
+
+제거 후 남은 "축소 게임"에서도 같은 논증이 적용되므로, 귀납적으로 모든 라운드의 소거가 내쉬 균형을 보존한다.
+
+즉 IEDS의 결과 집합은 항상 모든 내쉬 균형을 포함한다.`,en:String.raw`So no first-round elimination can remove part of a Nash equilibrium.
+
+The same argument applies inside the reduced game, so by induction every round preserves all Nash equilibria: the IEDS survivor set always contains every Nash equilibrium.`}}]}],a=[{id:`entry-spe`,statement:{ko:String.raw`진입 게임에서 후진귀납법으로 부분게임 완전균형을 구하라.`,en:String.raw`Find the subgame-perfect equilibrium of the entry game by backward induction.`},display:[String.raw`\text{Out} \to (0, 2), \quad \text{Enter} \to \text{Incumbent: } \{\text{Accommodate} \to (1,1), \; \text{Fight} \to (-1,-1)\}`],preset:{step:2,threat:!1},presetCaption:{ko:String.raw`후진귀납 완료 — 굵은 경로가 SPE.`,en:String.raw`Backward induction complete — the bold path is the SPE.`},proof:[{text:{ko:String.raw`기존 기업의 노드부터: 진입이 일어난 뒤에는 수용하면 \(1\), 싸우면 \(-1\)을 얻으므로 수용이 최적이다. 싸우겠다는 위협은 공허하다 — 막상 그 노드에 오면 지키지 않는다.`,en:String.raw`Start at the incumbent's node: after entry, accommodating gives \(1\) versus \(-1\) from fighting, so accommodate is optimal. The threat to fight is empty — it would not be carried out once the node is reached.`}},{text:{ko:String.raw`진입자는 이를 예상한다: 들어오면 기존 기업이 수용하므로 \(1\)을 얻고, 안 들어오면 \(0\)이다.
+
+\(1 > 0\)이므로 진입한다.
+
+부분게임 완전균형은 (Enter, Accommodate) — 보수 \((1, 1)\)이다.`,en:String.raw`The entrant anticipates this: entering yields \(1\) (the incumbent will accommodate), staying out yields \(0\).
+
+Since \(1 > 0\), enter.
+
+The subgame-perfect equilibrium is (Enter, Accommodate) with payoffs \((1, 1)\).`}}]},{id:`non-credible-nash`,statement:{ko:String.raw`(Stay Out, Fight-if-enter) 프로파일이 내쉬 균형이긴 하지만 부분게임 완전하지 않음을 보여라.`,en:String.raw`Show that the profile (Stay Out, Fight-if-enter) is a Nash equilibrium but not subgame perfect.`},preset:{step:0,threat:!0},presetCaption:{ko:String.raw`공허한 위협 — Fight는 믿을 수 없는 협박이다.`,en:String.raw`The empty threat — Fight is not a credible commitment.`},proof:[{text:{ko:String.raw`내쉬 균형인 이유: 진입자가 Stay Out이면 기존 기업의 Fight는 경로 밖이라 보수에 영향이 없고, 기존 기업이 (경로 밖에서) Fight를 택한다는 믿음 하에 진입자는 Stay Out(\(0\))이 Enter(\(-1\), 싸움 당함)보다 낫다. 누구도 일방적 이탈로 이득을 못 본다.`,en:String.raw`Why it is Nash: with the entrant staying out, the incumbent's Fight is off-path and payoff-irrelevant; believing the incumbent would fight, the entrant prefers Stay Out (\(0\)) over Enter (\(-1\), getting fought). No unilateral deviation pays.`}},{text:{ko:String.raw`그러나 부분게임 완전하지 않다: 진입 후의 부분게임에서 Fight는 최적대응이 아니다(\(-1 < 1\)). 내쉬 균형의 정의는 경로 밖 행동의 "합리성"을 묻지 않지만, 부분게임 완전성은 모든 부분게임에서 최적대응을 요구한다 — 그래서 이 균형은 탈락한다.`,en:String.raw`But it is not subgame perfect: in the subgame after entry, Fight is not a best response (\(-1 < 1\)). Nash equilibrium never asks whether off-path behavior is "sensible," but subgame perfection demands best responses in every subgame — so this equilibrium is thrown out.`}}]}],o=[{id:`grim-threshold`,statement:{ko:String.raw`\(T = 5\), \(R = 3\), \(P = 1\)인 무한반복 죄수의 딜레마에서 grim-trigger 전략이 협력을 유지하는 조건 \(\delta^*\)를 구하고, \(\delta = 0.6\)에서 협력이 유지됨을 확인하라.`,en:String.raw`In the infinitely repeated Prisoner's Dilemma with \(T = 5\), \(R = 3\), \(P = 1\), find the threshold \(\delta^*\) for grim-trigger strategies to sustain cooperation, and verify cooperation holds at \(\delta = 0.6\).`},display:[String.raw`\frac{R}{1-\delta} \ge T + \frac{\delta P}{1-\delta} \iff \delta \ge \frac{T-R}{T-P}`],preset:{delta:.6,T:5},presetCaption:{ko:String.raw`\(\delta = 0.6 \ge \delta^* = 0.5\) — 협력 유지.`,en:String.raw`\(\delta = 0.6 \ge \delta^* = 0.5\) — cooperation sustained.`},proof:[{text:{ko:String.raw`계속 협력의 현재가치: \(V_C = \frac{3}{1-\delta}\).
+
+일회 배신의 가치: 이번 기 \(5\) + 이후 영원히 \(1\)씩 → \(V_D = 5 + \frac{\delta}{1-\delta}\).
+
+부등식 \(V_C \ge V_D\)를 풀면 \(\delta \ge \frac{5-3}{5-1} = \frac12\).`,en:String.raw`Value of perpetual cooperation: \(V_C = \frac{3}{1-\delta}\).
+
+Value of a one-shot deviation: \(5\) now plus \(1\) forever after, \(V_D = 5 + \frac{\delta}{1-\delta}\).
+
+Solving \(V_C \ge V_D\) gives \(\delta \ge \frac{5-3}{5-1} = \frac12\).`}},{text:{ko:String.raw`\(\delta = 0.6\)에서 \(V_C = \frac{3}{0.4} = 7.5\), \(V_D = 5 + \frac{0.6}{0.4} = 6.5\).
+
+\(7.5 > 6.5\)이므로 배신 유인이 없고 협력이 유지된다.
+
+\(\delta\)가 작아지면 미래의 처벌이 가벼워져서 배신이 유리해진다 — 그림에서 두 곡선이 \(\delta^*\)에서 교차하는 이유이다.`,en:String.raw`At \(\delta = 0.6\): \(V_C = \frac{3}{0.4} = 7.5\), \(V_D = 5 + \frac{0.6}{0.4} = 6.5\).
+
+Since \(7.5 > 6.5\) there is no incentive to deviate — cooperation holds.
+
+As \(\delta\) shrinks, future punishment weighs less and deviation pays — which is why the curves cross at \(\delta^*\).`}}]},{id:`temptation-matters`,statement:{ko:String.raw`유혹 보수 \(T\)가 커지면 협력 유지가 어려워짐을 \(\delta^*\) 공식으로 설명하고, \(T = 7\), \(R = 3\), \(P = 1\)일 때 \(\delta^*\)를 계산하라.`,en:String.raw`Explain via the \(\delta^*\) formula why a larger temptation payoff \(T\) makes cooperation harder to sustain, and compute \(\delta^*\) for \(T = 7\), \(R = 3\), \(P = 1\).`},preset:{delta:.6,T:7},presetCaption:{ko:String.raw`\(T = 7\)이면 \(\delta^* = 2/3 > 0.6\) — 협력 붕괴.`,en:String.raw`With \(T = 7\), \(\delta^* = 2/3 > 0.6\) — cooperation collapses.`},proof:[{text:{ko:String.raw`\(\delta^* = \frac{T-R}{T-P}\)에서 분자를 보면, \(T\)가 커질수록 일회 배신의 이득 \((T - R)\)이 커진다. \(T = 7\)이면 \(\delta^* = \frac{7-3}{7-1} = \frac{4}{6} = \frac23 \approx 0.667\)이다.`,en:String.raw`In \(\delta^* = \frac{T-R}{T-P}\), a larger \(T\) raises the one-shot gain from deviation \((T-R)\). For \(T = 7\): \(\delta^* = \frac{7-3}{7-1} = \frac{4}{6} = \frac23 \approx 0.667\).`}},{text:{ko:String.raw`\(\delta = 0.6 < 2/3\)이므로 배신이 유리하다: \(V_C = 7.5\), \(V_D = 7 + \frac{0.6}{0.4} = 8.5\). 유혹이 크면 미래를 더 중시해야(\(\delta\)가 더 커야) 협력할 수 있다 — "인내심이 협력을 산다"는 직관의 정식화이다.`,en:String.raw`With \(\delta = 0.6 < 2/3\), deviation pays: \(V_C = 7.5\), \(V_D = 7 + \frac{0.6}{0.4} = 8.5\). Bigger temptation demands more patience (higher \(\delta\)) — the formal version of "patience buys cooperation."`}}]}],s={id:`game-theory`,title:{ko:`게임이론`,en:`Game Theory`},summary:{ko:`전략적 선택의 문법 — 표준형 게임과 최적대응에서 내쉬균형, 혼합전략, 동적 게임의 역진귀납과 반복게임까지.`,en:`The grammar of strategic choice — from normal-form games and best responses through Nash equilibrium, mixed strategies, backward induction in dynamic games, and repeated games.`},scenes:[{id:`normal-form`,title:{ko:`표준형 게임과 최적대응`,en:`Normal-Form Games and Best Responses`},order:1,summary:{ko:String.raw`두 경기자의 보수표를 직접 들여다본다. 네 칸마다 두 사람의 보수가 적혀 있다.
+
+각 열에서 첫째 경기자의 가장 좋은 답을 표시한다. 각 행에서는 둘째 경기자의 가장 좋은 답을 표시한다. 두 표시가 겹치는 칸이 별표 칸이다. 그 칸이 순수전략 내쉬 균형이다. 아무도 혼자서는 바꾸고 싶지 않은 자리이기 때문이다.
+
+예를 들면, 나와 🧑 친구가 각자 동전의 앞면과 뒷면 중 하나를 고른다고 하자. 친구가 앞면을 고르면 내게 가장 좋은 답이 정해진다. 반대로 내 선택에 따라 친구의 가장 좋은 답도 정해진다. 두 답이 서로를 가리키는 조합이 바로 균형이다.`,en:String.raw`Look directly at the two-player payoff table. Each of the four cells lists both players' payoffs.
+
+In each column, mark the first player's best answer. In each row, mark the second player's best answer. The cell where both marks land gets a star. That cell is a pure-strategy Nash equilibrium. Neither player wants to move away alone.
+
+For example, say you and a 🧑 friend each pick heads or tails on a coin. If your friend picks heads, one answer is best for you. Your pick likewise settles your friend's best answer. The pairing where both answers point at each other is the equilibrium.`},tex:[String.raw`s^* \text{ is Nash} \iff u_i(s_i^*, s_{-i}^*) \ge u_i(s_i, s_{-i}^*) \;\; \forall s_i, \forall i`],controls:[{kind:`select`,key:`game`,label:{ko:`게임`,en:`game`},options:[`Prisoner's Dilemma`,`Stag Hunt`,`Battle of the Sexes`,`Matching Pennies`],init:`Prisoner's Dilemma`},{kind:`select`,key:`row`,label:{ko:`P1 전략 (행)`,en:`P1 strategy (row)`},options:[`Top`,`Bottom`],init:`Top`},{kind:`select`,key:`col`,label:{ko:`P2 전략 (열)`,en:`P2 strategy (column)`},options:[`Left`,`Right`],init:`Left`}],problems:e},{id:`mixed-strategies`,title:{ko:`혼합전략과 무차별 조건`,en:`Mixed Strategies and the Indifference Condition`},order:2,summary:{ko:String.raw`둘째 경기자가 두 전략을 확률로 섞는 모습을 본다. 섞는 비율을 슬라이더로 움직여본다.
+
+상대가 섞는 비율에 따라 내 각 전략의 기대보수는 직선으로 변한다. 두 직선이 만나는 비율에서는 어느 전략도 더 낫지 않다. 그 무차별한 비율만이 혼합 균형에 쓰일 수 있다. 상대를 무차별하게 만드는 것이 섞는 비율을 정하는 원리다.
+
+예를 들면, ⚽ 공을 차는 🧑 친구와 골키퍼 친구가 있다고 하자. 차는 친구가 항상 왼쪽만 차면 키퍼는 왼쪽만 막는다. 그래서 차는 친구는 왼쪽과 오른쪽을 섞어 찬다. 키퍼가 어느 쪽을 막아도 똑같이 어렵게 느껴지는 비율로 섞는다.`,en:String.raw`Watch the second player mix two strategies by probability. Slide the mixing probability back and forth.
+
+As the rival's mix changes, my expected payoff from each strategy moves along a straight line. At the mix where the two lines cross, neither strategy is better. Only that indifferent mix can appear in a mixed equilibrium. Making your rival indifferent is what pins down your mix.
+
+For example, say a 🧑 friend takes a penalty kick with a ⚽ ball against a goalkeeper friend. Always kicking left lets the keeper guard only left. So the kicker mixes left and right kicks. The mix makes the keeper equally unhappy guarding either side.`},tex:[String.raw`u_1(\text{Top}, q) = q\,u_{TL} + (1-q)\,u_{TR}`,String.raw`q^* : u_1(\text{Top}, q^*) = u_1(\text{Bottom}, q^*)`],prerequisites:[`normal-form`],controls:[{kind:`select`,key:`game`,label:{ko:`게임`,en:`game`},options:[`Matching Pennies`,`Battle of the Sexes`],init:`Matching Pennies`},{kind:`slider`,key:`q`,label:{ko:`P2의 혼합 q`,en:`P2's mix q`},min:0,max:1,step:.01,init:.5}],problems:t},{id:`zero-sum`,title:{ko:`영합게임과 미니맥스`,en:`Zero-Sum Games and Minimax`},order:3,summary:{ko:String.raw`한 사람의 이득이 정확히 다른 사람의 손실인 게임을 본다. 보수표의 숫자를 직접 바꿔본다.
+
+나는 최악의 경우를 최대한 좋게 만들려 한다. 상대는 내 이득을 최대한 작게 만들려 한다. 두 계산이 일치하면 안장점이 생기고 순수전략 균형이 된다. 어긋나면 둘 다 전략을 섞어야 하고, 그때 게임의 값이 아래 식처럼 정해진다.
+
+예를 들면, 🍬 사탕 한 개를 걸고 동전의 앞면과 뒷면을 맞힌다고 하자. 내가 맞히면 사탕은 내 것이 된다. 틀리면 🧑 친구가 가져간다. 내가 얻는 만큼 친구가 잃는 게임이다. 그래서 둘 다 속을 읽히지 않게 섞는다.`,en:String.raw`Look at a game where one player's gain is exactly the other's loss. Edit the payoff numbers yourself.
+
+I try to make my worst case as good as possible. My rival tries to make my gains as small as possible. When the two calculations agree, a saddle point appears and the equilibrium is pure. When they disagree, both players must mix, and the game gets a value as in the formula below.
+
+For example, bet one 🍬 candy on guessing heads or tails of a coin. Guess right and the candy is yours. Guess wrong and your 🧑 friend takes it. Whatever you win, your friend loses. So both of you mix to stay unreadable.`},tex:[String.raw`\max_r \min_c u_{rc} \le \min_c \max_r u_{rc}`,String.raw`v = \frac{ad-bc}{a-b-c+d}, \quad p^* = \frac{d-c}{a-b-c+d}`],prerequisites:[`mixed-strategies`],controls:[{kind:`slider`,key:`a`,label:{ko:`보수 a (위-왼쪽)`,en:`payoff a (top-left)`},min:-5,max:5,step:1,init:1},{kind:`slider`,key:`b`,label:{ko:`보수 b (위-오른쪽)`,en:`payoff b (top-right)`},min:-5,max:5,step:1,init:-1},{kind:`slider`,key:`c`,label:{ko:`보수 c (아래-왼쪽)`,en:`payoff c (bottom-left)`},min:-5,max:5,step:1,init:-1},{kind:`slider`,key:`d`,label:{ko:`보수 d (아래-오른쪽)`,en:`payoff d (bottom-right)`},min:-5,max:5,step:1,init:1}],problems:n},{id:`nash-equilibrium`,title:{ko:`내쉬 균형과 최적대응 대응`,en:`Nash Equilibrium and Best-Response Correspondences`},order:4,summary:{ko:String.raw`두 경기자의 최적대응을 한 평면에 겹쳐 그린다. 파란 곡선과 주황 곡선이 함께 나타난다.
+
+파란 곡선은 상대의 섞는 비율에 대한 내 최선의 답이다. 주황 곡선은 반대 방향의 최선의 답이다. 두 곡선이 만나는 점에서는 서로가 서로의 최적대응이다. 그 교점이 바로 내쉬 균형이다. 순수 균형은 모서리에 찍히고, 혼합 균형은 안쪽에 별표로 찍힌다.
+
+예를 들면, 🧑 친구와 내가 각자 왼쪽과 오른쪽 중 하나를 고른다고 하자. 친구의 선택에 따라 내 최선의 답이 바뀐다. 내 선택에 따라 친구의 최선의 답도 바뀐다. 서로의 답이 딱 맞아떨어지는 조합이 바로 균형이다.`,en:String.raw`Draw both players' best-response curves on one plane. The blue curve and the orange curve appear together.
+
+The blue curve is my best answer to the rival's mixing probability. The orange curve is the best answer in the other direction. Where they cross, each is a best response to the other. That crossing is a Nash equilibrium. Pure equilibria sit at the corners, and the mixed one is starred inside.
+
+For example, say you and a 🧑 friend each choose left or right. Your best answer changes with your friend's choice. Your friend's best answer changes with yours too. The pairing where both answers fit each other is the equilibrium.`},tex:[String.raw`s^* \text{ Nash} \iff s_i^* \in BR_i(s_{-i}^*) \;\; \forall i`,String.raw`BR_1(q) \cap BR_2(p) \neq \varnothing`],controls:[{kind:`select`,key:`game`,label:{ko:`게임`,en:`game`},options:[`Prisoner's Dilemma`,`Stag Hunt`,`Battle of the Sexes`,`Matching Pennies`],init:`Stag Hunt`}],problems:r},{id:`dominance`,title:{ko:`강열등전략의 반복 소거`,en:`Iterated Elimination of Strictly Dominated Strategies`},order:5,summary:{ko:String.raw`절대 쓰지 않을 전략을 하나씩 지워나가는 과정을 본다. 라운드 슬라이더를 밀며 순서대로 소거한다.
+
+어떤 전략이 다른 전략보다 항상 나쁘면 합리적 경기자는 쓰지 않는다. 그 전략을 지우면 표가 작아진다. 작아진 표에서는 또 다른 나쁜 전략이 드러난다. 이 씬에서는 C와 M과 D가 차례로 사라지고 U만 남는다.
+
+예를 들면, 🏪 가게에 🍬 사탕이 세 종류 있다고 하자. 한 종류는 다른 종류보다 항상 작고 맛도 없다. 그런 사탕은 아무도 고르지 않으니 진열대에서 빼도 된다. 빼고 나면 또 항상 손해인 사탕이 눈에 띈다. 이렇게 지워나가면 마지막 선택이 남는다.`,en:String.raw`Watch dominated strategies get deleted one by one. Push the round slider to eliminate them in order.
+
+If a strategy always does worse than another one, no rational player uses it. Delete it and the table shrinks. In the smaller table, another bad strategy shows up. In this scene C, M, and D vanish in turn until only U remains.
+
+For example, say a 🏪 shop sells three kinds of 🍬 candy. One kind is always smaller and less tasty than another kind. Nobody ever picks it, so it can leave the shelf. Once it is gone, another always-worse candy stands out. Deleting step by step leaves the final choice.`},tex:[String.raw`s_i' \text{ strictly dominates } s_i \iff u_i(s_i', s_{-i}) > u_i(s_i, s_{-i}) \;\; \forall s_{-i}`],prerequisites:[`nash-equilibrium`],controls:[{kind:`slider`,key:`round`,label:{ko:`소거 라운드`,en:`elimination round`},min:0,max:3,step:1,init:0}],problems:i},{id:`game-tree`,title:{ko:`전개형 게임과 후진귀납법`,en:`Extensive-Form Games and Backward Induction`},order:6,summary:{ko:String.raw`새 회사가 시장에 들어올지 다투는 게임을 나무 모양으로 그린다. 누가 먼저 움직이는지 순서가 한눈에 보인다.
+
+푸는 방법은 맨 뒤에서부터 거꾸로 읽는 것이다. 마지막에 움직이는 사람의 최선의 답을 먼저 정한다. 그 답을 알면 앞사람의 선택도 정해진다. 싸우겠다는 위협은 막상 닥치면 본인도 손해라서 믿을 수 없다. 그래서 그 가지는 잘려나간다.
+
+예를 들면, 동네에 🏪 분식집이 하나 있는데 새 분식집이 들어오려 한다고 하자. 기존 아저씨가 가격 전쟁을 하겠다고 겁을 준다. 하지만 새 가게가 들어온 뒤에 싸우면 아저씨도 손해를 본다. 새 가게는 그걸 알기에 겁먹지 않고 들어온다.`,en:String.raw`Draw the entry game as a tree. The order of moves is visible at a glance.
+
+Solve it by reading backwards from the end. First fix the last mover's best answer. Knowing that answer settles the earlier player's choice too. A threat to fight is not credible, because fighting hurts the threatener once entry happens. So that branch gets pruned away.
+
+For example, say a neighborhood has one snack 🏪 shop and a new one wants to open. The old owner threatens a price war. But once the new shop opens, fighting costs the old owner too. The newcomer knows this and enters anyway.`},tex:[String.raw`\text{SPE: optimal in every subgame}`],controls:[{kind:`slider`,key:`step`,label:{ko:`후진귀납 단계`,en:`backward induction step`},min:0,max:2,step:1,init:0},{kind:`toggle`,key:`threat`,label:{ko:`공허한 위협 표시`,en:`show the empty threat`},init:!1}],problems:a},{id:`repeated-games`,title:{ko:`반복 게임과 협력`,en:`Repeated Games and Cooperation`},order:7,summary:{ko:String.raw`죄수의 딜레마를 끝없이 반복하는 게임을 본다. 배신하면 영원히 응징하는 전략을 쓴다.
+
+오늘 배신하면 지금은 크게 얻는다. 하지만 내일부터 상대도 배신해서 손해가 계속 이어진다. 내일을 얼마나 중요하게 여기느냐가 선택을 가른다. 미래를 충분히 아끼면 협력이 이득이라 무너지지 않는다. 그 경계값은 아래 식으로 계산된다.
+
+예를 들면, 🧑 친구와 매일 ⚽ 공을 번갈아 빌려준다고 하자. 오늘 내가 공을 독차지하면 오늘은 신난다. 하지만 내일부터 친구는 내게 공을 빌려주지 않는다. 내일도 같이 놀고 싶다면 오늘의 약속을 지키는 편이 낫다.`,en:String.raw`Watch the Prisoner's Dilemma repeated forever. The strategy punishes any betrayal forever.
+
+Betray today and you gain a lot right now. But from tomorrow your partner betrays too, and the losses keep coming. How much you care about tomorrow decides the choice. Care enough about the future, and cooperation pays and holds. The boundary value comes from the formula below.
+
+For example, say you and a 🧑 friend take turns lending a ⚽ ball every day. Hog the ball today and today is fun. But from tomorrow your friend never lends it to you. If you want to keep playing together, keeping today's promise wins.`},tex:[String.raw`\frac{R}{1-\delta} \ge T + \frac{\delta P}{1-\delta} \iff \delta \ge \delta^* = \frac{T-R}{T-P}`],prerequisites:[`game-tree`],controls:[{kind:`slider`,key:`delta`,label:{ko:`할인율 δ`,en:`discount factor δ`},min:0,max:.95,step:.01,init:.6},{kind:`slider`,key:`T`,label:{ko:`유혹 보수 T`,en:`temptation payoff T`},min:3.5,max:8,step:.5,init:5}],problems:o}]};export{s as t};

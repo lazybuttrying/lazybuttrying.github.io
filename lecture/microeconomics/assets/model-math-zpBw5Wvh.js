@@ -1,0 +1,1 @@
+function e(e,t,n){return e<=0||t<=0?0:Math.exp(n*Math.log(e)+(1-n)*Math.log(t))}function t(e,t,n,r,i){return t*(1-e)*r*i/(e*(1-t)*(n-i)+t*(1-e)*i)}export{t as n,e as t};
