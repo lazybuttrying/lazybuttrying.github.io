@@ -15,6 +15,9 @@
   .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px;
           box-shadow: 0 1px 3px rgba(0,0,0,.08); }
   .card h2 { font-size: 16px; margin: 0 0 12px; }
+  @media (min-width: 768px) {
+    .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+  }
   .alert { border-left: 4px solid #e5484d; background: #fff5f5; padding: 10px 12px;
            border-radius: 0 8px 8px 0; margin-bottom: 8px; font-size: 14px; }
   .alert b { color: #c93a3e; }
@@ -77,6 +80,13 @@
   </div>
 
   <div class="card">
+    <h2><span data-i18n="trend_title">발행자 추이</span> <span style="font-weight:400;font-size:12px"><a href="./trends/" data-i18n="trends_link">산업별 전체 추이 →</a> · <a href="./concepts/" data-i18n="concepts_link">신용평가 개념 가이드 →</a> · <a href="./structure/" data-i18n="structure_link">차환 리스크·등급 내 분산 →</a> · <a href="./divergence/" data-i18n="divergence_link">신용-주식 괴리 →</a></span></h2>
+    <select id="issuerSel"></select>
+    <div id="ts"></div>
+  </div>
+
+  <div class="twocol">
+  <div class="card">
     <h2 data-i18n="alerts">확대 주의보</h2>
     <div id="alerts"></div>
     <div class="note" data-i18n="alerts_note">최근 5거래일간 스프레드가 15bp 이상 벌어진 발행자. 시장이 해당 회사의 신용위험을
@@ -87,6 +97,7 @@
     <h2 data-i18n="rating_title">최근 등급 변경</h2>
     <div id="ratingEvents"></div>
     <div class="note" data-i18n="rating_note">KOFIA 거래 데이터의 종목별 신용등급 변화를 종목 단위로 추적해 탐지. 등급은 평가사 발표 후 거래 데이터에 반영된 날짜 기준이며, 2거래일 이상 지속된 변화만 확정으로 표시.</div>
+  </div>
   </div>
 
   <div class="card">
@@ -105,11 +116,6 @@
     동급대비 = 동일 신용등급 발행자들의 중간값 대비 괴리. 양수 = 동급보다 위험하게 거래됨.</div>
   </div>
 
-  <div class="card">
-    <h2><span data-i18n="trend_title">발행자 추이</span> <span style="font-weight:400;font-size:12px"><a href="./trends/" data-i18n="trends_link">산업별 전체 추이 →</a> · <a href="./concepts/" data-i18n="concepts_link">신용평가 개념 가이드 →</a> · <a href="./structure/" data-i18n="structure_link">차환 리스크·등급 내 분산 →</a> · <a href="./divergence/" data-i18n="divergence_link">신용-주식 괴리 →</a></span></h2>
-    <select id="issuerSel"></select>
-    <div id="ts"></div>
-  </div>
 </div>
 
 <script src="data.js"></script>
@@ -145,6 +151,8 @@ ko: {
   rating_bonds: n => `종목 ${n}개`,
   rating_spread_at: v => `변경 시점 스프레드 ${v}bp`,
   rating_pre20: v => `직전 20일 ${v > 0 ? '+' : ''}${v}bp`,
+  stock_5d: (n, v) => `주가(${n}) 5일 ${v > 0 ? '+' : ''}${v}%`,
+  stock_20d: (n, v) => `주가(${n}) 20거래일 ${v > 0 ? '+' : ''}${v}%`,
   lang_btn: "EN",
   no_alerts: "현재 5일 기준 급격한 스프레드 확대 종목 없음",
   alerts_sub: n => `5일간 15bp 이상 확대 ${n}곳 — 클릭하면 보유 채권 나열`,
@@ -199,6 +207,8 @@ en: {
   rating_bonds: n => `${n} bonds`,
   rating_spread_at: v => `spread at change ${v}bp`,
   rating_pre20: v => `prior 20d ${v > 0 ? '+' : ''}${v}bp`,
+  stock_5d: (n, v) => `${n} stock 5d ${v > 0 ? '+' : ''}${v}%`,
+  stock_20d: (n, v) => `${n} stock 20d ${v > 0 ? '+' : ''}${v}%`,
   lang_btn: "한",
   no_alerts: "No issuers with sharp spread widening over 5 days",
   alerts_sub: n => `${n} issuers widened 15bp+ in 5d — click for bond list`,
@@ -307,6 +317,7 @@ function alertCard(r){
   if (r.vs_peer >= 30) bits.push(t('above_peer')(r.rating, Math.round(r.vs_peer)));
   else if (r.vs_peer <= -30) bits.push(t('below_peer')(r.rating, Math.round(r.vs_peer)));
   if (r.chg_20d != null && r.chg_20d >= 30) bits.push(t('days20')(r.chg_20d));
+  if (r.stock_5d != null) bits.push(`<span class="${r.stock_5d >= 0 ? 'dn' : 'up'}">${t('stock_5d')(r.stock_name, r.stock_5d)}</span>`);
   const hasBonds = (window.BONDS || {})[r.issuer];
   return `<div class="alert" data-issuer="${r.issuer}"${hasBonds ? ' data-clickable="1"' : ''}>` +
     `<b>${r.issuer}</b> <span class="meta">${r.rating} · ${indName(r.industry)}</span>` +
@@ -365,6 +376,7 @@ function renderRating(){
                   t('rating_bonds')(e.n_bonds)];
     if (e.spread_at != null) bits.push(t('rating_spread_at')(e.spread_at));
     if (e.chg_pre20 != null) bits.push(t('rating_pre20')(e.chg_pre20));
+    if (e.stock_20d != null) bits.push(`<span style="color:${e.stock_20d >= 0 ? '#2a7d4f' : '#c93a3e'}">${t('stock_20d')(e.stock_name, e.stock_20d)}</span>`);
     return `<div style="padding:7px 0;border-bottom:1px dashed #e5e5e5;font-size:13.5px">` +
       `<b>${e.issuer}</b> <span style="color:#888;font-size:12px">${d}</span><br>${bits.join(' · ')}</div>`;
   }).join('');
