@@ -120,7 +120,6 @@ const CURVE = window.DASHBOARD_DATA.curve;
 const ALERTS = window.DASHBOARD_DATA.alerts;
 const META = window.DASHBOARD_DATA.meta;
 const RATING = window.DASHBOARD_DATA.rating;
-window.BONDS = /*BONDS_JSON*/;
 const TENORS = ["3M","6M","1Y","2Y","3Y","5Y","10Y","20Y","30Y"];
 
 // ---- i18n ----
@@ -274,15 +273,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ---- yield curve ----
 (function(){
-  const traces = CURVE.series.map(s => ({
-    x: TENORS, y: TENORS.map(t => { const p = s.points.find(q => q.tenor === t); return p ? p.yld : null; }),
-    mode: 'lines+markers', name: s.date, line: { width: s.latest ? 3 : 1.5, dash: s.latest ? 'solid' : 'dot' }
-  }));
-  Plotly.newPlot('curve', traces, {
-    margin: { t: 10, r: 10, b: 40, l: 45 },
-    yaxis: { title: '수익률(%)', tickformat: '.2f' }, xaxis: { title: '잔존기간' },
-    legend: { orientation: 'h', y: -0.25 }, height: 340
-  }, { displayModeBar: false, responsive: true });
+  const el = document.getElementById('curve');
+  try {
+    if (typeof Plotly === 'undefined') throw new Error('chart library unavailable');
+    const traces = CURVE.series.map(s => ({
+      x: TENORS, y: TENORS.map(t => { const p = s.points.find(q => q.tenor === t); return p ? p.yld : null; }),
+      mode: 'lines+markers', name: s.date, line: { width: s.latest ? 3 : 1.5, dash: s.latest ? 'solid' : 'dot' }
+    }));
+    Plotly.newPlot('curve', traces, {
+      margin: { t: 10, r: 10, b: 40, l: 45 },
+      yaxis: { title: '수익률(%)', tickformat: '.2f' }, xaxis: { title: '잔존기간' },
+      legend: { orientation: 'h', y: -0.25 }, height: 340
+    }, { displayModeBar: false, responsive: true });
+  } catch (e) {
+    if (el) el.innerHTML = '<div style="color:#666;font-size:14px;padding:16px 0;">차트를 불러오지 못했습니다 (차트 라이브러리 연결 실패). 아래 표 데이터는 정상입니다.</div>';
+  }
 })();
 
 // ---- alerts v2: group contagion + click drill-down to bonds ----
@@ -443,11 +448,17 @@ _rerender.push(renderRating);
       line: { color: e.direction === 'down' ? '#e5484d' : '#2a7d4f', width: 1.5, dash: 'dot' } }));
     const anns = evs.map(e => ({ x: fmtD(e.date), yref: 'paper', y: 1.02, showarrow: false,
       text: `${e.from}→${e.to}`, font: { size: 10, color: e.direction === 'down' ? '#e5484d' : '#2a7d4f' } }));
-    Plotly.newPlot('ts', traces, {
-      margin: { t: 24, r: 10, b: 40, l: 50 },
-      yaxis: { title: 'bp' }, legend: { orientation: 'h', y: -0.28 }, height: 340,
-      shapes: shapes, annotations: anns
-    }, { displayModeBar: false, responsive: true });
+    try {
+      if (typeof Plotly === 'undefined') throw new Error('chart library unavailable');
+      Plotly.newPlot('ts', traces, {
+        margin: { t: 24, r: 10, b: 40, l: 50 },
+        yaxis: { title: 'bp' }, legend: { orientation: 'h', y: -0.28 }, height: 340,
+        shapes: shapes, annotations: anns
+      }, { displayModeBar: false, responsive: true });
+    } catch (e) {
+      const el = document.getElementById('ts');
+      if (el) el.innerHTML = '<div style="color:#666;font-size:14px;padding:16px 0;">차트를 불러오지 못했습니다 (차트 라이브러리 연결 실패).</div>';
+    }
   }
   sel.addEventListener('change', draw);
   sel.value = names.includes('한국전력공사채권') ? '한국전력공사채권' : names[0];
