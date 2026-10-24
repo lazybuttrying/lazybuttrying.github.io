@@ -21,6 +21,11 @@
   .months button.on { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
   .news { font-size: 14.5px; line-height: 1.9; margin: 0 0 4px; padding-left: 20px; }
   .stats { font-size: 13px; color: #666; margin: 12px 0 4px; }
+  .chart-title { font-size: 15px; margin: 18px 0 4px; }
+  .chart-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 8px; }
+  .src-title { font-size: 15px; margin: 18px 0 8px; }
+  .sources { font-size: 14px; line-height: 2.0; margin: 0; padding-left: 20px; }
+  .sources .meta { color: #888; font-size: 12.5px; }
   .note { font-size: 12px; color: #888; margin-top: 12px; line-height: 1.6; }
   .foot { text-align: center; color: #888; font-size: 13px; margin-top: 24px; }
 </style>
@@ -35,11 +40,14 @@
     <h2 id="monthTitle"></h2>
     <ul class="news" id="newsList"></ul>
     <div class="stats" id="statsLine"></div>
+    <h3 class="chart-title">차트: 시장 중앙값 스프레드 (bp)</h3>
+    <div class="chart-desc">그날 거래된 발행자들의 스프레드 중앙값. 발행자별로 5일 이동중앙값으로 평활한 뒤 일별 중앙값을 취한 내 거래 데이터 기준이다.</div>
     <div id="chart"></div>
+    <h3 class="src-title">인용 기사</h3>
+    <ul class="sources" id="srcList"></ul>
   </div>
 
-  <div class="note">뉴스 요약은 2026년 1~9월 회사채 뉴스 정리 기준이며 배경 설명이다.
-  차트는 내 거래 데이터 기준 시장 중앙값 (발행자별 5일 이동중앙값 평활 후 일별 중앙값)이다.</div>
+  <div class="note">뉴스 요약은 2026년 1~9월 회사채 뉴스 정리 기준이며 배경 설명이다.</div>
   <div class="foot"><a href="https://sdykim.me/">sdykim.me</a> · Doyeon Kim</div>
 </div>
 
@@ -64,6 +72,9 @@ function render(m) {
     d.news.map(n => `<li>${n}</li>`).join('');
   document.getElementById('statsLine').textContent =
     `월중앙값 ${d.month_median}bp · 월초 ${d.first}bp → 월말 ${d.last}bp`;
+  document.getElementById('srcList').innerHTML =
+    (d.sources || []).map(s =>
+      `<li><a href="${s.url}" target="_blank" rel="noopener">${s.topic}</a> <span class="meta">${s.outlet} ${s.date}</span></li>`).join('');
   const el = document.getElementById('chart');
   try {
     if (typeof Plotly === 'undefined') throw new Error('chart library unavailable');
