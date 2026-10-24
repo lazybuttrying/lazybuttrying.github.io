@@ -15,6 +15,7 @@ header:
   teaser: /assets/images/fx-series-intro.jpg
 
 permalink: /finance/exchange-rate-series-intro/
+published: false
 
 toc: true
 toc_sticky: true
