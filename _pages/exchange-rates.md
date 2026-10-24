@@ -3,6 +3,7 @@ title: "환율"
 permalink: /exchange-rates/
 layout: single
 comments: false
+published: false
 ---
 
 뉴스에서 말하는 환율, 은행 앱에 뜨는 환율, 검색하면 나오는 환율, 한국은행이 고시하는 환율은 전부 숫자가 다르다. 어느 하나가 틀린 게 아니다. 같은 환율이 층을 오르내리며 가공된 결과다.
