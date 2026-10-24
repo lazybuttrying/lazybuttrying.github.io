@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>월별 뉴스와 차트 — 회사채 신용 스프레드 모니터</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+         margin: 0; padding: 16px; background: #f7f8fa; color: #1a1a1a; }
+  .wrap { max-width: 960px; margin: 0 auto; }
+  h1 { font-size: 22px; margin: 8px 0 4px; }
+  a { color: #2563eb; text-decoration: none; }
+  .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 16px;
+          box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+  .card h2 { font-size: 16px; margin: 0 0 12px; }
+  .months { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .months button { padding: 8px 14px; border: 1px solid #ddd; border-radius: 20px;
+                   background: #fff; cursor: pointer; font-size: 14px; }
+  .months button.on { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .news { font-size: 14.5px; line-height: 1.9; margin: 0 0 4px; padding-left: 20px; }
+  .stats { font-size: 13px; color: #666; margin: 12px 0 4px; }
+  .note { font-size: 12px; color: #888; margin-top: 12px; line-height: 1.6; }
+  .foot { text-align: center; color: #888; font-size: 13px; margin-top: 24px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div><a href="../">← 모니터로 돌아가기</a></div>
+  <h1>월별 뉴스와 차트</h1>
+  <div class="months" id="monthBtns"></div>
+
+  <div class="card">
+    <h2 id="monthTitle"></h2>
+    <ul class="news" id="newsList"></ul>
+    <div class="stats" id="statsLine"></div>
+    <div id="chart"></div>
+  </div>
+
+  <div class="note">뉴스 요약은 2026년 1~9월 회사채 뉴스 정리 기준이며 배경 설명이다.
+  차트는 내 거래 데이터 기준 시장 중앙값 (발행자별 5일 이동중앙값 평활 후 일별 중앙값)이다.</div>
+  <div class="foot"><a href="https://sdykim.me/">sdykim.me</a> · Doyeon Kim</div>
+</div>
+
+<script src="monthly_data.js"></script>
+<script>
+const MONTHS = Object.keys(window.MONTHLY_DATA.months).sort();
+const btnWrap = document.getElementById('monthBtns');
+MONTHS.forEach(m => {
+  const b = document.createElement('button');
+  b.textContent = m.slice(0, 4) + '년 ' + parseInt(m.slice(5), 10) + '월';
+  b.dataset.month = m;
+  b.addEventListener('click', () => render(m));
+  btnWrap.appendChild(b);
+});
+function render(m) {
+  document.querySelectorAll('#monthBtns button').forEach(b =>
+    b.classList.toggle('on', b.dataset.month === m));
+  const d = window.MONTHLY_DATA.months[m];
+  document.getElementById('monthTitle').textContent =
+    m.slice(0, 4) + '년 ' + parseInt(m.slice(5), 10) + '월';
+  document.getElementById('newsList').innerHTML =
+    d.news.map(n => `<li>${n}</li>`).join('');
+  document.getElementById('statsLine').textContent =
+    `월중앙값 ${d.month_median}bp · 월초 ${d.first}bp → 월말 ${d.last}bp`;
+  const el = document.getElementById('chart');
+  try {
+    if (typeof Plotly === 'undefined') throw new Error('chart library unavailable');
+    Plotly.newPlot('chart', [{
+      x: d.dates, y: d.median, mode: 'lines+markers',
+      name: '시장 중앙값', line: { width: 2.5, color: '#2563eb' }
+    }], {
+      margin: { t: 10, r: 10, b: 40, l: 50 },
+      yaxis: { title: 'bp' }, height: 340
+    }, { displayModeBar: false, responsive: true });
+  } catch (e) {
+    el.innerHTML = '<div style="color:#666;font-size:14px;padding:16px 0;">차트를 불러오지 못했습니다 (차트 라이브러리 연결 실패).</div>';
+  }
+}
+render(MONTHS[MONTHS.length - 1]);
+</script>
+</body>
+</html>
