@@ -26,12 +26,35 @@
 </head>
 <body>
 <div class="wrap">
+<style>
+  .site-nav { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 16px; }
+  .site-nav a { padding: 7px 13px; border: 1px solid #ddd; border-radius: 20px;
+                background: #fff; color: #1a1a1a; text-decoration: none; font-size: 13.5px; }
+  .site-nav a.on { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+</style>
+<nav class="site-nav">
+  <a href="/bond-credit-monitor/" data-i18n="nav_monitor">모니터</a>
+  <a href="/bond-credit-monitor/trends/" data-i18n="nav_trends">산업별 전체 추이</a>
+  <a href="/bond-credit-monitor/concepts/" data-i18n="nav_concepts">신용평가 개념 가이드</a>
+  <a href="/bond-credit-monitor/structure/" data-i18n="nav_structure">차환 리스크·등급 내 분산</a>
+  <a href="/bond-credit-monitor/divergence/" data-i18n="nav_divergence">신용-주식 괴리</a>
+  <a href="/bond-credit-monitor/monthly/" data-i18n="nav_monthly">사건별 시장 반응</a>
+</nav>
+<script>
+(function () {
+  var here = window.location.pathname.replace(/\/$/, '') || '/';
+  document.querySelectorAll('.site-nav a').forEach(function (a) {
+    var p = new URL(a.getAttribute('href'), window.location.origin).pathname.replace(/\/$/, '') || '/';
+    if (p === here) a.classList.add('on');
+  });
+})();
+</script>
+
   <div style="display:flex;justify-content:space-between;align-items:center">
     <h1 data-i18n="title">발행자 스프레드 추이</h1>
     <button id="langBtn" style="padding:6px 12px;border:1px solid #ccc;border-radius:6px;background:#fff;cursor:pointer;font-size:13px">EN</button>
   </div>
-  <div class="sub">최근 250거래일 (20240408 ~ 20261016) · 20거래일 이동중앙값 · 유동성 상위 발행자</div>
-  <div style="margin-bottom:16px"><a class="back" style="margin:0" href="../" data-i18n="back">← 오늘자 스프레드 모니터</a></div>
+  <div class="sub">최근 250거래일 (20240408 ~ 20261020) · 20거래일 이동중앙값 · 유동성 상위 발행자</div>
   <div id="sections"></div>
   <div class="note" data-i18n="note">20거래일 이동중앙값 기준이라 단기 노이즈가 제거됨.
   단기 = 잔존기간 1년 이하, 장기 = 1년 초과. 같은 회사의 단기 스프레드가 치솟으면
