@@ -1,0 +1,21 @@
+var e=[{id:`mean-eight-vol-fifteen`,kind:`compute`,statement:{ko:String.raw`수익률이 평균 \(8\%\), 변동성 \(15\%\)인 정규분포를 따른다.
+
+수익률이 \(0\%\) 아래로 떨어질 확률을 구하라.`,en:String.raw`Returns follow a normal distribution with mean \(8\%\) and volatility \(15\%\).
+
+Find the probability that a return falls below \(0\%\).`},preset:{mean:8,sd:15,cutoff:0},presetCaption:{ko:String.raw`평균 \(8\%\), 변동성 \(15\%\), 기준 \(0\%\)인 분포`,en:String.raw`Distribution with mean \(8\%\), volatility \(15\%\), cutoff \(0\%\)`},proof:[{text:{ko:String.raw`표준화한다: \(z = (0 - 8) / 15 = -0.533\).`,en:String.raw`Standardize: \(z = (0 - 8) / 15 = -0.533\).`}},{text:{ko:String.raw`표준정규분포에서 \(\Phi(-0.533) \approx 0.297\)이다.`,en:String.raw`From the standard normal distribution, \(\Phi(-0.533) \approx 0.297\).`}}],answer:{ko:String.raw`약 \(0.297\), 즉 약 \(29.7\%\)`,en:String.raw`About \(0.297\), that is about \(29.7\%\)`}}],t={id:`statistics`,title:{ko:`통계와 확률의 기초`,en:`Statistics and Probability Basics`},summary:{ko:String.raw`시계열은 나중에 온다. 먼저 숫자 하나의 분포를 읽어야 한다. 평균이 중심이고, 변동성이 퍼짐이다. 곡선을 움직여 보면, 평균이 올라가면 곡선 전체가 오른쪽으로 가고, 변동성이 커지면 곡선이 납작해진다.`,en:String.raw`Time series comes later. First, read the distribution of a single number. The mean is the center, and volatility is the spread. Move the curve and watch: a higher mean shifts the whole curve right, and a larger volatility flattens it.`},scenes:[{id:`returns-distribution`,title:{ko:`수익률 분포: 평균과 변동성`,en:`The Return Distribution: Mean and Volatility`},order:1,summary:{ko:String.raw`주식 한 주를 샀다고 하자. 내년 수익률이 얼마일지는 모른다. 다만 평균과 퍼짐은 말할 수 있다.
+
+평균이 \(8\%\)이고 변동성이 \(15\%\)라면, 수익률은 대략 \(8\%\)를 중심으로 \(15\%\) 정도씩 흔들린다. 아래 식은 그 분포의 모양이다. 기준을 움직이면 그 기준 아래로 떨어질 확률이 어떻게 바뀌는지 보인다.
+
+예를 들면, 용돈 100,000원으로 주식을 샀다고 하자. 평균 수익률이 \(8\%\)면 내년에는 대략 108,000원이 되기를 기대한다. 하지만 변동성이 \(15\%\)면 93,000원이 될 수도 있고 123,000원이 될 수도 있다. 기대와 흔들림은 따로 읽어야 한다.`,en:String.raw`Suppose you buy one share. Next year's return is unknown. But its mean and its spread can be stated.
+
+With a mean of \(8\%\) and volatility of \(15\%\), returns wobble around \(8\%\) by roughly \(15\%\). The formula below is the shape of that distribution. Move the cutoff and watch how the probability of falling below it changes.
+
+For example, suppose you invest 100,000 won of allowance in a stock. With a mean return of \(8\%\), you expect about 108,000 won next year. But with volatility of \(15\%\), it could be 93,000 won or 123,000 won. The expectation and the wobble must be read separately.`},tex:[String.raw`f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}`,String.raw`P(X < c) = \Phi\left(\frac{c - \mu}{\sigma}\right)`],controls:[{kind:`slider`,key:`mean`,label:{ko:`평균 수익률 (%)`,en:`mean return (%)`},min:-10,max:20,step:1,init:8},{kind:`slider`,key:`sd`,label:{ko:`변동성 (%)`,en:`volatility (%)`},min:1,max:30,step:1,init:15},{kind:`slider`,key:`cutoff`,label:{ko:`기준 수익률 (%)`,en:`cutoff return (%)`},min:-20,max:40,step:1,init:0}],problems:e},{id:`sample-mean`,title:{ko:`표본이 커지면 평균이 제자리를 찾는다`,en:`As the Sample Grows, the Mean Finds Its Place`},order:2,summary:{ko:String.raw`앞 씬에서 분포의 중심을 봤다. 이제 그 중심을 표본으로 추정해 본다.
+
+표본이 10개면 평균이 진짜 평균에서 멀리 떨어질 수 있다. 표본이 100개, 1000개로 커지면 평균이 진짜 평균에 붙는다. 이것이 대수의 법칙이다. 아래 곡선은 표본을 하나씩 더할 때마다 평균이 어떻게 움직이는지 보여준다.
+
+예를 들면, 주사위를 10번 던진 평균은 3.5에서 멀 수 있다. 6이 여러 번 나오면 평균이 훌쩍 올라간다. 주사위를 1000번 던지면 평균은 3.5에 아주 가까워진다. 운이 평균을 이기는 힘은 표본이 커질수록 약해진다.`,en:String.raw`The previous scene showed the center of a distribution. Now estimate that center from a sample.
+
+With 10 draws, the sample mean can sit far from the true mean. With 100 or 1000 draws, it hugs the true mean. That is the law of large numbers. The curve below shows how the mean moves as each new draw joins the sample.
+
+For example, the average of 10 die rolls can sit far from 3.5. A run of sixes pulls it up sharply. The average of 1000 rolls lands very close to 3.5. The power of luck over the average weakens as the sample grows.`},tex:[String.raw`\bar{X}_n \to \mu`,String.raw`\bar{X}_n = \frac{1}{n} \sum_{i=1}^{n} X_i`],prerequisites:[`returns-distribution`],controls:[{kind:`slider`,key:`mean`,label:{ko:`진짜 평균 (%)`,en:`true mean (%)`},min:-10,max:20,step:1,init:8},{kind:`slider`,key:`sd`,label:{ko:`변동성 (%)`,en:`volatility (%)`},min:1,max:30,step:1,init:15},{kind:`slider`,key:`n`,label:{ko:`표본 크기`,en:`sample size`},min:10,max:1e3,step:10,init:100}]}]};export{t};
