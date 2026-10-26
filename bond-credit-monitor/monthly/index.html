@@ -113,7 +113,17 @@ const EXTRA_STYLE = {
   policy: { width: 2, color: '#0e7490' },
 };
 const EXTRA_NAME = { market: '시장 중앙값 (점선)', reit: '타리츠', construct: '건설업', estate: '부동산업', sll: 'SLL중앙', sbs: 'SBS', cb: '중앙일보', policy: '정책금융채' };
+let currentId = EVENTS[0].id;
+function isMobile() { return window.innerWidth < 640; }
+function legendLayout() {
+  if (!isMobile()) return {};
+  return {
+    legend: { orientation: 'h', x: 0, xanchor: 'left', y: -0.25, yanchor: 'top' },
+    margin: { t: 20, r: 10, b: 120, l: 50 }
+  };
+}
 function render(id) {
+  currentId = id;
   document.querySelectorAll('#eventBtns button').forEach(b =>
     b.classList.toggle('on', b.dataset.id === id));
   const ev = EVENTS.find(e => e.id === id);
@@ -149,7 +159,8 @@ function render(id) {
     Plotly.newPlot('chart', traces, {
       margin: { t: 20, r: 10, b: 40, l: 50 },
       yaxis: { title: 'bp' }, height: 360,
-      shapes: shapes, annotations: annotations
+      shapes: shapes, annotations: annotations,
+      ...legendLayout()
     }, { displayModeBar: false, responsive: true });
   } catch (e) {
     el.innerHTML = '<div style="color:#666;font-size:14px;padding:16px 0;">차트를 불러오지 못했습니다 (차트 라이브러리 연결 실패).</div>';
@@ -180,7 +191,8 @@ function render(id) {
       Plotly.newPlot('chart2', traces2, {
         margin: { t: 20, r: 10, b: 40, l: 50 },
         yaxis: { title: 'bp' }, height: 320,
-        shapes: shapes2, annotations: annotations2
+        shapes: shapes2, annotations: annotations2,
+        ...legendLayout()
       }, { displayModeBar: false, responsive: true });
     } catch (e) {
       el2.innerHTML = '<div style="color:#666;font-size:14px;padding:16px 0;">차트를 불러오지 못했습니다 (차트 라이브러리 연결 실패).</div>';
@@ -190,6 +202,14 @@ function render(id) {
   }
 }
 render(EVENTS[0].id);
+let lastMobile = isMobile();
+let resizeTimer = null;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(() => {
+    if (isMobile() !== lastMobile) { lastMobile = isMobile(); render(currentId); }
+  }, 200);
+});
 </script>
 </body>
 </html>
