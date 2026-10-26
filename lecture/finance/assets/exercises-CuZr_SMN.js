@@ -1,0 +1,5 @@
+var e=[{id:`cutoff-probability`,kind:`compute`,difficulty:1,topics:[`returns-distribution`],statement:{ko:String.raw`수익률이 평균 \(12\%\), 변동성 \(20\%\)인 정규분포를 따른다.
+
+수익률이 \(32\%\)를 넘을 확률을 구하라.`,en:String.raw`Returns follow a normal distribution with mean \(12\%\) and volatility \(20\%\).
+
+Find the probability that a return exceeds \(32\%\).`},solution:[{text:{ko:String.raw`표준화한다: \(z = (32 - 12) / 20 = 1\).`,en:String.raw`Standardize: \(z = (32 - 12) / 20 = 1\).`}},{text:{ko:String.raw`넘을 확률은 \(1 - \Phi(1) \approx 1 - 0.841 = 0.159\)이다.`,en:String.raw`The exceedance probability is \(1 - \Phi(1) \approx 1 - 0.841 = 0.159\).`}}],answer:{ko:String.raw`약 \(0.159\), 즉 약 \(15.9\%\)`,en:String.raw`About \(0.159\), that is about \(15.9\%\)`},viz:{sceneId:`returns-distribution`,preset:{mean:12,sd:20,cutoff:32},presetCaption:{ko:String.raw`평균 \(12\%\), 변동성 \(20\%\), 기준 \(32\%\)인 분포`,en:String.raw`Distribution with mean \(12\%\), volatility \(20\%\), cutoff \(32\%\)`}}}];export{e as exercises};
