@@ -217,6 +217,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/integers-rationals/" />
   </url>
   <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/numbers/absolute-value/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/absolute-value/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/absolute-value/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/absolute-value/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/numbers/absolute-value/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/absolute-value/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/absolute-value/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/absolute-value/" />
+  </url>
+  <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/numbers/complex-numbers/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/complex-numbers/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/complex-numbers/" />
@@ -299,6 +311,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/supremum/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/supremum/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/supremum/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/numbers/archimedean/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/archimedean/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/archimedean/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/archimedean/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/numbers/archimedean/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/archimedean/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/archimedean/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/archimedean/" />
   </url>
   <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/numbers/nth-root/</loc>
@@ -409,6 +433,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/epsilon-n/" />
   </url>
   <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/sequences/squeeze/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/squeeze/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/squeeze/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/squeeze/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/sequences/squeeze/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/squeeze/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/squeeze/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/squeeze/" />
+  </url>
+  <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/sequences/standard-limits/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/standard-limits/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/standard-limits/" />
@@ -431,6 +467,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/norm/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/norm/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/norm/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/sequences/inner-product/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/inner-product/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/inner-product/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/inner-product/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/sequences/inner-product/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/inner-product/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/inner-product/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/inner-product/" />
   </url>
   <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/sequences/sequence-spaces/</loc>
@@ -503,6 +551,30 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/construction/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/construction/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/construction/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/sequences/bounded/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/bounded/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/bounded/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/bounded/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/sequences/bounded/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/bounded/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/bounded/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/bounded/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/sequences/subsequence/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/subsequence/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/subsequence/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/subsequence/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/sequences/subsequence/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/subsequence/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/sequences/subsequence/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/sequences/subsequence/" />
   </url>
   <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/sequences/bolzano-weierstrass/</loc>
