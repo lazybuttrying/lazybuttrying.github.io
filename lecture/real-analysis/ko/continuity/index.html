@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>4. 연속함수 | Real Analysis</title>
-    <script type="module" crossorigin src="/lecture/real-analysis/assets/continuity-D35ht0_s.js"></script>
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BsrkLCp1.js">
+    <script type="module" crossorigin src="/lecture/real-analysis/assets/continuity-Cr9Fl4N8.js"></script>
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BAgPmlz9.js">
     <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/learning-paths-Ojb0Fsgo.js">
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DpQzXZKX.js">
-    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-DNpb7IUZ.css">
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DySQN1Sl.js">
+    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-icxIt-Gp.css">
       <meta name="description" content="ε-δ로 연속성을 정의하고, 균등연속·중간값 정리·최대최소 정리까지 연속함수의 성질을 탐구합니다." />
     <link rel="canonical" href="https://sdykim.me/lecture/real-analysis/ko/continuity/" />
     <link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/continuity/" />
@@ -24,6 +24,7 @@
   <body>
     <div id="app"><h1>4. 연속함수</h1>
 <p>ε-δ로 연속성을 정의하고, 균등연속·중간값 정리·최대최소 정리까지 연속함수의 성질을 탐구합니다.</p>
+<h2 class="hub-section-title">연속의 얼굴들</h2>
 <ul>
 <li><a href="/lecture/real-analysis/ko/continuity/epsdelta/">ε-δ 정의</a> — 극한의 엄밀한 정의를 눈으로 확인하는 씬입니다. ε 띠와 δ 띠를 겹쳐 놓고, 약속이 정말 지켜지는지 격자로 검사합니다.
 
@@ -50,6 +51,9 @@
 큰 점프는 몇 개 없습니다. 전체 오름폭이 정해져 있기 때문입니다. 점프 크기에 문턱을 걸면, 문턱을 넘는 점은 유한 개뿐입니다. 문턱을 계속 낮춰 세어 가면, 불연속점은 셀 수 있는 개수만 나옵니다.
 
 예를 들면, 🪜 계단 전체 높이가 3m라고 해보세요. 30cm가 넘는 단은 아홉 개를 넘지 않습니다. 3cm짜리 단까지 세도 사정은 같습니다. 단은 많아도 하나씩 셀 수 있습니다.</li>
+</ul>
+<h2 class="hub-section-title">연속함수의 큰 정리</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/continuity/uniform-continuity/">균등연속</a> — 균등연속을 확인하는 씬입니다. 점 x를 옮기며, 필요한 δ가 점마다 어떻게 달라지는지 봅니다.
 
 일반 연속에서는 δ가 점마다 달라도 됩니다. 균등연속에서는 δ 하나가 모든 점에서 통해야 합니다. 곡선이 가팔라지는 곳에서는 δ가 자꾸 작아집니다. 끝없이 가팔라지면, 전체를 감당할 δ는 없습니다.

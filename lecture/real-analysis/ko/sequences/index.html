@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>3. 수열 | Real Analysis</title>
-    <script type="module" crossorigin src="/lecture/real-analysis/assets/sequences-DJhAw5Fw.js"></script>
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BsrkLCp1.js">
+    <script type="module" crossorigin src="/lecture/real-analysis/assets/sequences-DqgqwArM.js"></script>
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BAgPmlz9.js">
     <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/learning-paths-Ojb0Fsgo.js">
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DpQzXZKX.js">
-    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-DNpb7IUZ.css">
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DySQN1Sl.js">
+    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-icxIt-Gp.css">
       <meta name="description" content="ε-N 논법으로 수열의 수렴을 다루고, 단조·코시 수열과 limsup/liminf의 기술을 익힙니다." />
     <link rel="canonical" href="https://sdykim.me/lecture/real-analysis/ko/sequences/" />
     <link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/sequences/" />
@@ -24,6 +24,7 @@
   <body>
     <div id="app"><h1>3. 수열</h1>
 <p>ε-N 논법으로 수열의 수렴을 다루고, 단조·코시 수열과 limsup/liminf의 기술을 익힙니다.</p>
+<h2 class="hub-section-title">극한의 기본</h2>
 <ul>
 <li><a href="/lecture/real-analysis/ko/sequences/epsilon-n/">ε-N 극한</a> — ε 띠를 아무리 좁혀도 어느 순간부터 꼬리가 전부 그 안에 들어갑니다. 그 순간을 확인하는 장면입니다.
 
@@ -40,6 +41,9 @@
 1보다 작은 수를 계속 곱하면 점점 작아져 0으로 가라앉습니다. 반대로 양수는 거듭제곱근을 거듭하면 1로 모입니다. −1에서는 부호가 번갈아 진동합니다. 절댓값이 1보다 크면 거듭제곱은 끝없이 커집니다. 이 모든 경우를 Bernoulli 부등식 하나로 다룹니다.
 
 예를 들면, 🍰 케이크를 매일 남은 것의 절반만 먹습니다. 남는 양은 절반, 4분의 1, 8분의 1로 줄어서 거의 사라집니다.</li>
+</ul>
+<h2 class="hub-section-title">노름과 내적</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/sequences/norm/">노름: 길이를 재는 규칙</a> — 벡터의 길이를 어떻게 재는지 봅니다. 길이를 재는 규칙이 노름입니다.
 
 규칙은 세 가지입니다. 길이는 음수가 아니고, 길이가 0인 벡터는 0뿐입니다. 벡터를 몇 배 하면 길이도 그만큼 배가 됩니다. 두 벡터를 합친 길이는 각 길이의 합을 넘지 않습니다. 이 마지막 규칙이 삼각부등식입니다. 자를 바꾸면 길이도 바뀝니다. 블록을 세는 자, 직선으로 재는 자, 왕의 움직임으로 재는 자가 다릅니다.
@@ -70,6 +74,9 @@
 내적에서 온 노름은 항상 이 등식을 만족합니다. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>1</mn></msub></mrow><annotation encoding="application/x-tex">e_1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>과 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>e</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">e_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.5806em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3011em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>로 계산하면 왼쪽은 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2</mn><mo>⋅</mo><msup><mn>2</mn><mrow><mn>2</mn><mi mathvariant="normal">/</mi><mi>p</mi></mrow></msup></mrow><annotation encoding="application/x-tex">2 \cdot 2^{2/p}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">⋅</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.888em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.888em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">2/</span><span class="mord mathnormal mtight">p</span></span></span></span></span></span></span></span></span></span></span></span>, 오른쪽은 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>4</mn></mrow><annotation encoding="application/x-tex">4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">4</span></span></span></span>가 됩니다. 둘이 같아지는 경우는 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi><mo>=</mo><mn>2</mn></mrow><annotation encoding="application/x-tex">p = 2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6444em;"></span><span class="mord">2</span></span></span></span>뿐입니다. 그래서 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>p</mi></mrow><annotation encoding="application/x-tex">p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.625em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">p</span></span></span></span>가 2가 아닌 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi mathvariant="normal">ℓ</mi><mi>p</mi></msup></mrow><annotation encoding="application/x-tex">\ell^p</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6944em;"></span><span class="mord"><span class="mord">ℓ</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">p</span></span></span></span></span></span></span></span></span></span></span> 노름은 어떤 내적에서도 나올 수 없습니다.
 
 예를 들면, 📐 자로 그린 평행사변형은 그대로인데 재는 자만 바꿉니다. 자를 바꿨을 뿐인데 대각선에 대한 등식이 깨진다면, 그 자는 내적이라는 설계도에서 나온 것이 아닙니다.</li>
+</ul>
+<h2 class="hub-section-title">실수의 구성</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/sequences/holes/">유리수의 구멍</a> — 유리수만으로 만든 수열이 유리수가 아닌 곳으로 다가갑니다. 유리수 세계에 구멍이 있다는 것을 보여 주는 장면입니다.
 
 반복 식은 추측값의 오차를 매번 반으로 접어 고칩니다. 항은 전부 유리수입니다. 그런데 다가가는 목적지는 유리수가 아닙니다. 그래서 유리수만으로는 그 자리를 채울 수 없습니다. 무리수라는 엄밀한 증명은 건너뛰고 아이디어만 봅니다.
@@ -80,6 +87,9 @@
 소수점 자릿수를 늘려 가면 유리수 항들이 구멍으로 모여듭니다. 서로의 차이가 사라지는 수열들은 같은 수로 취급합니다. 그 묶음 자체가 하나의 실수입니다. 이렇게 만들면 구멍이 없는 수직선이 완성됩니다. 완비성은 바로 이 구성에서 얻어집니다.
 
 예를 들면, 🪜 계단을 한 칸씩 오르면 꼭대기에 가까워집니다. 1, 1.4, 1.41, 1.414는 꼭대기를 향한 발자국들입니다. 발자국의 행렬 전체가 곧 목적지인 실수입니다.</li>
+</ul>
+<h2 class="hub-section-title">수렴의 판정</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/sequences/bounded/">유계: 울타리 안에 갇힌 수열</a> — 수열의 모든 항을 한 번에 가두는 울타리가 있는지 봅니다. 울타리가 있으면 유계입니다.
 
 울타리는 항마다 바뀌면 안 됩니다. 하나의 수 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>M</mi></mrow><annotation encoding="application/x-tex">M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span>이 모든 항에 대해 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="normal">∣</mi><msub><mi>a</mi><mi>n</mi></msub><mi mathvariant="normal">∣</mi><mo>≤</mo><mi>M</mi></mrow><annotation encoding="application/x-tex">|a_n| \le M</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">∣</span><span class="mord"><span class="mord mathnormal">a</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">∣</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="katex-base"><span class="katex-strut" style="height:0.6833em;"></span><span class="mord mathnormal" style="margin-right:0.109em;">M</span></span></span></span>을 만족해야 합니다. 수렴하는 수열은 항상 유계입니다. 하지만 유계라고 다 수렴하지는 않습니다. <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>n</mi></msup></mrow><annotation encoding="application/x-tex">(-1)^n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="katex-base"><span class="katex-strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.6644em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="katex-sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span></span></span></span></span></span></span></span>은 울타리 안에서 왔다 갔다만 합니다.
@@ -105,6 +115,9 @@
 꼬리의 상한은 점점 내려오고 하한은 점점 올라옵니다. 위쪽 안착점이 상극한, 아래쪽이 하극한입니다. 두 값이 만나면 극한이 존재합니다. 진동하는 수열에서는 둘이 영원히 떨어져 있습니다. 정확한 정의는 아래 식과 같습니다.
 
 예를 들면, 🌡️ 온도계로 매일 최고 온도와 최저 온도를 적습니다. 날이 갈수록 최고값은 한 값 근처로, 최저값은 다른 값 근처로 모입니다. 두 값이 같아지면 날씨가 한 온도로 정해진 셈입니다.</li>
+</ul>
+<h2 class="hub-section-title">특수한 극한</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/sequences/stolz-cesaro/">체자로 정리</a> — 전체 비율이 버거울 때 차분의 비율로 우회하는 장면입니다. 수열 버전의 로피탈 정리입니다.
 
 한 걸음의 증가량끼리 비교하면 그 비율이 먼저 자리를 잡습니다. 전체 비율은 그 뒤를 천천히 따라갑니다. 분모 수열은 엄격히 증가하며 끝없이 커져야 합니다. 두 비율의 목적지는 같습니다. 대표 예의 극한은 아래 두 번째 식과 같습니다.

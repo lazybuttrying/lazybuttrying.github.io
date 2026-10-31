@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>7. Series | Real Analysis</title>
-    <script type="module" crossorigin src="/lecture/real-analysis/assets/series-CKTgo18v.js"></script>
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BsrkLCp1.js">
+    <script type="module" crossorigin src="/lecture/real-analysis/assets/series-BwnDczWb.js"></script>
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BAgPmlz9.js">
     <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/learning-paths-Ojb0Fsgo.js">
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DpQzXZKX.js">
-    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-DNpb7IUZ.css">
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DySQN1Sl.js">
+    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-icxIt-Gp.css">
       <meta name="description" content="Watch infinite series converge or diverge through their partial sums, and master the convergence tests." />
     <link rel="canonical" href="https://sdykim.me/lecture/real-analysis/en/series/" />
     <link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/series/" />
@@ -23,6 +23,7 @@
   <body>
     <div id="app"><h1>7. Series</h1>
 <p>Watch infinite series converge or diverge through their partial sums, and master the convergence tests.</p>
+<h2 class="hub-section-title">Famous Series</h2>
 <ul>
 <li><a href="/lecture/real-analysis/en/series/harmonic/">The Harmonic Series Diverges</a> — The terms shrink to 0, yet the partial sums grow without end. The growth is just extremely slow.
 
@@ -49,6 +50,9 @@ For example, line up 🍬 candies numbered from 1 onward. Remove the even number
 Add one term and you jump past the target; the next term pulls you back. The back-and-forth swing shrinks every time. So the target always sits between two neighboring partial sums. That gap is exactly the error bound.
 
 For example, a ⚽ ball rolls past a line, comes back, and crosses it again. Each crossing overshoots by less than the one before. The ball has no choice but to settle on the line.</li>
+</ul>
+<h2 class="hub-section-title">Convergence Tests, Part 1</h2>
+<ul>
 <li><a href="/lecture/real-analysis/en/series/tests/">Convergence Tests Toolbox</a> — This scene opens the toolbox for deciding whether a series converges. Two representative tools get used directly.
 
 The first tool watches the ratio of neighboring terms. If the ratio settles below 1, the terms shrink fast enough to converge. The second tool compares against a neighboring series. Anything tucked under a convergent series converges along with it. Both tools' formulas are below.
@@ -74,6 +78,9 @@ For example, turn a dial on a ⚙️ machine and the inspection strength changes
 For a decreasing sequence, the terms inside one block all look alike. So each block sum is trapped between multiples of one representative term. Compressing each block into its representative leaves convergence unchanged. The test becomes far easier to run.
 
 For example, pack 🍬 candies into boxes of 1, 2, 4, doubling each time. Judging each box by one representative candy does not change whether the total is finite.</li>
+</ul>
+<h2 class="hub-section-title">Computing Series</h2>
+<ul>
 <li><a href="/lecture/real-analysis/en/series/telescoping/">Telescoping Series</a> — Split each term and the neighbors erase each other in this scene. Only the very first piece and a vanishing tail survive.
 
 Each term breaks into a difference of two fractions. The back half of one term matches the front half of the next, so they cancel. After the erasing, only the opening 1 remains. The tail shrinks away to nothing. So the total is exactly 1.
@@ -99,6 +106,9 @@ For example, guess a tall 🏢 building's height by counting steps. The taller t
 Add one term and the total flips from 1 to 0, then back to 1. It never settles on one value, so it does not converge. The famous one half is only the average of the partial sums. Having an average is not the same as having a sum.
 
 For example, pick up one 🍬 candy and put it down, over and over without end. Holding and not holding alternate forever, so you cannot say the candy is simply there.</li>
+</ul>
+<h2 class="hub-section-title">Convergence Tests, Part 2, and Double Series</h2>
+<ul>
 <li><a href="/lecture/real-analysis/en/series/dirichlet-test/">Dirichlet's Test</a> — A wobbling series gets tamed by a sinking weight in this scene. Two ingredients meet and produce convergence.
 
 The partial sums of the sine terms wobble around but stay trapped inside a fixed fence. Multiply them by weights that sink to 0. The wobble gets pressed flatter and flatter until the series converges. The test's exact conditions are in the formulas below.

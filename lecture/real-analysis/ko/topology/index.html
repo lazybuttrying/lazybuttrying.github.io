@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>5. 위상 | Real Analysis</title>
-    <script type="module" crossorigin src="/lecture/real-analysis/assets/topology-BQELv1hy.js"></script>
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BsrkLCp1.js">
+    <script type="module" crossorigin src="/lecture/real-analysis/assets/topology-COVkw-0W.js"></script>
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BAgPmlz9.js">
     <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/learning-paths-Ojb0Fsgo.js">
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DpQzXZKX.js">
-    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-DNpb7IUZ.css">
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DySQN1Sl.js">
+    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-icxIt-Gp.css">
       <meta name="description" content="열린집합·콤팩트·완비성 — 실직선의 위상적 구조와 베어 범주 정리, 칸토어 집합을 다룹니다." />
     <link rel="canonical" href="https://sdykim.me/lecture/real-analysis/ko/topology/" />
     <link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/topology/" />
@@ -23,6 +23,7 @@
   <body>
     <div id="app"><h1>5. 위상</h1>
 <p>열린집합·콤팩트·완비성 — 실직선의 위상적 구조와 베어 범주 정리, 칸토어 집합을 다룹니다.</p>
+<h2 class="hub-section-title">열린집합과 연결성</h2>
 <ul>
 <li><a href="/lecture/real-analysis/ko/topology/opensets/">열린집합과 닫힌집합</a> — 열린집합이 무엇인지 확인하는 씬입니다. 점과 반지름을 움직이며, 작은 공이 집합 안에 쏙 들어가는지 봅니다.
 
@@ -44,6 +45,9 @@
 폐포는 집합이 닿으려던 점까지 품은 것입니다. 아무리 가까이 가도 닿지 않던 점이 있으면, 그 점을 붙여야 닫힙니다. 이미 모든 극한점을 품은 집합은 자기 폐포와 같습니다. 여기에 유계까지 더해지면 컴팩트와 이어집니다.
 
 예를 들면, 📦 상자에 물건을 넣고 뚜껑을 닫아 보세요. 뚜껑까지 닫아야 상자가 완성됩니다. 폐포는 집합에 그 뚜껑에 해당하는 경계점을 붙이는 일입니다.</li>
+</ul>
+<h2 class="hub-section-title">컴팩트와 거리공간</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/topology/compact/">컴팩트 집합</a> — 컴팩트 집합을 열린 커버로 확인하는 씬입니다. 구간을 덮는 조각들 중 유한 개만으로 충분한지 봅니다.
 
 컴팩트는 닫힘과 유계의 짝입니다. 끝이 열려 있으면 그 틈 근처에서 조각이 끝없이 필요합니다. 끝없이 뻗어 있어도 마찬가지입니다. 두 조건이 갖춰지면, 어떤 덮개든 유한 개로 줄일 수 있습니다.
@@ -69,6 +73,9 @@
 축소사상은 모든 거리를 일정 비율로 줄입니다. 반복하면 점들이 서로에게 끌려갑니다. 시작점이 어디든 도착지는 하나입니다. 그런데 공간에 구멍이 있으면, 도착지가 그 구멍으로 빠질 수 있습니다.
 
 예를 들면, 🗺️ 지도를 반으로 접고, 또 반으로 접어 보세요. 접을 때마다 종이는 작아지고 모든 점은 한 점으로 모입니다. 그 점이 고정점입니다. 종이 한가운데가 찢겨 있으면, 모여야 할 점이 사라집니다.</li>
+</ul>
+<h2 class="hub-section-title">베어와 칸토어</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/topology/baire-category/">베어 카테고리 정리</a> — 베어 범주 정리를 중첩 구간으로 따라가는 씬입니다. 유리수를 하나씩 피해 가면서도 남는 점이 있음을 확인합니다.
 
 구멍 많은 집합은 전체를 덮지 못합니다. 닫힌 구간을 점점 작게 골라도, 피할 점을 피해 갈 수 있습니다. 구간이 한 점으로 조여들면, 그 점은 어떤 구멍 집합에도 속하지 않습니다. 완비한 공간에는 늘 그런 점이 남습니다.

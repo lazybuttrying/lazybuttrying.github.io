@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>1. 증명의 기초 | Real Analysis</title>
-    <script type="module" crossorigin src="/lecture/real-analysis/assets/proofs-CxcWwKFl.js"></script>
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BsrkLCp1.js">
+    <script type="module" crossorigin src="/lecture/real-analysis/assets/proofs-CLCS8K3v.js"></script>
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BAgPmlz9.js">
     <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/learning-paths-Ojb0Fsgo.js">
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DpQzXZKX.js">
-    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-DNpb7IUZ.css">
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DySQN1Sl.js">
+    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-icxIt-Gp.css">
       <meta name="description" content="해석학의 언어인 증명을 처음부터 — 명제와 양화사부터 직접증명·대우·귀류법, 강한 귀납법, 동치관계와 함수 증명까지, Hammack의 Book of Proof 흐름을 따라갑니다." />
     <link rel="canonical" href="https://sdykim.me/lecture/real-analysis/ko/proofs/" />
     <link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/proofs/" />
@@ -23,6 +23,7 @@
   <body>
     <div id="app"><h1>1. 증명의 기초</h1>
 <p>해석학의 언어인 증명을 처음부터 — 명제와 양화사부터 직접증명·대우·귀류법, 강한 귀납법, 동치관계와 함수 증명까지, Hammack의 Book of Proof 흐름을 따라갑니다.</p>
+<h2 class="hub-section-title">명제와 양화사</h2>
 <ul>
 <li><a href="/lecture/real-analysis/ko/proofs/logic-propositions/">명제와 진리표</a> — 연결사를 바꿀 때마다 진리표의 새 열이 채워집니다. 네 가지 경우를 나란히 비교해 봅니다.
 
@@ -34,6 +35,9 @@
 먼저 내는 쪽과 나중에 답하는 쪽이 정해져 있습니다. '모든'은 상대가 무엇을 내도 답할 수 있어야 합니다. '존재'는 딱 하나만 찾으면 됩니다. 순서가 바뀌면 명제 자체가 달라집니다. 이 패턴이 엡실론-델타 정의로 그대로 이어집니다.
 
 예를 들면, 반 🧑 친구 누구에게 물어도 그보다 키 큰 사람을 한 명은 댈 수 있습니다. 반대로 모두보다 큰 한 사람은 존재하지 않습니다. 순서 하나에 뜻이 완전히 달라집니다.</li>
+</ul>
+<h2 class="hub-section-title">증명 방법</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/proofs/direct-proof/">직접증명</a> — 두 유리수의 합을 수직선 위에 놓고 계산을 따라갑니다. 가정에서 결론까지 곧장 이어지는 증명입니다.
 
 직접증명은 출발점에서 곧장 걸어가는 방식입니다. 주어진 것을 그대로 계산하면 결론이 나옵니다. 분수는 통분하면 하나의 분수가 됩니다. 그래서 유리수끼리 더해도 다시 유리수가 됩니다.
@@ -59,6 +63,9 @@
 '모두 그렇다'는 주장에는 반례 하나면 충분합니다. 안 되는 예 하나가 전체를 거짓으로 만듭니다. 필요충분조건은 그 반대의 일입니다. 가는 방향과 오는 방향을 각각 증명해야 합니다.
 
 예를 들면, '우리 반 🧑 친구는 전부 안경을 썼다'는 말이 있습니다. 안경을 안 쓴 친구 한 명이면 이 말은 끝납니다. 한 사람이면 충분합니다.</li>
+</ul>
+<h2 class="hub-section-title">귀납법과 관계</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/proofs/strong-induction/">강한 귀납법</a> — 수를 소인수들로 쪼개는 나무를 그려 봅니다. 왜 앞의 것 전부를 가정해야 하는지 드러납니다.
 
 보통 귀납법은 바로 앞 단계 하나만 씁니다. 그런데 쪼개진 조각은 바로 아래가 아니라 훨씬 아래에 떨어집니다. 그래서 강한 귀납법은 앞의 모든 단계를 한꺼번에 가정합니다. 조각마다 이미 성립한다고 믿고 올라가는 것입니다.

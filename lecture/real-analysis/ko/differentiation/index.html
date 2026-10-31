@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>10. 미분 | Real Analysis</title>
-    <script type="module" crossorigin src="/lecture/real-analysis/assets/differentiation-i0AfiPmf.js"></script>
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BsrkLCp1.js">
+    <script type="module" crossorigin src="/lecture/real-analysis/assets/differentiation-DLgsXYiR.js"></script>
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/search-BAgPmlz9.js">
     <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/learning-paths-Ojb0Fsgo.js">
-    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DpQzXZKX.js">
-    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-DNpb7IUZ.css">
+    <link rel="modulepreload" crossorigin href="/lecture/real-analysis/assets/app-DySQN1Sl.js">
+    <link rel="stylesheet" crossorigin href="/lecture/real-analysis/assets/search-icxIt-Gp.css">
       <meta name="description" content="미분의 정의에서 평균값 정리·로피탈 정리·테일러 전개까지, 미분학의 핵심을 다룹니다." />
     <link rel="canonical" href="https://sdykim.me/lecture/real-analysis/ko/differentiation/" />
     <link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/differentiation/" />
@@ -23,6 +23,7 @@
   <body>
     <div id="app"><h1>10. 미분</h1>
 <p>미분의 정의에서 평균값 정리·로피탈 정리·테일러 전개까지, 미분학의 핵심을 다룹니다.</p>
+<h2 class="hub-section-title">도함수의 성질</h2>
 <ul>
 <li><a href="/lecture/real-analysis/ko/differentiation/diffcont/">미분가능 ⇒ 연속</a> — 미분가능하면 연속이지만, 그 반대는 참이 아닙니다. 뾰족한 모서리를 확대해 그 이유를 봅니다.
 
@@ -44,6 +45,9 @@
 기울기가 양수인 곳에서는 곡선이 올라갑니다. 음수인 곳에서는 내려갑니다. 그래서 부호만 읽으면 단조 구간을 알 수 있습니다. 평균값 정리가 이 연결을 증명합니다.
 
 예를 들면, 🪜 계단을 오르는 동안에는 높이가 계속 늘어요. 내려가는 동안에는 높이가 계속 줄어요. 기울어진 방향만 봐도 오를지 내릴지 알 수 있어요.</li>
+</ul>
+<h2 class="hub-section-title">평균값 정리의 확장</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/differentiation/inverse-function-theorem/">역함수 정리</a> — 기울기가 0이 아닌 점 근처에서는 함수를 뒤집을 수 있습니다. 뒤집힌 함수의 기울기는 원래 기울기의 역수입니다.
 
 뒤집기는 가로와 세로를 맞바꾸는 일입니다. 그래서 오름폭과 나아감의 비율이 뒤집힙니다. 두 접선의 기울기를 곱하면 정확히 1이 됩니다.
@@ -64,6 +68,9 @@
 도함수는 값을 건너뛰며 점프할 수 없습니다. 한 값에서 다른 값으로 가려면 중간을 전부 거쳐야 합니다. 불연속인 도함수에게도 이 규칙은 지켜집니다.
 
 예를 들면, 🌡️ 온도계 눈금이 영하 1도에서 영상 1도로 바뀔 때 중간 온도를 전부 거치는 것과 같아요. 도함수도 중간 값을 건너뛰는 점프는 없어요.</li>
+</ul>
+<h2 class="hub-section-title">테일러 근사와 응용</h2>
+<ul>
 <li><a href="/lecture/real-analysis/ko/differentiation/weierstrass-function/">바이어슈트라스 함수</a> — 모든 점에서 연속이지만 어느 점에서도 미분 불가능한 함수입니다. 부분합을 늘릴수록 그래프가 가시처럼 뾰족해집니다.
 
 확대하면 매끄러워지는 보통 곡선과 다릅니다. 아무리 확대해도 새로운 톱니가 나타납니다. 그래서 어느 점에서도 접선이 정해지지 않습니다. 연속성의 증명은 균등수렴이 맡습니다.
