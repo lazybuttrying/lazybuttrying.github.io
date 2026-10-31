@@ -1,1 +1,0 @@
-import{w as e}from"./search-DltajlM_.js";import{t}from"./vendor-katex-D_kvIpZ8.js";function n(n,r){n.replaceChildren();for(let i of e(r))if(i.kind===`math`){let e=document.createElement(`span`);t.render(i.tex,e,{displayMode:!1,throwOnError:!1}),n.append(e)}else n.append(document.createTextNode(i.text))}export{n as renderRichText};
