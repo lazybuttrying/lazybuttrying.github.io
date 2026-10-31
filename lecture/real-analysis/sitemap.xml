@@ -373,6 +373,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/groups-fields/" />
   </url>
   <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/numbers/ordered-fields/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/ordered-fields/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/ordered-fields/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/ordered-fields/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/numbers/ordered-fields/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/ordered-fields/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/ordered-fields/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/numbers/ordered-fields/" />
+  </url>
+  <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/numbers/vector-spaces/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/numbers/vector-spaces/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/numbers/vector-spaces/" />
@@ -755,6 +767,18 @@
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/continuity/evt/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/continuity/evt/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/continuity/evt/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/continuity/additive-functions/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/continuity/additive-functions/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/continuity/additive-functions/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/continuity/additive-functions/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/continuity/additive-functions/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/continuity/additive-functions/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/continuity/additive-functions/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/continuity/additive-functions/" />
   </url>
   <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/continuity/uniform/</loc>
