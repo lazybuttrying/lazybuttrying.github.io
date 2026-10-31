@@ -2113,6 +2113,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/paths/" />
   </url>
   <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/errata/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/errata/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/errata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/errata/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/errata/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/errata/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/errata/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/errata/" />
+  </url>
+  <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/paths/number-systems/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/paths/number-systems/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/paths/number-systems/" />
