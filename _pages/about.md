@@ -1,6 +1,6 @@
 ---
 title: "Hi all! I'm DYK👋🏻"
-permalink: /
+permalink: /about/
 layout: single
 author_profile: true
 comments: false

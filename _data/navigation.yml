@@ -3,6 +3,9 @@ main:
   - title: "Home"
     url: /
 
+  - title: "About"
+    url: /about/
+
   - title: "CV"
     url: https://github.com/lazybuttrying/cv/blob/main/cv.pdf
 
@@ -37,3 +40,4 @@ main:
 #   children:
 #     - title: "Categories7"
 #       url: /categories/categories7/
+
