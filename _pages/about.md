@@ -8,27 +8,31 @@ comments: false
 
 ## <span style="color:#7c3aed; font-weight:800;">About me</span>
 
-I study one <span style="font-weight:700; color:#7c3aed;">sociotechnical</span> question: **how algorithmic and decentralized governance systems shape <span style="font-style:italic; text-decoration:underline;">who participates, who is represented, and who is excluded</span>** — across accessibility audits of administrative platforms, empirical analysis of Korean pension fund proxy voting, and DAO governance measurement.
+I build data pipelines and research systems for financial markets. I am an M.S. student in Finance at Seoul National University (3.73/4.3), with a B.S. in Computer Science and Engineering from Ewha Womans University (Magna Cum Laude, 3.87/4.3).
 
-Going forward, I want to develop research that is <span style="font-weight:700; color:#7c3aed;">both technically grounded and socially informed</span>: combining **empirical audit, causal inference, interpretable machine learning, and mechanism design** to produce insights that matter for practice and policy.
+Peak memory cut from over 128GB to under 40GB · Bond trades collected every 15 minutes on weekdays · Thesis data across 4 exchanges, 2017 to 2026
 
-## <span style="color:#7c3aed; font-weight:800;">Positions</span>
+I am looking for roles in data engineering, market research, and backend systems for finance.
 
-I served as a ***Junior Ombudsperson at the Human Rights Center, Seoul National University***, where I led an end-to-end accessibility audit of a university administration portal for students with disabilities — work recognized as an Outstanding Project with institution-level impact. This experience anchors my commitment to human-centered, participatory, and real-world deployment of technology.
+## <span style="color:#7c3aed; font-weight:800;">Selected work</span>
 
-In parallel, I am an ***M.S. student in Finance (Business Administration) at Seoul National University***. Alongside coursework, I conduct interdisciplinary research bridging computer science and economics, including (i) constructing an alternative index for the Korean bond market using issuance and secondary trading data (AXI project), (ii) serving as a research assistant on DAO governance research by Han, Lee, and Li (published in Management Science), and (iii) developing interpretability visualizations for deep-learning models used in corporate M&A decisions.
+- **Korean bond market data pipeline, AXI project, Mar 2024 to Jan 2026.** Main researcher. Bond issuance records and secondary market trades collected from the Korea Financial Investment Association, trades every 15 minutes on weekdays. Output is an alternative index and a live credit spread monitor. [Monitor](/bond-credit-monitor/) · [Code](https://github.com/lazybuttrying/bond-credit-monitor)
+- **On-chain wallet labeling pipeline.** USDT and USDC transfer records on Ethereum and Tron, collected via Flipside, exchange wallets labeled through the Arkham API. The first version ran out of memory on a 128GB machine. Monthly Parquet partitioning, per thread DuckDB connections, and queueing only at injection cut peak memory from over 128GB to under 40GB, with no loss of speed. [Write-up](/engineering/wallet-labeling-memory/)
+- **Master's thesis, Dollar Stablecoin and Arbitrage under Capital Control.** The kimchi premium split into a banking leg and a crypto leg. Data from Upbit, Bithumb, Binance, and Bybit, 2017 to 2026. The November 2025 Upbit withdrawal halt serves as a natural experiment.
+- **DAO Governance, Research Assistant, Jul 2024 to Sep 2025.** Research by Han, Lee, and Li, published in Management Science. On-chain voting data and participation measurement.
+- **National Pension Fund Activism.** Second author. Review of Financial Information Studies, 2025, 14(1), 127-152.
+- **Lecture sites.** Real analysis, microeconomics, macroeconomics, and finance. Designed, built, tested, and deployed on my own, each with its own test suite and automated deployment. [Sites](/lecture/)
+- **Accessibility audit, Junior Ombudsperson, SNU Human Rights Center, 2025.** End to end WCAG audit of the university administration portal for students with disabilities. Recognized as an Outstanding Project with institution-level impact.
 
+## <span style="color:#7c3aed; font-weight:800;">Skills</span>
 
-Before this, I earned a ***B.S. in Computer Science & Engineering from Ewha Womans University***, where my first accessibility project — building a music-coding iOS application for blind children at the HCI Lab — set the trajectory for my current sociotechnical work. I have also gained applied ML engineering experience across academia and industry, including an ***internship at NEXTLab*** (deploying on-device object detection with TensorFlow Lite and OpenCV) and end-to-end ML systems work. 
-
-
-
-## <span style="color:#7c3aed; font-weight:800;">Methods I use, and methods I want to learn</span>
-
-My current toolkit centers on **empirical audit**, **causal inference on financial-market panel data**, **interpretable ML for high-stakes decisions**, and **on-chain data pipelines** — collection, wallet labeling, and DuckDB/Parquet infrastructure that holds up at scale. Going forward, I want to keep building **research-grade data systems**: the kind where a hard question gets both the method and the data foundation that actually fit it.
+- **Data pipeline:** Python, SQL, DuckDB, Parquet, monthly partitioning, on-chain data collection
+- **Storage and query:** PostgreSQL, DuckDB, Parquet, S3
+- **Cloud and ops:** AWS, Cloudflare, Docker, GitHub Actions, cron pipelines
+- **Language:** Python, TypeScript, SQL
 
 ## <span style="color:#7c3aed; font-weight:800;">Personal Interest</span>
 
-I’ve loved soccer as a player—and sometimes as a mobile-game athlete—so I joined the women’s soccer club right after I enrolled and stayed active until COVID-19.
+I played in a women's soccer club through university, and taught coding for most of my twenties, to students from age four to twenty.
 
-During most of my twenties, I taught at a private coding academy. My students ranged from age four (double-clicking as a life skill) to age twenty (surviving the CS boom with dignity).
+Full details are on the [Research and Projects](/research/) page and in my [CV](https://github.com/lazybuttrying/cv/blob/main/cv.pdf).
