@@ -1,10 +1,7 @@
 # main links
 main:
   - title: "Home"
-    url: https://lazybuttrying.github.io/
-
-  - title: "About"
-    url: /about/
+    url: /
 
   - title: "CV"
     url: https://github.com/lazybuttrying/cv/blob/main/cv.pdf
