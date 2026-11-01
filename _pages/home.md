@@ -86,7 +86,6 @@ classes: wide
   <h2>About</h2>
   <p>I am Doyeon Kim. I study finance at Seoul National University, and I build things with data in my own time. Most of what is on this site started as a question I could not answer with the tools that already existed, so I built the tool first and the answer came after.</p>
   <p>Below are the personal projects that came out of that habit. A bond market monitor fed by real trades, scanners that watch the kimchi premium day and night, lecture sites I write and code on my own, and a few smaller experiments. Each one is live, and each one is still maintained.</p>
-  <p class="more"><a href="/about/">More about me →</a></p>
 </section>
 
 <section class="proj"><div class="card reveal left">
