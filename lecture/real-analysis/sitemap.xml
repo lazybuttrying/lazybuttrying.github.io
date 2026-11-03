@@ -1297,6 +1297,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/series/double-series/" />
   </url>
   <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/series/convergence-atlas/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/series/convergence-atlas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/series/convergence-atlas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/series/convergence-atlas/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/series/convergence-atlas/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/series/convergence-atlas/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/series/convergence-atlas/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/series/convergence-atlas/" />
+  </url>
+  <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/power-series/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/power-series/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/power-series/" />
