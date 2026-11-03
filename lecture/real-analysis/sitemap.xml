@@ -2101,6 +2101,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/integration/minkowski/" />
   </url>
   <url>
+    <loc>https://sdykim.me/lecture/real-analysis/ko/integration/jacobian-grid/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/integration/jacobian-grid/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/integration/jacobian-grid/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/integration/jacobian-grid/" />
+  </url>
+  <url>
+    <loc>https://sdykim.me/lecture/real-analysis/en/integration/jacobian-grid/</loc>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/integration/jacobian-grid/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/integration/jacobian-grid/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://sdykim.me/lecture/real-analysis/ko/integration/jacobian-grid/" />
+  </url>
+  <url>
     <loc>https://sdykim.me/lecture/real-analysis/ko/glossary/</loc>
     <xhtml:link rel="alternate" hreflang="ko" href="https://sdykim.me/lecture/real-analysis/ko/glossary/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://sdykim.me/lecture/real-analysis/en/glossary/" />
