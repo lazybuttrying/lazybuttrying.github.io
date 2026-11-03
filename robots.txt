@@ -1,6 +1,9 @@
 User-agent: *
 Allow: /
 
+User-agent: __usage_ai-training
+Disallow: /
+
 Sitemap: https://sdykim.me/sitemap.xml
 Sitemap: https://sdykim.me/bond-credit-monitor/sitemap.xml
 Sitemap: https://sdykim.me/real-analysis/sitemap.xml
