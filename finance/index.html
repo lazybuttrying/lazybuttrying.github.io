@@ -1,0 +1,21 @@
+<!doctype html>
+  <html lang="ko">
+    <head>
+      <meta charset="utf-8" />
+      <title>Finance</title>
+      <meta http-equiv="refresh" content="0; url=/lecture/finance/ko/" />
+      <script>
+        try {
+          var stored = localStorage.getItem('lang');
+          var lang = stored === 'en' || stored === 'ko' ? stored : 'ko';
+          location.replace('/lecture/finance/' + lang + '/' + location.search);
+        } catch (e) {
+          location.replace('/lecture/finance/ko/');
+        }
+      </script>
+    </head>
+    <body>
+      <p><a href="/lecture/finance/ko/">한국어</a> · <a href="/lecture/finance/en/">English</a></p>
+    </body>
+  </html>
+  
