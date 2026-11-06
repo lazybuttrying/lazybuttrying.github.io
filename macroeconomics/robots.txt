@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sdykim.me/macroeconomics/sitemap.xml
+Sitemap: https://sdykim.me/lecture/macroeconomics/sitemap.xml
