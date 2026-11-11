@@ -7,6 +7,7 @@ comments: false
 classes: wide
 ---
 <style>
+.masthead{background-color:#fff!important}
 #page-title{display:none}
 .page__title{display:none}
 .dyk-home{ --dyk-violet:#7c3aed; --dyk-orange:#FF6C02; --dyk-ink:#070707; --dyk-paper:#ffffff; --dyk-card:#ffffff; }
