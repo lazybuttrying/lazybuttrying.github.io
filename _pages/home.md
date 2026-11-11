@@ -7,32 +7,34 @@ comments: false
 classes: wide
 ---
 <style>
+#page-title{display:none}
+.page__title{display:none}
 .dyk-home{ --dyk-violet:#7c3aed; --dyk-orange:#FF6C02; --dyk-ink:#070707; --dyk-paper:#ffffff; --dyk-card:#ffffff; }
 .dyk-home *{margin:0;padding:0;box-sizing:border-box}
 .dyk-home{scroll-behavior:smooth}
-.dyk-home{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Montserrat","Pretendard","Merriweather",sans-serif;background:var(--dyk-paper);color:var(--dyk-ink);overflow-x:hidden}
+.dyk-home{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Montserrat","Pretendard","Merriweather",sans-serif;background:var(--dyk-paper);color:var(--dyk-ink);overflow-x:hidden;width:100vw;margin-left:calc(50% - 50vw);position:relative}
 #dyk-progress{position:fixed;top:0;left:0;height:4px;background:var(--dyk-orange);width:0;z-index:50}
   /* hero */
-.dyk-home .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:6rem 8vw 4rem;position:relative}
+.dyk-home .hero{display:flex;flex-direction:column;justify-content:flex-start;padding:3.5rem 8vw 3rem;position:relative}
 .dyk-home .blob{position:absolute;border-radius:50%;filter:blur(2px);opacity:.5;will-change:transform}
 .dyk-home .b1{width:340px;height:340px;background:#ffe3d1;top:6%;right:8%}
 .dyk-home .b2{width:180px;height:180px;background:#ffb98a;top:52%;right:22%}
 .dyk-home .b3{width:120px;height:120px;background:var(--dyk-orange);top:20%;right:30%;opacity:.3}
-.dyk-home .hero h1{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Montserrat","BioRhyme","Pretendard",sans-serif;font-size:clamp(2.4rem,6vw,4.2rem);font-weight:800;line-height:1.12;position:relative}
+.dyk-home .hero h1{font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Montserrat","BioRhyme","Pretendard",sans-serif;font-size:clamp(1.55rem,4.2vw,2.9rem);font-weight:800;line-height:1.28;position:relative}
 .dyk-home .hero h1 em{color:var(--dyk-orange);font-style:normal}
-.dyk-home .hero p{margin-top:1.2rem;font-size:clamp(1rem,2vw,1.25rem);max-width:34rem;line-height:1.6;position:relative}
-.dyk-home .scrolldown{margin-top:3rem;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;opacity:.6;position:relative}
+.dyk-home .hero p{margin-top:1rem;font-size:clamp(.95rem,1.6vw,1.1rem);max-width:34rem;line-height:1.6;position:relative}
+.dyk-home .scrolldown{margin-top:2rem;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;opacity:.6;position:relative}
 .dyk-home .scrolldown span{display:inline-block;animation:bob 1.6s ease-in-out infinite}
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
   /* intro */
-.dyk-home .intro{padding:4rem 8vw;max-width:60rem}
+.dyk-home .intro{padding:2.5rem 8vw;max-width:60rem}
 .dyk-home .intro h2, .dyk-home .proj h2{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--dyk-violet);margin-bottom:1rem}
-.dyk-home .intro p{font-size:1.12rem;line-height:1.75;margin-bottom:1.1rem}
+.dyk-home .intro p{font-size:1rem;line-height:1.7;margin-bottom:1rem}
   /* projects */
-.dyk-home .proj{padding:5rem 8vw;max-width:72rem;margin:0 auto}
+.dyk-home .proj{padding:2.2rem 8vw;max-width:72rem;margin:0 auto}
 .dyk-home .card{background:var(--dyk-card);border:1px solid #e9e9e9;border-radius:20px;padding:2rem;box-shadow:0 12px 32px rgba(0,0,0,.06)}
-.dyk-home .card h3{font-size:1.5rem;font-weight:800;margin-bottom:.5rem}
-.dyk-home .card p{line-height:1.65;max-width:40rem}
+.dyk-home .card h3{font-size:1.3rem;font-weight:800;margin-bottom:.5rem}
+.dyk-home .card p{font-size:.97rem;line-height:1.62;max-width:40rem}
 .dyk-home .card a{color:var(--dyk-orange);font-weight:700;text-decoration:none}
 .dyk-home .meta{margin-top:.9rem;font-size:.85rem;opacity:.65}
 .dyk-home .reveal{opacity:0;transform:translateY(48px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
@@ -67,7 +69,19 @@ classes: wide
   /* footer */
 .dyk-home footer{padding:4rem 8vw 6rem;text-align:center}
 .dyk-home footer a{color:var(--dyk-orange);font-weight:700;text-decoration:none;margin:0 .8rem}
-  @media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.dyk-home .reveal{opacity:1;transform:none}}
+  @media (max-width: 700px){
+  .dyk-home .hero{padding:2.2rem 6vw 1.8rem}
+  .dyk-home .hero h1{font-size:1.5rem;line-height:1.32}
+  .dyk-home .intro{padding:1.8rem 6vw}
+  .dyk-home .proj{padding:1.4rem 6vw}
+  .dyk-home .card{padding:1.25rem 1.1rem;border-radius:16px}
+  .dyk-home .reveal.left{transform:translateY(32px)}
+  .dyk-home .reveal.right{transform:translateY(32px)}
+  .dyk-home .reveal.left.on,.dyk-home .reveal.right.on{transform:translateY(0)}
+  .dyk-home .blob.b1{width:200px;height:200px}
+  .dyk-home .blob.b2{width:110px;height:110px}
+}
+@media (prefers-reduced-motion: reduce){*{animation:none!important;transition:none!important}.dyk-home .reveal{opacity:1;transform:none}}
 </style>
 <div class="dyk-home">
 <div id="dyk-progress"></div>
@@ -127,7 +141,7 @@ classes: wide
 <script>
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('on');
-  }), {threshold: 0.25});
+  }), {threshold: 0.05, rootMargin: '0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   const blobs = document.querySelectorAll('.blob');
@@ -150,7 +164,7 @@ classes: wide
 <script>
 const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) e.target.classList.add('on');
-  }), {threshold: 0.25});
+  }), {threshold: 0.05, rootMargin: '0px 0px -8% 0px'});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   const blobs = document.querySelectorAll('.blob');
